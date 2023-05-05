@@ -1,2 +1,2 @@
 # wizcast-next
-Next template with tailwinds (gallery channels)
+Next template with tailwind css (gallery channels)
