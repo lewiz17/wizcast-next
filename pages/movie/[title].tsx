@@ -59,7 +59,7 @@ function Movie({
       </Head>
       <Container>
         <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-4 mb-8">
-          <div className="md:block md:w-full p-5 mt-10 rounded overflow-hidden shadow md:order-2 lg:order-1">
+          <div className="md:block md:w-full p-5 sm:mt-0 lg:mt-10 rounded overflow-hidden shadow md:order-2 lg:order-1">
             <div className="grid grid-cols-1 sm:grid-cols-1 sm:grid-flow-row md:grid-cols-2 gap-5">
               <Image
                 src={movie.Poster}
@@ -76,13 +76,14 @@ function Movie({
               </div>
             </div>
           </div>
-          <div className="md:block md:w-full p-5 sm:mt-0 lg:mt-10 rounded overflow-hidden shadow md:order-1 lg:order-2">
+          <div className="md:block md:w-full p-5  mt-10 rounded overflow-hidden shadow md:order-1 lg:order-2">
+            <h2 className="md:h-auto lg:h-0 md:opacity-100 lg:opacity-0 text-2xl font-bold">{movie.Title}</h2>
             <iframe
               className="py-2"
               src={`https://43598303.xyz/video/${movie.imdbID}`}
               allow="fullscreen"
               width={"100%"}
-              height={350}
+              height={"430"}
             ></iframe>
           </div>
         </div>
