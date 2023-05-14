@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CMS_NAME } from "../lib/constants";
+import { CMS_NAME, LINKEDIN_URL } from "../lib/constants";
 
 const Header: React.FC = () => {
   return (
@@ -7,7 +7,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto flex items-center justify-between p-4">
         <div>
           <Link href="/" legacyBehavior>
-            <a className="text-3xl font-bold tracking-tight leading-tight">{CMS_NAME}</a>
+            <a className="text-3xl font-bold tracking-tight leading-tight" title="Lewiz">{CMS_NAME}</a>
           </Link>
         </div>
 
@@ -15,8 +15,8 @@ const Header: React.FC = () => {
         <Link href="/about" legacyBehavior>
             <a className="text-lg font-medium leading-tight hover:text-blue">Acerca</a>
           </Link>
-          <Link href="/contact" legacyBehavior>
-            <a className="text-lg font-medium leading-tight hover:text-blue">Contacto</a>
+          <Link href={LINKEDIN_URL} legacyBehavior>
+            <a className="text-lg font-medium leading-tight hover:text-blue" target="_blank" rel="noopener noreferrer">Contacto</a>
           </Link>
         </nav>
       </div>

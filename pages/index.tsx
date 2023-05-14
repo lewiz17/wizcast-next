@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 type ITEM = {
   results: {
     original_title: string;
+    poster_path: string;
   }[];
 };
 
@@ -19,25 +20,33 @@ type ItemProps = {
 function fillMovies(items: ITEM[]) {
   return items.flatMap((item) => item.results.map((result) => result.original_title));
 }
+function fillPosters(items: ITEM[]) {
+  return items.flatMap((item) => item.results.map((result) => result.poster_path));
+}
 
 export default function ListItems({ items }: ItemProps) {
   const [listMovies, setListMovies] = useState<string[]>([]);
+  const [listPosters, setListPosters] = useState<string[]>([]);
 
   useEffect(() => {
     const movies = fillMovies(items);
+    const posters = fillPosters(items);
     setListMovies(movies);
+    setListPosters(posters);
+
+    console.log('posters', listPosters);
   }, []);
 
   return (
     <>
       <Layout>
         <Head>
-          <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
+          <title>{`${CMS_NAME} - Estrenos ${new Date().getFullYear()}`}</title>
         </Head>
         <Container>
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-32 mt-10">
-            {listMovies.flatMap((movie) => (
-              <Card title={movie}  />
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-5 mb-32 mt-10">
+            {listMovies.flatMap((movie, i) => (
+              <Card title={movie} key={i} poster={`https://www.themoviedb.org/t/p/w440_and_h660_face/${listPosters[i]}`} />
             ))}
           </div>
         </Container>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CMS_NAME } from "../lib/constants";
+import { CMS_NAME, LINKEDIN_URL } from "../lib/constants";
 
 const Footer: React.FC = () => {
   return (
@@ -21,8 +21,8 @@ const Footer: React.FC = () => {
             </Link>
           </div>
           <div className="px-4 py-2">
-            <Link href="/contact" legacyBehavior>
-              <a className="text-lg font-medium leading-tight hover:text-blue">
+            <Link href={LINKEDIN_URL} legacyBehavior>
+              <a className="text-lg font-medium leading-tight hover:text-blue" target="_blank" rel="noopener noreferrer">
                 Contacto
               </a>
             </Link>

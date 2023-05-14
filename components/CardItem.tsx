@@ -1,20 +1,24 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type ITEM = {
-    title: string;
+  title: string;
+  poster: string;
 };
 
-const Card: React.FC<ITEM> = ({ title }: ITEM) => {
+const Card: React.FC<ITEM> = ({ title, poster }: ITEM) => {
   return (
-    <div className="w-full px-2 rounded overflow-hidden shadow">
-      <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{title}</div>
-        <Link href={`/movie/${title}`}>
-          <button className="text-white bg-blue hover:bg-gray font-bold py-2 px-4 rounded">
-            Ver
-          </button>
-        </Link>
-      </div>
+    <div className="w-full rounded overflow-hidden shadow hover:opacity-90">
+      <Link href={`/movie/${title}`}>
+        <Image
+          src={poster}
+          alt={title}
+          width={250}
+          height={200}
+          className="w-full"
+        />
+        <div className="font-bold text-sm flex justify-center m-2">{title}</div>
+      </Link>
     </div>
   );
 };

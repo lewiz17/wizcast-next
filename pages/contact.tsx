@@ -32,7 +32,7 @@ const About: React.FC = () => {
             <ContactForm />
             <div className="w-full px-2 rounded overflow-hidden shadow">
               <div className="px-6 py-4">
-                {translatedText}
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus assumenda dolor, velit, aliquam reiciendis suscipit ullam ab sed, libero impedit laborum doloremque quo eum rem vitae obcaecati amet quaerat nihil?
               </div>
             </div>
           </div>

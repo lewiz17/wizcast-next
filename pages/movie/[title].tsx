@@ -55,7 +55,7 @@ function Movie({
   return (
     <Layout>
       <Head>
-        <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
+        <title>{`${CMS_NAME} - ${movie.Title}`}</title>
       </Head>
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5 mb-10">
