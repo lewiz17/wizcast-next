@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CMS_NAME } from "../lib/constants";
 
 const Footer: React.FC = () => {
   return (
@@ -7,7 +8,7 @@ const Footer: React.FC = () => {
         <div className="flex-shrink-0 mr-6">
           <Link href="/" legacyBehavior>
             <a className="text-3xl font-bold tracking-tight leading-tight">
-              Sitio
+              {CMS_NAME}
             </a>
           </Link>
         </div>
