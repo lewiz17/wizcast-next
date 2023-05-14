@@ -60,12 +60,13 @@ function Movie({
       <Container>
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5 mb-10">
           <div className="w-full p-5 mt-10 rounded overflow-hidden shadow">
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-1 sm:grid-cols-1 sm:grid-flow-row md:grid-cols-2 gap-5">
               <Image
                 src={movie.Poster}
                 alt={movie.Title}
                 width={250}
                 height={200}
+                className="w-full"
               />
               <div className="info">
                 <h1 className="text-3xl font-bold">{movie.Title}</h1>
