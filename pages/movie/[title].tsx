@@ -58,8 +58,8 @@ function Movie({
         <title>{`${CMS_NAME} - ${movie.Title}`}</title>
       </Head>
       <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-5 mb-10">
-          <div className="w-full p-5 mt-10 rounded overflow-hidden shadow">
+        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-4 mb-8">
+          <div className="md:block md:w-full p-5 mt-10 rounded overflow-hidden shadow md:order-2 lg:order-1">
             <div className="grid grid-cols-1 sm:grid-cols-1 sm:grid-flow-row md:grid-cols-2 gap-5">
               <Image
                 src={movie.Poster}
@@ -69,14 +69,14 @@ function Movie({
                 className="w-full"
               />
               <div className="info">
-                <h1 className="text-3xl font-bold">{movie.Title}</h1>
-                <p className="py-2">{movieDescription}</p>
-                <p className="py-2">{movie.Genre}</p>
-                <p className="py-2">{movie.Actors}</p>
+                <h1 className="text-2xl font-bold">{movie.Title}</h1>
+                <p className="py-2"><strong>Sinopsis:</strong> {movieDescription}</p>
+                <p className="py-2"><strong>Generos:</strong> {movie.Genre}</p>
+                <p className="py-2"><strong>Actores:</strong> {movie.Actors}</p>
               </div>
             </div>
           </div>
-          <div className="w-full p-5 mt-10 rounded overflow-hidden shadow ">
+          <div className="md:block md:w-full p-5 sm:mt-0 lg:mt-10 rounded overflow-hidden shadow md:order-1 lg:order-2">
             <iframe
               className="py-2"
               src={`https://43598303.xyz/video/${movie.imdbID}`}

@@ -11,20 +11,36 @@ const About: React.FC = () => {
       </Head>
       <Container>
         <div className="w-full p-5 mt-10 rounded overflow-hidden shadow ">
-          <h1 className="text-3xl font-bold">Acerca</h1>
           <p className="py-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit ad
-            amet fuga sequi quod hic nam eaque labore rem sint? Officiis ut
-            architecto dolorum distinctio dignissimos recusandae nam beatae
-            sapiente! Excepturi accusamus, quis est distinctio fugiat ipsum quo
-            deserunt quae quos soluta veniam eligendi, nostrum blanditiis quia,
-            eveniet omnis. Ex doloremque rerum aspernatur, labore perferendis
-            debitis iusto dolorem nobis mollitia soluta, enim molestiae est
-            veritatis, nam adipisci animi. Dolores aliquid laudantium, velit,
-            nisi autem quam, fuga perspiciatis provident inventore dicta earum
-            magnam vel aperiam beatae sed deserunt ipsum. Rerum amet facere
-            impedit sapiente pariatur veniam dolore. Dolores quos consequatur
-            beatae.
+            Bienvenido a nuestra página web de películas, donde encontrarás toda la información que
+            necesitas sobre tus películas favoritas. Ya sea que busques clásicos
+            de Hollywood o las últimas producciones cinematográficas, nuestro
+            sitio tiene todo lo que necesitas para mantenerte al día con las
+            últimas novedades de la industria. Nuestro equipo de expertos en
+            cine se dedica a proporcionar reseñas detalladas de las últimas
+            películas, así como también información sobre próximos estrenos y
+            eventos de la industria.</p>
+            <p className="py-1">
+            También ofrecemos recomendaciones de
+            películas basadas en tus géneros y actores favoritos, para que
+            siempre encuentres algo nuevo para ver. Además de nuestras reseñas
+            de películas, también encontrarás noticias y artículos sobre el
+            mundo del cine, incluyendo entrevistas con actores y directores,
+            análisis de taquilla y tendencias en la industria. Y si eres un
+            verdadero fanático del cine, ¡asegúrate de visitar nuestra sección
+            de trivia, donde podrás poner a prueba tus conocimientos sobre
+            películas y actores! Nos enorgullece ofrecer una experiencia de
+            usuario de alta calidad, con una interfaz intuitiva y fácil de usar
+            que te permite navegar por nuestro sitio de manera fácil y rápida.
+            </p>
+            <p className="py-1">
+            Además, trabajamos duro para garantizar que nuestro sitio esté
+            actualizado con las últimas noticias y estrenos de películas, para
+            que siempre puedas estar al tanto de lo que sucede en el mundo del
+            cine. ¡Gracias por visitar nuestro sitio de películas! Esperamos que
+            encuentres todo lo que buscas y que disfrutes navegando por nuestro
+            sitio. Si tienes alguna pregunta o sugerencia, no dudes en
+            contactarnos a través de nuestro formulario de contacto.
           </p>
         </div>
       </Container>

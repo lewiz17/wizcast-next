@@ -48,11 +48,8 @@ export default function ListItems({ items }: ItemProps) {
           <title>{`${CMS_NAME} - Estrenos ${new Date().getFullYear()}`}</title>
         </Head>
         <Container>
-          <div className="font-bold animate-pulse duration-500 pt-3 text-orange rounded">
-            <p>Pronto Canales gratis y mucho más!</p>
-          </div>
           <h2 className="text-2xl font-bold tracking-tight leading-tight my-2">Top Estrenos</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-5 mb-32">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-5 mb-8">
             {listMovies.flatMap((movie, i) => (
               <Card
                 title={movie}
