@@ -18,10 +18,14 @@ type ItemProps = {
 };
 
 function fillMovies(items: ITEM[]) {
-  return items.flatMap((item) => item.results.map((result) => result.original_title));
+  return items.flatMap((item) =>
+    item.results.map((result) => result.original_title)
+  );
 }
 function fillPosters(items: ITEM[]) {
-  return items.flatMap((item) => item.results.map((result) => result.poster_path));
+  return items.flatMap((item) =>
+    item.results.map((result) => result.poster_path)
+  );
 }
 
 export default function ListItems({ items }: ItemProps) {
@@ -34,7 +38,7 @@ export default function ListItems({ items }: ItemProps) {
     setListMovies(movies);
     setListPosters(posters);
 
-    console.log('posters', listPosters);
+    console.log("posters", listPosters);
   }, []);
 
   return (
@@ -44,9 +48,17 @@ export default function ListItems({ items }: ItemProps) {
           <title>{`${CMS_NAME} - Estrenos ${new Date().getFullYear()}`}</title>
         </Head>
         <Container>
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-5 mb-32 mt-10">
+          <div className="font-bold animate-pulse duration-500 pt-3 text-orange rounded">
+            <p>Pronto Canales gratis y mucho más!</p>
+          </div>
+          <h2 className="text-2xl font-bold tracking-tight leading-tight my-2">Top Estrenos</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-5 mb-32">
             {listMovies.flatMap((movie, i) => (
-              <Card title={movie} key={i} poster={`https://www.themoviedb.org/t/p/w440_and_h660_face/${listPosters[i]}`} />
+              <Card
+                title={movie}
+                key={i}
+                poster={`https://www.themoviedb.org/t/p/w440_and_h660_face/${listPosters[i]}`}
+              />
             ))}
           </div>
         </Container>
