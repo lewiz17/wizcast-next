@@ -13,9 +13,6 @@ const Layout = ({ children }: Props) => {
       <Header />
 
       <main className="container mx-auto flex-grow">
-        <div className="px-5 font-bold animate-pulse duration-500 pt-3 text-orange rounded flex justify-end">
-          <p>Pronto Canales gratis y mucho más!</p>
-        </div>
         {children}
         <div className="grid grid-cols-1 gap-5 mb-8">
           <p>
