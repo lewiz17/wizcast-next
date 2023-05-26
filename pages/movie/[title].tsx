@@ -42,6 +42,8 @@ function Movie({
   const [currentMovie, setCurrentMovie] = useState("");
   const [movieDescription, setMovieDescription] = useState("");
 
+  const currentID = movie.imdbID.toString().slice(2)
+
   const handleTranslate = async () => {
     const translated = await translateText(currentMovie, "es");
     setMovieDescription(translated);
@@ -80,7 +82,7 @@ function Movie({
             <h2 className="md:h-auto lg:h-0 md:opacity-100 lg:opacity-0 text-2xl font-bold">{movie.Title}</h2>
             <iframe
               className="py-2"
-              src={`https://43598303.xyz/video/${movie.imdbID}`}
+              src={`/video/${currentID}`}
               allow="fullscreen"
               width={"100%"}
               height={"430"}

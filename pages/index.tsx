@@ -5,41 +5,50 @@ import Head from "next/head";
 import { CMS_NAME } from "../lib/constants";
 import { GetServerSideProps } from "next";
 import { useEffect, useState } from "react";
+import { useRouter } from 'next/router';
 
-type ITEM = {
-  results: {
-    original_title: string;
-    poster_path: string;
-  }[];
+type Movie = {
+  id: number;
+  title: string;
+  poster: string;
 };
 
-type ItemProps = {
-  items: ITEM[];
+type Props = {
+  movies: {
+    top: Movie[],
+    popular: Movie[]
+  };
 };
 
-function fillMovies(items: ITEM[]) {
-  return items.flatMap((item) =>
-    item.results.map((result) => result.original_title)
-  );
-}
-function fillPosters(items: ITEM[]) {
-  return items.flatMap((item) =>
-    item.results.map((result) => result.poster_path)
-  );
-}
-
-export default function ListItems({ items }: ItemProps) {
+export default function ListItems({ movies }: Props) {
   const [listMovies, setListMovies] = useState<string[]>([]);
   const [listPosters, setListPosters] = useState<string[]>([]);
 
-  useEffect(() => {
-    const movies = fillMovies(items);
-    const posters = fillPosters(items);
-    setListMovies(movies);
-    setListPosters(posters);
+  const router = useRouter();
+  const { list } = router.query;
 
-    console.log("posters", listPosters);
-  }, []);
+  useEffect(() => {
+    const { top, popular } = movies;
+    const titles = [];
+    const posters = [];
+
+    if(list === 'popular'){
+      Object.entries(popular).map((v,i) => {
+        const { title, poster } = v[1];
+        titles.push(title);
+        posters.push(poster);
+      })
+    }else{
+      Object.entries(top).map((v,i) => {
+        const { title, poster } = v[1];
+        titles.push(title);
+        posters.push(poster);
+      })
+    }
+
+    setListMovies(titles);
+    setListPosters(posters);
+  }, [movies.top, movies.popular]);
 
   return (
     <>
@@ -64,15 +73,33 @@ export default function ListItems({ items }: ItemProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<ItemProps> = async () => {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=a0a7e40dc8162ed7e37aa2fc97db5654`
-  );
-  const items = await res.json();
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  const [nowPlayingRes, popularRes] = await Promise.all([
+    fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=a0a7e40dc8162ed7e37aa2fc97db5654'),
+    fetch('https://api.themoviedb.org/3/movie/popular?api_key=a0a7e40dc8162ed7e37aa2fc97db5654')
+  ]);
+
+  const nowPlayingData = await nowPlayingRes.json();
+  const popularData = await popularRes.json();
+
+  const nowPlayingMovies: Movie[] = nowPlayingData.results.map((movie: any) => ({
+    id: movie.id,
+    title: movie.title,
+    poster: movie.poster_path
+  }));
+
+  const popularMovies: Movie[] = popularData.results.map((movie: any) => ({
+    id: movie.id,
+    title: movie.title,
+    poster: movie.poster_path
+  }));
 
   return {
     props: {
-      items: [items],
-    },
+      movies: {
+        top: [...nowPlayingMovies],
+        popular: [...popularMovies]
+      }
+    }
   };
 };
