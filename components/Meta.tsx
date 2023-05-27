@@ -21,7 +21,7 @@ const Meta = () => {
         sizes="16x16"
         href="/icons/favicon-16x16.png"
       />
-      <link rel="icon" type="image/png" href="icons/favicon.ico" sizes="32x32" />
+      <link rel="icon" href="/favicon.ico" />
       <meta
         name="description"
         content={`${CMS_NAME}.`}
