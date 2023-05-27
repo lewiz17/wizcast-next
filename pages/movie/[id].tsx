@@ -100,10 +100,8 @@ function Movie({
               </div>
             </div>
           </div>
-          <div className="playzone md:block md:w-full p-5  mt-10 rounded overflow-hidden shadow md:order-1 lg:order-2">
-            <h2 className="md:h-auto lg:h-0 md:opacity-100 lg:opacity-0 text-2xl font-bold">
-              {movie.original_title}
-            </h2>
+          <div className="playzone md:block md:w-full p-5 mt-10 rounded overflow-hidden shadow md:order-1 lg:order-2">
+            <h2 className="text-2xl font-bold ">Servidores</h2>
             <iframe
               className="py-2"
               src={`/video/${currentID}`}
