@@ -65,6 +65,16 @@ function Movie({
     <Layout>
       <Head>
         <title>{`${CMS_NAME} - ${movie.original_title}`}</title>
+        <meta property="og:title" content={`${CMS_NAME} - ${movie.original_title}`} />
+        <meta property="og:description" content={movie.overview} />
+        <meta property="og:image" content={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`}/>
+        <meta property="og:url" content={fullUrl}/>
+        <meta property="og:type" content="website"/>
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:title" content={`${CMS_NAME} - ${movie.original_title}`}/>
+        <meta name="twitter:description" content={movie.overview} />
+        <meta name="twitter:image" content={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`}/>
+        <meta name="twitter:url" content={fullUrl}/>
       </Head>
       <Container>
         <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-4 mb-8">
