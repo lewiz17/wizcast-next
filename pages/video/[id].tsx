@@ -1,4 +1,5 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -59,8 +60,10 @@ function Video({
       )}
       {!hasSource && options.length === 0 && (
         <div className="options">
+          <Image src="/ouch.png" width={64} height={64}  alt="info"/>
           <p>No disponible por el momento</p>
-          <span>Regresa más tarde o revisa nuestro catalogo</span>
+          <span>Regresa más tarde o revisa nuestro catálogo</span>
+          <Link href={'/'} target="_top" >Volver</Link>
         </div>
       )}
       {hasSource && (

@@ -13,6 +13,11 @@ const Navbar: React.FC = () => {
           Acerca
         </a>
       </Link>
+      <Link href={"https://wizcast.netlify.app"} legacyBehavior>
+        <a className="text-lg font-medium leading-tight hover:text-blue text-white">
+          Canales
+        </a>
+      </Link>
       <Link href={"/"} legacyBehavior>
         <a className="text-lg font-medium leading-tight hover:text-blue text-white">
           Contacto
