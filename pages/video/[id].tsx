@@ -59,8 +59,8 @@ function Video({
       )}
       {!hasSource && options.length === 0 && (
         <div className="options">
-          <p>No disponible</p>
-          <span>Intenta otra busqueda</span>
+          <p>No disponible por el momento</p>
+          <span>Regresa más tarde o revisa nuestro catalogo</span>
         </div>
       )}
       {hasSource && (
