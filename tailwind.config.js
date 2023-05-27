@@ -11,10 +11,12 @@ module.exports = {
     },
     colors: {
       'blue': '#1fb6ff',
+      'blue2': '#1877f2',
       'purple': '#7e5bef',
       'pink': '#ff49db',
       'orange': '#ff7849',
       'green': '#13ce66',
+      'green2': '#40c251',
       'yellow': '#ffc82c',
       'gray-dark': '#273444',
       'gray': '#8492a6',

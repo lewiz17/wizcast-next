@@ -1,4 +1,5 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type VIDEO = string;
@@ -39,22 +40,28 @@ function Video({
 
   return (
     <div className="wrapper">
-      {!hasSource && (
+      {!hasSource && options.length > 0 && (
         <ul className="options">
           {Array.from({ length: options.length }).map((v, i) => {
             return i == 0 ? (
-              <li onClick={() => handleOption(i + 1)}>
+              <li onClick={() => handleOption(i + 1)} key={i}>
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACDUlEQVR4nO1YMUscQRj9Iuz3aZB0AbGQC9inSJcqTULEXxCrraySOpBK/AsJeFsFUiT/wWa+yYlYWKSwFAUVCSm1MiE+8bjb827Xvdvd2b0smQev2/nmvZn3plgiDw8PD49/EYhoFW06wxadIqIVahpwK7xN6PGEmgY03kBEKz0TJ2jTa2oiYOUVVF42snwAPYDKPlR+ADRTmx44yi40WIMVdGmCN4XnbOXU48IA9imA5cPYgPIRDojrMRCVLx+MvIvFD/i20KyohB6obGKX5nKtMTQPyz8TBpR/YY8e5Zp1QAzlD7lEDw1Q/twtYmd2aeI1VjZSTr/PjYnn7MwtwvLurYbiBqyE8ekZeTH2++/zj6FykWHgEubhwvh9Z59D+by3JixuwEjrzuZ/oPw+83vlTxni+1H6mD1D1qFyNXjBpFXYQHeg5eNhEfwlrRew8mRo43sNyG8YWU7Nu+VoZK/jUuLjHiRFJHoBlW9jxQ/4NTXvNnFbxfOf6EHaq9LrBTrBU6j8ndiAyjU6wbOUvI8yLG9guAejQq66mbW8neP0+/HYTuR9lGXzf38P6iCXz39mD6qmOsj/2B5Uy9CdgaweVEXjKP/T6QG7y/9UeqAO8z+lHoTuDdTZA+M4//X2gN3nv9YeaAX5r7kHYXUG6uiBqSj/sYnBH4JKSFXDG2j7G/jPI+Th4eHhQXdwA668OoF3W4hAAAAAAElFTkSuQmCC" />{" "}
                 VIP Opcion
               </li>
             ) : (
-              <li onClick={() => handleOption(i + 1)}>
+              <li onClick={() => handleOption(i + 1)} key={i}>
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFNElEQVR4nO2aS2xVVRSGb21ta2qU21qrA4iaMCAlUDWQMEEHBCHyEBW1qEkHYBsipamakhAeIakx6gAxJDoQnBAdKMEXRIwSSVQQqI9Eixad+BgoGkykFKl8ZtF/J9ubc889+5xTq4aV7OTk7LX+tffd67XXuYXCRfqfEtAI3AE8BbwFHAd+Bc5q2POg5oxnKVAs/BsIqAceBPYDfxJOo8DbwANA3URs4DLgEeBHb1EjwHvABp3MNPvFgUs1inpncxuBA5Jx9APQaz/OP7WJ24FvvAUcAVYCV6bAmgSsAo56eCeAheNtRs95Co8B83PEXwB84uFvz/10gGu0cKPTwBqgOlclY3qqgbXAsHfaLXmBX6/jRlFnei7A8TpnAF9J55CtIY+TcJv40EJsCoxLbKSQawIOeZtpyeITx7xNNKTEmWcjpWyDt5kjqXzGc+zBNCfh4eyykUG+yTOz7WlCrHPs1D6h3HFGo5jRZ4a1pgUhyc7liTVplQtrtRdOV2fE6vH8pbKJAY96eSJTiC1JdEczYtUAnwqrJ4mDu7IjU7IDZgrnFw2jmRkxFwrn+9jaTMXbhQiRRaGwnhHWsxpGWzNiVnmRdEUc4ztiWplRYS3ws7BuBG7S88msVS7QKax9cfeJUVWkwQVgCdZyKRvw3g3o3fKM2EXdb85FrhNYJkXvZlEkrH3Ceth7Z/WZ0d4c8N8X1uKoyac1uaGMbd4M3AosAe4HuoA+4HH5wIvAbpnnqHJHY8mJn9Gc8bwC7AS2Af3C6gTagUXALTLJqoj1bNZan4zaiF1BjZaU+RXuU4JMSi9FYLwcID8CdJRZi7Oe16Mmv9bktChh8cxS6HO0F1gPdJtS4C7VVsbXHCHfrLl54u2Q7HphOTIds2LW0Sq+41GTLtbH1lVajLPR34G7CxlJpvSbMD8Crq3Af5V4f4qatEhgVJtAcR3wgvjPA0+kLNWr5BuucbHLSqSE+o1GMm3Ek3kI+ENyb4aEbeBy4FXJWgDoC5CN3Ugi04qQm6+eldHnwA0JZCZ7GdpMalGgzuY406ro7DHAU707w84E/DvEazJTU+hrjXN2F36XhgJL/jXJdyTgtWhltCelrjvjwq9LiBtTdj9OSX5KQtNCMsFXBSokROsAGh1IATxbskMRd4g+jZoypjw77xKl6BWNkwKB1wn4ee9dm+fQ6LktoiewLlBXo1c0XlGOyRrKRqsCwa2JbXSvLmf9Xlj+VgO96xfPPXq3P1BXV8XiU8Vg0LVUMf20EuMydV1Qktuqlk6Dnl3iGxTvecnWBSTQAWG0xzHWqytudFtC8Lnewt1CvwDmRPDO0Vwp/9zA7s53FTev1j7aeXVABHGmsyVOiU5wi2d6RpsT6KkBPhN/dyV+dyquTbo2Af9BrxM4o6KCv/eqTMboYAL+Xi+J1oV2K4bjFifbt1zwWGl4TainRrKn4lqyjEVAu5SFd3f0fcL9Ak0xiS24xChT4kyOqausKWe0LQ14vXf0h9I2sbMQYxXyYa3hcOoOjH4N+zpr9HHUrW+8iLHE94F0n8j8wUcfeoY8M8vULUyos83TaaXMdXkBt3hmNqyGcrBzJ3T+Xs+xzZyuzltJvRcAUEM5l6+vytiW7FyeuODY4/rtXV9f3bG7YrAzzfcP+UGXV3Y4U8rta3GS0+kpaQ2dVXm9SXVUq7421WrY83RdijaJ1/UJXNnRPVH/gLByY4VapHYFCKVzupm2T8gGosg6KHbRsVsb8IYq3JPen2rs+Uu7nopncdn7xEUq/PfpLzAPdg9RxF6JAAAAAElFTkSuQmCC" />
                 Opcion #{i}
               </li>
             );
           })}
         </ul>
+      )}
+      {!hasSource && options.length === 0 && (
+        <div className="options">
+          <p>No disponible</p>
+          <span>Intenta otra busqueda</span>
+        </div>
       )}
       {hasSource && (
         <div className="iframe-wrapper">
@@ -64,7 +71,7 @@ function Video({
             src={currentSource}
             allow="fullscreen"
             width="100%"
-            height="100%"
+            height="100%"  
           ></iframe>
         </div>
       )}

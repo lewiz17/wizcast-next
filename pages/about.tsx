@@ -10,7 +10,7 @@ const About: React.FC = () => {
         <title>{`Site ${CMS_NAME}`}</title>
       </Head>
       <Container>
-        <div className="w-full p-5 mt-10 rounded overflow-hidden shadow ">
+        <div className="w-full p-5 my-10 rounded overflow-hidden shadow ">
           <p className="py-2">
             Bienvenido a nuestra página web de películas, donde encontrarás toda la información que
             necesitas sobre tus películas favoritas. Ya sea que busques clásicos

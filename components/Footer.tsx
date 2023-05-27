@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { CMS_NAME, LINKEDIN_URL } from "../lib/constants";
+import { CMS_NAME } from "../lib/constants";
+import Navbar from "./Navbar";
 
 const Footer: React.FC = () => {
   return (
@@ -12,22 +13,7 @@ const Footer: React.FC = () => {
             </a>
           </Link>
         </div>
-        <nav className="flex flex-wrap justify-center lg:justify-end items-center -mx-4">
-          <div className="px-4 py-2">
-            <Link href="/about" legacyBehavior>
-              <a className="text-lg font-medium leading-tight hover:text-blue">
-                Acerca
-              </a>
-            </Link>
-          </div>
-          <div className="px-4 py-2">
-            <Link href={LINKEDIN_URL} legacyBehavior>
-              <a className="text-lg font-medium leading-tight hover:text-blue" target="_blank" rel="noopener noreferrer">
-                Contacto
-              </a>
-            </Link>
-          </div>
-        </nav>
+        <Navbar />
       </div>
     </footer>
   );

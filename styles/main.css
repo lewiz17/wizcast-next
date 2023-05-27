@@ -2,6 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+body.dark{
+    background-color: #000;
+}
+body.dark p{
+    color: #fff;
+}
+body.dark .info p{
+    color: #000;
+}
+body.dark .md\:block{
+    background-color: #fff;
+}
+.mitem{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.mitem >a{
+    display: flex;
+    align-self: flex-start;
+}
+.mitem:hover{
+    outline: 1px solid #fff;
+}
+
+.mitem p{
+    color: #fff;
+}
+.mitem .play-icon{
+    position: absolute;
+    opacity: 0;
+    transition: all 100ms ease-in;
+}
+.mitem:hover .play-icon{
+    display: flex;
+    opacity: 1;
+    z-index: 2;
+}
+.mitem:hover >a>img{
+    opacity: .5;
+    z-index: -1;
+}
 .wrapper{
     background: black;
     padding: 1em;
@@ -13,13 +57,17 @@
     padding: 2rem;
     justify-content: center;
     align-items: center;
+    color: #fff;
+}
+.wrapper .options >p{
+    font-size: 25px;
 }
 .wrapper .options li{
     color: #fff;
     cursor: pointer;
     display: flex;
     align-items: center;
-    font-size: 1rem;
+    font-size: 1.5rem;
     gap: 10px;
 }
 .wrapper .options li img{
@@ -33,5 +81,19 @@
     position: absolute;
     z-index: 999;
 }
+.share, .sh-option{
+    display: flex;
+    gap: 10px;
+}
+.sh-option{
+    font-size: 13px;
+    align-items: center;
+}
+.top-menu{
+    display: flex;
+    gap: 20px;
+}
+
+
 
 
