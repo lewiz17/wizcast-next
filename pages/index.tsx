@@ -35,8 +35,6 @@ export default function ListItems({ movies }: Props) {
     const titles = [];
     const posters = [];
 
-
-
     if(list === 'popular'){
       Object.entries(popular).map((v,i) => {
         const { title, poster, id } = v[1];
@@ -65,7 +63,12 @@ export default function ListItems({ movies }: Props) {
           <title>{`${CMS_NAME} - Estrenos ${new Date().getFullYear()}`}</title>
         </Head>
         <Container>
-          <h2 className="text-2xl font-bold tracking-tight leading-tight my-2">Top Estrenos</h2>
+          { list === 'popular' && 
+            (<h2 className="text-2xl font-bold text-white tracking-tight leading-tight my-2">Populares</h2>)
+          }
+          { list !== 'popular' && 
+            (<h2 className="text-2xl font-bold text-white tracking-tight leading-tight my-2">Top Estrenos</h2>)
+          }
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-5 mb-8">
             {listMovies.flatMap((movie, i) => (
               <Card

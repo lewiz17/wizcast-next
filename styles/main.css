@@ -93,6 +93,14 @@ body.dark .md\:block{
     display: flex;
     gap: 20px;
 }
+.top-menu input[type='search']{
+    min-width: 20em;
+}
+.top-menu input[type='search']:focus{
+    border-color: #000;
+    outline: #000;
+    --tw-ring-color: #000;
+}
 
 
 

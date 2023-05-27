@@ -29,7 +29,7 @@ const Header: React.FC = () => {
         </div>
         <div className="top-menu">
           <input
-            type="text"
+            type="search"
             value={query}
             placeholder="Buscar una Pelicula"
             onChange={(e) => setQuery(e.target.value)}
