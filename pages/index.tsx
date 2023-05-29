@@ -69,7 +69,7 @@ export default function ListItems({ movies }: Props) {
           { list !== 'popular' && 
             (<h2 className="text-2xl font-bold text-white tracking-tight leading-tight my-2">Top Estrenos</h2>)
           }
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-5 mb-8">
+          <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5 mb-8">
             {listMovies.flatMap((movie, i) => (
               <Card
                 id={listIDS[i]}

@@ -1,19 +1,26 @@
 import Link from "next/link";
 import { CMS_NAME } from "../lib/constants";
 import Navbar from "./Navbar";
+import Image from "next/image";
 
 const Footer: React.FC = () => {
   return (
     <footer className="bottom-0 w-full bg-gray">
       <div className="container mx-auto py-8 px-4 flex flex-wrap justify-between items-center text-white">
-        <div className="flex-shrink-0 mr-6">
+        <h2 className="flex logo">
           <Link href="/" legacyBehavior>
-            <a className="text-3xl font-bold tracking-tight leading-tight">
-              {CMS_NAME}
+            <a
+              className="text-3xl font-bold tracking-tight leading-tight text-white"
+              title="Lewiz"
+            >
+              <Image src={"/wlogo.png"} width={60} height={60} alt="logo" />
+              <span className="sm:flex md:hidden lg:flex">{CMS_NAME.slice(1, -1)}</span>
             </a>
           </Link>
+        </h2>
+        <div className="bottom-menu md:flex xs:hidden sm:hidden">
+          <Navbar />
         </div>
-        <Navbar />
       </div>
     </footer>
   );

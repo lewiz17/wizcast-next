@@ -40,7 +40,7 @@ const Result: React.FC = () => {
                 id={movie.id}
                 title={movie.original_title}
                 key={movie.id}
-                poster={movie.poster_path !== null ? `https://www.themoviedb.org/t/p/w440_and_h660_face${movie.poster_path}` : 'https://placehold.co/400x600/111111/FFFFFF/png?text=Wizstar'}
+                poster={movie.poster_path !== null ? `https://www.themoviedb.org/t/p/w440_and_h660_face${movie.poster_path}` : '/wlogo.png'}
               />
             ))}
           </div>
