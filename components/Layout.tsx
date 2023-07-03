@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Result from "./result";
 import Footer from "./Footer";
 import Header from "./Header";
 import Meta from "./Meta";
 import { useRouter } from "next/router";
+import Result from "./Result";
 
 type movies = {
   id: string | number;
