@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Meta from "./Meta";
 import { useRouter } from "next/router";
-import Result from "./Result";
+import Result from "./List";
 
 type movies = {
   id: string | number;

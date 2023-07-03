@@ -4,7 +4,6 @@ import Head from "next/head";
 import { CMS_NAME } from "../../lib/constants";
 import Container from "../../components/Container";
 import { useEffect, useState } from "react";
-import { translateText } from "../../utils/translator";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -35,7 +34,7 @@ export const getServerSideProps: GetServerSideProps<MovieProps> = async (
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${id}?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX`
   );
-  
+
   const movie = await res.json();
 
   return {
@@ -51,7 +50,7 @@ function Movie({
   const [currentID, setCurrentID] = useState("");
   const [movieDescription, setMovieDescription] = useState("");
 
-  const [fullUrl, setFullUrl] = useState('');
+  const [fullUrl, setFullUrl] = useState("");
 
   useEffect(() => {
     const currentUrl = window.location.href;
@@ -65,16 +64,28 @@ function Movie({
     <Layout>
       <Head>
         <title>{`${CMS_NAME} - ${movie.original_title}`}</title>
-        <meta property="og:title" content={`${CMS_NAME} - ${movie.original_title}`} />
+        <meta
+          property="og:title"
+          content={`${CMS_NAME} - ${movie.original_title}`}
+        />
         <meta property="og:description" content={movie.overview} />
-        <meta property="og:image" content={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`}/>
-        <meta property="og:url" content={fullUrl}/>
-        <meta property="og:type" content="website"/>
-        <meta name="twitter:card" content="summary"/>
-        <meta name="twitter:title" content={`${CMS_NAME} - ${movie.original_title}`}/>
+        <meta
+          property="og:image"
+          content={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`}
+        />
+        <meta property="og:url" content={fullUrl} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <meta
+          name="twitter:title"
+          content={`${CMS_NAME} - ${movie.original_title}`}
+        />
         <meta name="twitter:description" content={movie.overview} />
-        <meta name="twitter:image" content={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`}/>
-        <meta name="twitter:url" content={fullUrl}/>
+        <meta
+          name="twitter:image"
+          content={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`}
+        />
+        <meta name="twitter:url" content={fullUrl} />
       </Head>
       <Container>
         <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-4 mb-8">
@@ -102,10 +113,7 @@ function Movie({
                   )}
                 </p>
                 <p className="py-2">
-                  <strong>Lanzamiento:</strong>{" "}
-                  {
-                    movie.release_date
-                  }
+                  <strong>Lanzamiento:</strong> {movie.release_date}
                 </p>
               </div>
             </div>

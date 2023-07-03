@@ -3,23 +3,9 @@ import { CMS_NAME } from "../lib/constants";
 import Layout from "../components/Layout";
 import Container from "../components/Container";
 import ContactForm from "../components/Form";
-import { translateText } from "../utils/translator";
 import { useEffect, useState } from "react";
 
 const About: React.FC = () => {
-  const [text, setText] = useState('Where are you from');
-  const [translatedText, setTranslatedText] = useState('');
-
-
-  const handleTranslate = async () => {
-    const translated = await translateText(text, 'es');
-    setTranslatedText(translated);
-  };
-
-  useEffect(() => {
-    handleTranslate();
-  },[text]);
-
   return (
     <Layout>
       <Head>
@@ -32,7 +18,10 @@ const About: React.FC = () => {
             <ContactForm />
             <div className="w-full px-2 rounded overflow-hidden shadow">
               <div className="px-6 py-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus assumenda dolor, velit, aliquam reiciendis suscipit ullam ab sed, libero impedit laborum doloremque quo eum rem vitae obcaecati amet quaerat nihil?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Accusamus assumenda dolor, velit, aliquam reiciendis suscipit
+                ullam ab sed, libero impedit laborum doloremque quo eum rem
+                vitae obcaecati amet quaerat nihil?
               </div>
             </div>
           </div>
