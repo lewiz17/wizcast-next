@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CMS_NAME } from "../lib/constants";
 import Navbar from "./Navbar";
 import Image from "next/image";
+import Logo from "./Logo";
 
 const Footer: React.FC = () => {
   return (
@@ -14,7 +15,7 @@ const Footer: React.FC = () => {
               title="Lewiz"
             >
               <Image src={"/wlogo.png"} width={60} height={60} alt="logo" />
-              <span className="sm:flex md:hidden lg:flex">{CMS_NAME.slice(1, -1)}</span>
+              <Logo />
             </a>
           </Link>
         </h2>

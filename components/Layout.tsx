@@ -37,7 +37,7 @@ const Layout = ({ children }: Props) => {
         )}
         <div className="grid grid-cols-1 gap-5 mb-8">
           <p>
-            Wizstars, ver o descargar películas full hd gratis en 1 LINK
+            Wizpelis, ver o descargar películas full hd gratis en 1 LINK
             Descargar películas. Ver películas online. Cine en casa gratis.
             Películas online y para descargar en 1 link. Excelente calidad brrip
             (720p/1080p)

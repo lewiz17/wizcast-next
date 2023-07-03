@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useSearch } from "../hooks/useSearch";
 import { useMovies } from "../hooks/useMovies";
 import debounce from "just-debounce-it";
+import Logo from "./Logo";
 
 type Props = {
   handleData: (data: any) => void;
@@ -75,9 +76,7 @@ const Header: React.FC<Props> = ({ handleData, handleLoading }) => {
               title="Lewiz"
             >
               <Image src={"/wlogo.png"} width={60} height={60} alt="logo" />
-              <span className="sm:flex md:hidden lg:flex">
-                {CMS_NAME.slice(1, -1)}
-              </span>
+              <Logo />
             </a>
           </Link>
         </h1>

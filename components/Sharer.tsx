@@ -2,14 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 type URL = {
-    url: string
+  url: string;
 };
 
 const Sharer: React.FC<URL> = ({ url }: URL) => {
   return (
     <div className="share">
       <Link
-        href={`https://twitter.com/intent/tweet?text=Wizstars - Mejores peliculas&url=${url}`}
+        href={`https://twitter.com/intent/tweet?text=Wizpelis - Mejores peliculas&url=${url}`}
         target="blank_"
       >
         <div className="sh-option rounded bg-blue text-white my-5 shadow px-2 py-2 hover:opacity-90">
@@ -37,7 +37,7 @@ const Sharer: React.FC<URL> = ({ url }: URL) => {
         </div>
       </Link>
       <Link
-        href={`https://api.whatsapp.com/send?text=Wizstars - Peliculas y series%20${url}`}
+        href={`https://api.whatsapp.com/send?text=Wizpelis - Peliculas y series%20${url}`}
         target="blank_"
       >
         <div className="sh-option rounded bg-green2 text-white my-5 shadow px-2 py-2 hover:opacity-90">

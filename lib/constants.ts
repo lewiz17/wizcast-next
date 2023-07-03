@@ -1,1 +1,1 @@
-export const CMS_NAME = 'Wiz Stars'
+export const CMS_NAME = 'Wiz Pelis'

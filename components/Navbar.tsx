@@ -8,19 +8,14 @@ const Navbar: React.FC = () => {
           Populares
         </a>
       </Link>
-      <Link href="/about" legacyBehavior>
-        <a className="text-lg font-medium leading-tight hover:text-blue text-white">
-          Acerca
-        </a>
-      </Link>
       <Link href={"https://wizcast.netlify.app"} legacyBehavior>
         <a className="text-lg font-medium leading-tight hover:text-blue text-white">
           Canales
         </a>
       </Link>
-      <Link href={"/"} legacyBehavior>
+      <Link href="/about" legacyBehavior>
         <a className="text-lg font-medium leading-tight hover:text-blue text-white">
-          Contacto
+          Acerca
         </a>
       </Link>
     </nav>
