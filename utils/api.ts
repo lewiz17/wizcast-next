@@ -4,7 +4,7 @@ export const searchMovies = async ({ search }) => {
     if (search === '') return null
 
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}`);
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}&language=es-MX`);
         const result = await response.json();
 
         const movies = result.results;

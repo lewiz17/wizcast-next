@@ -99,10 +99,10 @@ export default function ListItems({ movies }: Props) {
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const [nowPlayingRes, popularRes] = await Promise.all([
     fetch(
-      "https://api.themoviedb.org/3/movie/now_playing?api_key=a0a7e40dc8162ed7e37aa2fc97db5654"
+      "https://api.themoviedb.org/3/movie/now_playing?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX"
     ),
     fetch(
-      "https://api.themoviedb.org/3/movie/popular?api_key=a0a7e40dc8162ed7e37aa2fc97db5654"
+      "https://api.themoviedb.org/3/movie/popular?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX"
     ),
   ]);
 

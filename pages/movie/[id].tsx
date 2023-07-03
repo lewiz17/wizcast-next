@@ -11,7 +11,7 @@ import Sharer from "../../components/Sharer";
 
 type MOVIE = {
   imdb_id: number;
-  original_title: string;
+  title: string;
   genres: [
     {
       id: number;
@@ -63,11 +63,8 @@ function Movie({
   return (
     <Layout>
       <Head>
-        <title>{`${CMS_NAME} - ${movie.original_title}`}</title>
-        <meta
-          property="og:title"
-          content={`${CMS_NAME} - ${movie.original_title}`}
-        />
+        <title>{`${CMS_NAME} - ${movie.title}`}</title>
+        <meta property="og:title" content={`${CMS_NAME} - ${movie.title}`} />
         <meta property="og:description" content={movie.overview} />
         <meta
           property="og:image"
@@ -76,10 +73,7 @@ function Movie({
         <meta property="og:url" content={fullUrl} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary" />
-        <meta
-          name="twitter:title"
-          content={`${CMS_NAME} - ${movie.original_title}`}
-        />
+        <meta name="twitter:title" content={`${CMS_NAME} - ${movie.title}`} />
         <meta name="twitter:description" content={movie.overview} />
         <meta
           name="twitter:image"
@@ -93,14 +87,14 @@ function Movie({
             <div className="grid grid-cols-1 sm:grid-cols-1 sm:grid-flow-row md:grid-cols-2 gap-5">
               <Image
                 src={`https://www.themoviedb.org/t/p/w220_and_h330_bestv2${movie.poster_path}`}
-                alt={movie.original_title}
+                alt={movie.title}
                 width={260}
                 height={390}
                 priority
               />
 
               <div className="info">
-                <h1 className="text-2xl font-bold">{movie.original_title}</h1>
+                <h1 className="text-2xl font-bold">{movie.title}</h1>
                 <p className="py-2">
                   <strong>Sinopsis:</strong> {movieDescription}
                 </p>
