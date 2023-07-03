@@ -1,14 +1,40 @@
 import Link from "next/link";
 import { CMS_NAME } from "../lib/constants";
 import Navbar from "./Navbar";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { useSearch } from "../hooks/useSearch";
+import { useMovies } from "../hooks/useMovies";
+import debounce from "just-debounce-it";
 
-const Header: React.FC = () => {
-  const [query, setQuery] = useState("");
-  const [opened, setOpened] = useState(false);
+type Props = {
+  handleData: (data: any) => void;
+  handleLoading: (loading: boolean) => void;
+};
+
+const Header: React.FC<Props> = ({ handleData, handleLoading }) => {
   const router = useRouter();
+
+  const [opened, setOpened] = useState(false);
+  const { search, updateSearch } = useSearch();
+
+  const [sort, setSort] = useState(false);
+
+  const { movies, loading, getMovies } = useMovies({ search, sort });
+
+  useEffect(() => {
+    handleData(movies);
+    handleLoading(loading);
+  }, [movies, loading]);
+
+  const debouncedGetMovies = useCallback(
+    debounce((search) => {
+      router.push(`?result=${search}`);
+      getMovies({ search });
+    }, 300),
+    [getMovies]
+  );
 
   useEffect(() => {
     const toggle = document.querySelector(".toggle");
@@ -33,10 +59,10 @@ const Header: React.FC = () => {
     };
   }, [opened]);
 
-  const handleSearch = async (e) => {
-    if (e.key === "Enter") {
-      router.push(`/result/?s=${query}`);
-    }
+  const handleChange = (event) => {
+    const newSearch = event.target.value;
+    updateSearch(newSearch);
+    debouncedGetMovies(newSearch);
   };
 
   return (
@@ -56,29 +82,33 @@ const Header: React.FC = () => {
           </Link>
         </h1>
         <div className="toggle md:hidden sm:block xs:block">
-          
-            {!opened && (
-              <svg
+          {!opened && (
+            <svg
               viewBox="0 0 24 24"
               fill="#ffffff"
               xmlns="http://www.w3.org/2000/svg"
               className="w-12 h-10"
             >
-               <path
-               fill="#ffffff"
-               fillRule="evenodd"
-               d="M19 4a1 1 0 0 1-1 1H2a1 1 0 0 1 0-2h16a1 1 0 0 1 1 1zm0 6a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h16a1 1 0 0 1 1 1zm-1 7a1 1 0 1 0 0-2H2a1 1 0 1 0 0 2h16z"
-             />
-             </svg>
-            )}
-            {opened && (
-             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" className="w-12 h-10" fill="#ffffff">
+              <path
+                fill="#ffffff"
+                fillRule="evenodd"
+                d="M19 4a1 1 0 0 1-1 1H2a1 1 0 0 1 0-2h16a1 1 0 0 1 1 1zm0 6a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h16a1 1 0 0 1 1 1zm-1 7a1 1 0 1 0 0-2H2a1 1 0 1 0 0 2h16z"
+              />
+            </svg>
+          )}
+          {opened && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1024 1024"
+              className="w-12 h-10"
+              fill="#ffffff"
+            >
               <path
                 stroke="#ffffff"
                 d="M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504 738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512 828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496 285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512 195.2 285.696a64 64 0 0 1 0-90.496z"
               />
-              </svg>
-            )}
+            </svg>
+          )}
         </div>
         <div className="top-menu md:flex xs:hidden sm:hidden md:gap-5 lg:md:gap-4">
           <div className="relative flex items-center w-full h-10 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
@@ -86,10 +116,10 @@ const Header: React.FC = () => {
               className="peer h-10 w-full outline-none text-sm text-gray-700 pr-2"
               type="search"
               id="search"
-              value={query}
-              placeholder="Que quieres ver?"
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyUp={handleSearch}
+              onChange={handleChange}
+              value={search}
+              name="query"
+              placeholder="Vengadores, Spiderman..."
             />
           </div>
           <Navbar />
