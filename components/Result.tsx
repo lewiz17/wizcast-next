@@ -1,12 +1,4 @@
-import Head from "next/head";
-import Layout from "./Layout";
-import Container from "./Container";
-import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
 import Card from "./CardItem";
-import { useSearch } from "../hooks/useSearch";
-import { useMovies } from "../hooks/useMovies";
-import debounce from "just-debounce-it";
 
 type Movie = {
   id: string | number;
@@ -22,8 +14,6 @@ type Props = {
 };
 
 const Result: React.FC<Props> = ({ movies, loading }) => {
-  const router = useRouter();
-
   return (
     <div className="result-wrap">
       <h2 className="text-2xl font-bold tracking-tight leading-tight my-2 text-white">
