@@ -12,6 +12,7 @@ type Movie = {
   title: string;
   poster: string;
   release: number;
+  rate: number;
 };
 
 type Props = {
@@ -25,6 +26,7 @@ export default function ListItems({ movies }: Props) {
   const [listMovies, setListMovies] = useState<string[]>([]);
   const [listPosters, setListPosters] = useState<string[]>([]);
   const [listIDS, setListIDS] = useState<string[]>([]);
+  const [listRates, setListRates] = useState<number[]>([]);
 
   const router = useRouter();
   const { list } = router.query;
@@ -34,26 +36,30 @@ export default function ListItems({ movies }: Props) {
     const ids = [];
     const titles = [];
     const posters = [];
+    const rates = [];
 
     if (list === "popular") {
       Object.entries(popular).map((v, i) => {
-        const { title, poster, id } = v[1];
+        const { title, poster, id, rate } = v[1];
         ids.push(id);
         titles.push(title);
         posters.push(poster);
+        rates.push(rate);
       });
     } else {
       Object.entries(top).map((v, i) => {
-        const { title, poster, id } = v[1];
+        const { title, poster, id, rate } = v[1];
         ids.push(id);
         titles.push(title);
         posters.push(poster);
+        rates.push(rate);
       });
     }
 
     setListMovies(titles);
     setListPosters(posters);
     setListIDS(ids);
+    setListRates(rates);
   }, [movies.top, movies.popular]);
 
   return (
@@ -78,6 +84,7 @@ export default function ListItems({ movies }: Props) {
               <Card
                 id={listIDS[i]}
                 title={movie}
+                rate={listRates[i]}
                 key={i}
                 poster={`https://www.themoviedb.org/t/p/w220_and_h330_face${listPosters[i]}`}
               />
@@ -119,25 +126,29 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
       title: movie.title,
       poster: movie.poster_path,
       release: movie.release_date,
+      rate: movie.vote_average,
     })
   );
 
   const orderedNowMovies: Movie[] = orderMovies(nowPlayingMovies);
+  const nowMoviesFinal = orderedNowMovies.filter((v) => v.rate >= 5);
 
   const popularMovies: Movie[] = popularData.results.map((movie: any) => ({
     id: movie.id,
     title: movie.title,
     poster: movie.poster_path,
     release: movie.release_date,
+    rate: movie.vote_average,
   }));
 
   const orderedPopularMovies: Movie[] = orderMovies(popularMovies);
+  const popularMoviesFinal = orderedPopularMovies.filter((v) => v.rate >= 5);
 
   return {
     props: {
       movies: {
-        top: [...orderedNowMovies],
-        popular: [...orderedPopularMovies],
+        top: [...nowMoviesFinal],
+        popular: [...popularMoviesFinal],
       },
     },
   };

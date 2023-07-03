@@ -3,12 +3,13 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Meta from "./Meta";
 import { useRouter } from "next/router";
-import Result from "./List";
+import Result from "./Result";
 
 type movies = {
   id: string | number;
   title: string;
   poster: string;
+  rate: number;
 }[];
 
 type loading = boolean;

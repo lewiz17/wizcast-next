@@ -4,6 +4,7 @@ type Movie = {
   id: string | number;
   title: string;
   poster: string;
+  rate: number;
 };
 
 type Loading = boolean;
@@ -33,6 +34,7 @@ const Result: React.FC<Props> = ({ movies, loading }) => {
                   ? `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster}`
                   : "/wlogo.png"
               }
+              rate={movie.rate}
             />
           ))
         )}

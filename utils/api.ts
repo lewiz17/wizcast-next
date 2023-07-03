@@ -9,13 +9,15 @@ export const searchMovies = async ({ search }) => {
 
         const movies = result.results;
 
-        return movies?.map(movie => ({
+        const newMovies = movies?.map(movie => ({
             id: movie.id,
             title: movie.original_title,
             rate: movie.vote_average,
             date: movie.release_date,
             poster: movie.poster_path
         }))
+
+        return newMovies.filter((v) => v.rate >= 5)
 
     } catch (e) {
         throw new Error('Error searching movies')

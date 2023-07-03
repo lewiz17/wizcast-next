@@ -2,55 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-body.dark{
+body.dark {
     background-color: #000;
 }
-body.dark p{
+body.dark p {
     color: #fff;
 }
-body.dark .info p{
+body.dark .info p {
     color: #000;
 }
-body.dark .md\:block{
+body.dark .md\:block {
     background-color: #fff;
 }
-.mitem{
+.mitem {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 }
-.mitem >a{
+.mitem > a {
     display: flex;
     align-self: flex-start;
 }
-.mitem:hover{
+.mitem:hover {
     outline: 1px solid #fff;
 }
 
-.mitem p{
+.mitem p {
     color: #fff;
 }
-.mitem .play-icon{
+.mitem .play-icon {
     position: absolute;
     opacity: 0;
     transition: all 100ms ease-in;
 }
-.mitem:hover .play-icon{
+.mitem:hover .play-icon {
     display: flex;
     opacity: 1;
     z-index: 2;
 }
-.mitem:hover >a>img{
-    opacity: .5;
+.mitem:hover > a > img {
+    opacity: 0.5;
     z-index: -1;
 }
-.wrapper{
+.wrapper {
     background: black;
     padding: 1em;
 }
-.wrapper .options{
+.wrapper .options {
     display: flex;
     flex-flow: column;
     gap: 10px;
@@ -59,10 +59,10 @@ body.dark .md\:block{
     align-items: center;
     color: #fff;
 }
-.wrapper .options >p{
+.wrapper .options > p {
     font-size: 25px;
 }
-.wrapper .options li{
+.wrapper .options li {
     color: #fff;
     cursor: pointer;
     display: flex;
@@ -70,41 +70,51 @@ body.dark .md\:block{
     font-size: 1.5rem;
     gap: 10px;
 }
-.wrapper .options li img{
+.wrapper .options li img {
     max-height: 1rem;
 }
-.iframe-wrapper{
+.iframe-wrapper {
     position: relative;
     height: 92vh;
 }
-.backBtn{
+.backBtn {
     position: absolute;
     z-index: 999;
 }
-.share, .sh-option{
+.share,
+.sh-option {
     display: flex;
     gap: 10px;
 }
-.sh-option{
+.sh-option {
     font-size: 13px;
     align-items: center;
 }
-header{
+header {
     position: relative;
 }
-.top-menu input[type='search']{
+.top-menu input[type="search"] {
     min-width: 20em;
 }
-.logo a{
+.logo a {
     display: flex;
     align-items: center;
 }
-.logo a >span{
+.logo a > span {
     margin-left: -12px;
+}
+.rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -10px;
+    right: -10px;
+    z-index: 10;
+    border: 2px solid #fff;
 }
 
 @media screen and (max-width: 768px) {
-    .mob-menu{
+    .mob-menu {
         position: absolute;
         top: 68px;
         left: 0px;
@@ -114,11 +124,9 @@ header{
         padding: 20px;
         z-index: 10;
     }
-    .mob-menu nav{
+    .mob-menu nav {
         flex-direction: column;
         margin-top: 20px;
         gap: 20px;
     }
 }
-
-
