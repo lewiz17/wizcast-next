@@ -2,8 +2,10 @@ import Link from "next/link";
 import { CMS_NAME } from "../lib/constants";
 import Navbar from "./Navbar";
 import React, {
+  Dispatch,
   ForwardedRef,
   Ref,
+  SetStateAction,
   useCallback,
   useEffect,
   useRef,
@@ -19,11 +21,14 @@ import Logo from "./Logo";
 type Props = {
   handleData: (data: any) => void;
   handleLoading: (loading: boolean) => void;
+  currentMovie: string | string[];
 };
 
-const Header: React.FC<Props> = ({ handleData, handleLoading }) => {
-  const router = useRouter();
-
+const Header: React.FC<Props> = ({
+  handleData,
+  handleLoading,
+  currentMovie,
+}) => {
   const [opened, setOpened] = useState(false);
   const { search, updateSearch } = useSearch();
 
@@ -35,6 +40,12 @@ const Header: React.FC<Props> = ({ handleData, handleLoading }) => {
     handleData(movies);
     handleLoading(loading);
   }, [movies, loading]);
+
+  useEffect(() => {
+    updateSearch("");
+  }, [currentMovie]);
+
+  //console.log("desde header", currentMovie);
 
   const debouncedGetMovies = useCallback(
     debounce((search) => {

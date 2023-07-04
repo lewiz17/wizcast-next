@@ -1,7 +1,7 @@
-import { GetServerSideProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Rating from "./Rating";
+import { useEffect } from "react";
 
 type ITEM = {
   id: string | number;

@@ -19,16 +19,35 @@ type Props = {
 };
 
 const Layout = ({ children }: Props) => {
+  const router = useRouter();
   const [movieData, setmovieData] = useState<movies>([]);
   const [loading, setLoading] = useState<loading>(false);
+  const [isResult, setisResult] = useState<boolean>(true);
+  const [currentId, setCurrentID] = useState<string | string[]>("");
+
+  const routerID = router?.query?.id ? router.query.id : "";
+
+  useEffect(() => {
+    if (routerID != "") {
+      setisResult(false);
+    }
+  }, [routerID]);
+
+  useEffect(() => {
+    setisResult(true);
+  }, [movieData]);
 
   return (
     <div className="flex flex-col min-h-screen">
       <Meta />
-      <Header handleData={setmovieData} handleLoading={setLoading} />
+      <Header
+        handleData={setmovieData}
+        handleLoading={setLoading}
+        currentMovie={routerID}
+      />
 
       <main className="container mx-auto flex-grow">
-        {movieData?.length > 0 ? (
+        {movieData?.length > 0 && isResult ? (
           <Result movies={movieData} loading={loading} />
         ) : (
           children

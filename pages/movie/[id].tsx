@@ -5,9 +5,8 @@ import { CMS_NAME } from "../../lib/constants";
 import Container from "../../components/Container";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import Sharer from "../../components/Sharer";
+import VideoBox from "../../components/StreamBox";
 
 type MOVIE = {
   imdb_id: number;
@@ -47,7 +46,7 @@ export const getServerSideProps: GetServerSideProps<MovieProps> = async (
 function Movie({
   movie,
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
-  const [currentID, setCurrentID] = useState("");
+  const [currentID, setCurrentID] = useState<string>("");
   const [movieDescription, setMovieDescription] = useState("");
 
   const [fullUrl, setFullUrl] = useState("");
@@ -114,13 +113,7 @@ function Movie({
           </div>
           <div className="playzone md:block md:w-full p-5 mt-10 rounded overflow-hidden shadow md:order-1 lg:order-2">
             <h2 className="text-2xl font-bold ">Servidores</h2>
-            <iframe
-              className="py-2"
-              src={`/video/${currentID}`}
-              allow="fullscreen"
-              width={"100%"}
-              height={"430"}
-            ></iframe>
+            <VideoBox videoID={movie.imdb_id?.toString().slice(2)} />
             <Sharer url={fullUrl} />
           </div>
         </div>
