@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 import Meta from "./Meta";
@@ -21,8 +21,6 @@ type Props = {
 const Layout = ({ children }: Props) => {
   const [movieData, setmovieData] = useState<movies>([]);
   const [loading, setLoading] = useState<loading>(false);
-  const router = useRouter();
-  const { result } = router.query;
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -30,7 +28,7 @@ const Layout = ({ children }: Props) => {
       <Header handleData={setmovieData} handleLoading={setLoading} />
 
       <main className="container mx-auto flex-grow">
-        {movieData?.length > 0 && result != "" ? (
+        {movieData?.length > 0 ? (
           <Result movies={movieData} loading={loading} />
         ) : (
           children

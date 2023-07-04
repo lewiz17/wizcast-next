@@ -1,4 +1,6 @@
+import { Ref, useEffect } from "react";
 import Card from "./CardItem";
+import { useRouter } from "next/router";
 
 type Movie = {
   id: string | number;

@@ -18,6 +18,11 @@ const Navbar: React.FC = () => {
           Acerca
         </a>
       </Link>
+      <Link href={"https://ko-fi.com/wiz2023"} legacyBehavior>
+        <a className="text-lg font-medium leading-tight hover:text-blue text-white">
+          Apóyame
+        </a>
+      </Link>
     </nav>
   );
 };

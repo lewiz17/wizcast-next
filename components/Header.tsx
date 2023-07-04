@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { CMS_NAME } from "../lib/constants";
 import Navbar from "./Navbar";
-import { useCallback, useEffect, useState } from "react";
+import React, {
+  ForwardedRef,
+  Ref,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useSearch } from "../hooks/useSearch";
@@ -31,7 +38,6 @@ const Header: React.FC<Props> = ({ handleData, handleLoading }) => {
 
   const debouncedGetMovies = useCallback(
     debounce((search) => {
-      router.push(`?result=${search}`);
       getMovies({ search });
     }, 300),
     [getMovies]
