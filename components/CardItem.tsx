@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Rating from "./Rating";
 import { useEffect } from "react";
+import { formatTitle } from "../utils/helpers";
 
 type ITEM = {
   id: string | number;
@@ -23,7 +24,10 @@ const Card: React.FC<ITEM> = ({ id, title, poster, rate }: ITEM) => {
         height={50}
         className="play-icon"
       />
-      <Link href={`/movie/${id}`} style={{ width: "auto", height: "auto" }}>
+      <Link
+        href={`/movie/${id}/${formatTitle(title)}`}
+        style={{ width: "auto", height: "auto" }}
+      >
         <Image src={poster} alt={title} width="220" height="270" priority />
       </Link>
     </div>
