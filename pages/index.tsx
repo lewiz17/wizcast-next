@@ -13,6 +13,9 @@ type Movie = {
   poster: string;
   release: number;
   rate: number;
+  poster_path: string;
+  release_date: number;
+  vote_average: number;
 };
 
 type Props = {
@@ -99,7 +102,7 @@ export default function ListItems({ movies }: Props) {
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const [nowPlayingRes, popularRes] = await Promise.all([
     fetch(
-      "https://api.themoviedb.org/3/movie/now_playing?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX"
+      "https://api.themoviedb.org/3/trending/movie/week?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX"
     ),
     fetch(
       "https://api.themoviedb.org/3/movie/popular?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX"
@@ -121,7 +124,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const popularData = await popularRes.json();
 
   const nowPlayingMovies: Movie[] = nowPlayingData.results.map(
-    (movie: any) => ({
+    (movie: Movie) => ({
       id: movie.id,
       title: movie.title,
       poster: movie.poster_path,

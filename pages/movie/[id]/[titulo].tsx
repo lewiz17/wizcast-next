@@ -49,7 +49,7 @@ export const getServerSideProps: GetServerSideProps<MovieProps> = async (
 function Movie({
   movie,
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
-  const [currentID, setCurrentID] = useState<string>("");
+  const [currentID, setCurrentID] = useState("");
   const [movieDescription, setMovieDescription] = useState("");
 
   const [fullUrl, setFullUrl] = useState("");

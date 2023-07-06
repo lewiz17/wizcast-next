@@ -19,7 +19,7 @@ import debounce from "just-debounce-it";
 import Logo from "./Logo";
 
 type Props = {
-  handleData: (data: any) => void;
+  handleData: (data: object) => void;
   handleLoading: (loading: boolean) => void;
   currentMovie: string | string[];
 };
