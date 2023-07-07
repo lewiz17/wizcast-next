@@ -12,6 +12,7 @@ const VideoBox: React.FC<VIDEOS> = ({ videoID }: VIDEOS) => {
       allow="fullscreen"
       width={"100%"}
       height={"430"}
+      title="Pelicula"
     ></iframe>
   );
 };

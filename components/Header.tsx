@@ -84,7 +84,7 @@ const Header: React.FC<Props> = ({
   };
 
   return (
-    <header className="bg-gray shadow">
+    <header className="w-full fixed z-50 bg-global py-1">
       <div className="container mx-auto flex items-center justify-between md:p-1">
         <h1 className="flex logo">
           <Link href="/" legacyBehavior>

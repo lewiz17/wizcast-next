@@ -112,6 +112,30 @@ header {
     z-index: 10;
     border: 2px solid #fff;
 }
+.title-hover {
+    position: absolute;
+    color: #fff;
+    background: rgb(0 0 0 / 80%);
+    padding: 5px;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: 200;
+    text-align: center;
+    bottom: 0px;
+    opacity: 0;
+    min-width: 100%;
+    transition: all ease-in 300ms;
+}
+.item-movie:hover .title-hover {
+    opacity: 1;
+}
+
+.overlay-toleft {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+}
+.overlay-toright {
+    background: linear-gradient(-90deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+}
 
 @media screen and (max-width: 768px) {
     .mob-menu {

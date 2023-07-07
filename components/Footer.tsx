@@ -6,7 +6,7 @@ import Logo from "./Logo";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bottom-0 w-full bg-gray">
+    <footer className="bottom-0 w-full bg-global">
       <div className="container mx-auto py-8 px-4 flex flex-wrap justify-between items-center text-white">
         <h2 className="flex logo">
           <Link href="/" legacyBehavior>

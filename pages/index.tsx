@@ -1,11 +1,20 @@
-import Container from "../components/Container";
-import Layout from "../components/Layout";
-import Card from "../components/CardItem";
-import Head from "next/head";
 import { CMS_NAME } from "../lib/constants";
 import { GetServerSideProps } from "next";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+
+import Container from "../components/Container";
+import Card from "../components/CardItem";
+import Head from "next/head";
+
+const Layout = dynamic(() => import("../components/Layout"), {
+  loading: () => <p>Cargando...</p>,
+});
+
+const SliderBox = dynamic(() => import("../components/SliderBox"), {
+  loading: () => <p>Cargando...</p>,
+});
 
 type Movie = {
   id: number;
@@ -72,27 +81,8 @@ export default function ListItems({ movies }: Props) {
           <title>{`${CMS_NAME} - Estrenos ${new Date().getFullYear()}`}</title>
         </Head>
         <Container>
-          {list === "popular" && (
-            <h2 className="text-2xl font-bold text-white tracking-tight leading-tight my-2">
-              Populares
-            </h2>
-          )}
-          {list !== "popular" && (
-            <h2 className="text-2xl font-bold text-white tracking-tight leading-tight my-2">
-              Top Estrenos
-            </h2>
-          )}
-          <div className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5 mb-8">
-            {listMovies.flatMap((movie, i) => (
-              <Card
-                id={listIDS[i]}
-                title={movie}
-                rate={listRates[i]}
-                key={i}
-                poster={`https://www.themoviedb.org/t/p/w220_and_h330_face${listPosters[i]}`}
-              />
-            ))}
-          </div>
+          <SliderBox movies={movies.top} title={"Top Estrenos"} />
+          <SliderBox movies={movies.popular} title={"Populares"} />
         </Container>
       </Layout>
     </>

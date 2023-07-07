@@ -3,7 +3,11 @@ import Footer from "./Footer";
 import Header from "./Header";
 import Meta from "./Meta";
 import { useRouter } from "next/router";
-import Result from "./Result";
+import dynamic from "next/dynamic";
+
+const Result = dynamic(() => import("./Result"), {
+  loading: () => <p>Cargando...</p>,
+});
 
 type movies = {
   id: string | number;
@@ -38,7 +42,7 @@ const Layout = ({ children }: Props) => {
   }, [movieData]);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen overflow-hidden">
       <Meta />
       <Header
         handleData={setmovieData}
@@ -46,13 +50,13 @@ const Layout = ({ children }: Props) => {
         currentMovie={routerID}
       />
 
-      <main className="container mx-auto flex-grow">
+      <main className="container mx-auto mt-20 flex-grow">
         {movieData?.length > 0 && isResult ? (
           <Result movies={movieData} loading={loading} />
         ) : (
           children
         )}
-        <div className="grid grid-cols-1 gap-5 mb-8">
+        <div className="grid grid-cols-1 gap-5 my-8">
           <p>
             Wizpelis, ver o descargar películas full hd gratis en 1 LINK
             Descargar películas. Ver películas online. Cine en casa gratis.

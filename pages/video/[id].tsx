@@ -60,21 +60,26 @@ function Video({
       )}
       {!hasSource && options.length === 0 && (
         <div className="options">
-          <Image src="/ouch.png" width={64} height={64}  alt="info"/>
+          <Image src="/ouch.png" width={64} height={64} alt="info" />
           <p>No disponible por el momento</p>
           <span>Regresa más tarde o revisa nuestro catálogo</span>
-          <Link href={'/'} target="_top" >Volver</Link>
+          <Link href={"/"} target="_top">
+            Volver
+          </Link>
         </div>
       )}
       {hasSource && (
         <div className="iframe-wrapper">
-          <button className="backBtn" onClick={() => setHasSource(false)}><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEwklEQVR4nO2bS4xURRSGC1TQ+MARXBjHR9T4IAIJJiJoRBGXvl0JLAiGFhTBUeMwsICdJoQVighRMcRE4yNBNwY1AUQNDOAKfEdWshDjyGOEqB85cm5yUum+ffvequ57x/6Tm8x0nzr/qdO3Tp2qOuVcF110ERPA2cBtQB+wAfgc+AE4DPypz2H97DOVeQaYJm1dFQFcAMwBPgKOkR9Hga3AY6LTlR3AdcB64DjhIY58BbjWlQ3AFcDbwN8NjP8WeA2oAfdIJ4Ae4Bx9evQz+e4JYCPwXQNdwrEF6C1Dx8cAKxr84vuAZ8U5BfRfCTwH7G/wRgyIA8P2KiOAq4AvPaP+1XE/OwLfHcC7dd6yPTL0QvOlAngIGPIM2Q3c6iJDZxTptMUfwIOxuf+DjlH7KwwDTwGjXZsgXMAS5baxoRabeMDz/AFgUlTSdHumaIC1GIhFtsgj+goYH4WsNbtkBtnu2bY0NMmjwD+GQJKTc11JILaoTQnE1kdCJjdDRvn2MnXec8IOL4u8MYTSb7wxf7ErKXQ42Jiwv9CPBaz2ov0UV3IANwMnjN2rirz6w0bRIlcR6LRsf7jW1w/AB0bJ1+2c5wPlCZKYJXi/VQUTNa1NIuotrmKQrNTrw8RWGm823vvQVRTe1Lg5a6NxXhCZ7ioK3VWysaD5DAY8bhrtcRUHsNf0Z0GWBp/GSimBUcBaXcuvDqk7hVP2IhNsy5L4DKuwBJDLAnf+VWPMUCjdTXh7vWHQODEC7jLCByJ2XrAmlP4M/HZ7bWaaYL8RXB+x8/L/qBD6M9ogW+0J+tME3zCCtUCdf9nr/MZ2J1XAYsP/eprgLiN490jovNoy29jwRZrgISN4dZVfe8+ea4wdv6QJHjGClwTs/K8aX17I+cwr8ubIzpWx5bc0wZNGcExOMjnGioF5Bc8vEpyM7YA5kRwwtx0OOBJpCPwOvAS8mPOZ264hcOj/HgR3GcFZBUnFCes8J2zq0DR4r7FhZ7sToXWddkIriVC/fWUDkXd8OOjRfKZUeKYRPBjQgHpOWBtKfwb+7w3vna0shy8fActhqTFIIDtdY5s12GYa9AU2RpywRk9t8u3Xt84pBRYJPsnSYIFpsNdVHFqpkmB+lgYXeZuit7uKQospEsjQHpe14Zum4VZXUWi5TvPpzwdwkzkOl2A4zVVzS9wejNzQqoL3jPcGgbNctY7GxOYE7+TNn4eNkmWuIgCe9qa+fOsaYJVRdEqCiis5pGbJC+Iriygb600jPwITXEkhS3gv6xtsmvjkKJHZXcbCZeA8WekZO6UK/fpQyh/2iqQkWzzflbdISmoGHwhNUjMEyZtwaVCS/HVBtjhKsCQW2XKPSC45TI1Cls2eybJq9WxaHpu05pXK/iWnyB0olX2yTqnswnYZcL8WKONF3OltyvBs/Q9qy32xueuts+0eog2QwRdQMtSAtxqUy3fmFglnbnsMNLgXNKjFCb0Fz/b76pTHd/7CRB1Dt6RcmTmoR9QLZbdZUlON3qP16dHPZqnMhjrBrXxXZnzovZ9Yl6ZO6JZa+S5NNbg2J6c5Hxe8Nndcdcjh6IWuiuBMnJihe3ObtNr8Jz0uO6WP/P2zficyz2ubzo/vLrpwIxqnAULU637inaGpAAAAAElFTkSuQmCC"/></button>
+          <button className="backBtn" onClick={() => setHasSource(false)}>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEwklEQVR4nO2bS4xURRSGC1TQ+MARXBjHR9T4IAIJJiJoRBGXvl0JLAiGFhTBUeMwsICdJoQVighRMcRE4yNBNwY1AUQNDOAKfEdWshDjyGOEqB85cm5yUum+ffvequ57x/6Tm8x0nzr/qdO3Tp2qOuVcF110ERPA2cBtQB+wAfgc+AE4DPypz2H97DOVeQaYJm1dFQFcAMwBPgKOkR9Hga3AY6LTlR3AdcB64DjhIY58BbjWlQ3AFcDbwN8NjP8WeA2oAfdIJ4Ae4Bx9evQz+e4JYCPwXQNdwrEF6C1Dx8cAKxr84vuAZ8U5BfRfCTwH7G/wRgyIA8P2KiOAq4AvPaP+1XE/OwLfHcC7dd6yPTL0QvOlAngIGPIM2Q3c6iJDZxTptMUfwIOxuf+DjlH7KwwDTwGjXZsgXMAS5baxoRabeMDz/AFgUlTSdHumaIC1GIhFtsgj+goYH4WsNbtkBtnu2bY0NMmjwD+GQJKTc11JILaoTQnE1kdCJjdDRvn2MnXec8IOL4u8MYTSb7wxf7ErKXQ42Jiwv9CPBaz2ov0UV3IANwMnjN2rirz6w0bRIlcR6LRsf7jW1w/AB0bJ1+2c5wPlCZKYJXi/VQUTNa1NIuotrmKQrNTrw8RWGm823vvQVRTe1Lg5a6NxXhCZ7ioK3VWysaD5DAY8bhrtcRUHsNf0Z0GWBp/GSimBUcBaXcuvDqk7hVP2IhNsy5L4DKuwBJDLAnf+VWPMUCjdTXh7vWHQODEC7jLCByJ2XrAmlP4M/HZ7bWaaYL8RXB+x8/L/qBD6M9ogW+0J+tME3zCCtUCdf9nr/MZ2J1XAYsP/eprgLiN490jovNoy29jwRZrgISN4dZVfe8+ea4wdv6QJHjGClwTs/K8aX17I+cwr8ubIzpWx5bc0wZNGcExOMjnGioF5Bc8vEpyM7YA5kRwwtx0OOBJpCPwOvAS8mPOZ264hcOj/HgR3GcFZBUnFCes8J2zq0DR4r7FhZ7sToXWddkIriVC/fWUDkXd8OOjRfKZUeKYRPBjQgHpOWBtKfwb+7w3vna0shy8fActhqTFIIDtdY5s12GYa9AU2RpywRk9t8u3Xt84pBRYJPsnSYIFpsNdVHFqpkmB+lgYXeZuit7uKQospEsjQHpe14Zum4VZXUWi5TvPpzwdwkzkOl2A4zVVzS9wejNzQqoL3jPcGgbNctY7GxOYE7+TNn4eNkmWuIgCe9qa+fOsaYJVRdEqCiis5pGbJC+Iriygb600jPwITXEkhS3gv6xtsmvjkKJHZXcbCZeA8WekZO6UK/fpQyh/2iqQkWzzflbdISmoGHwhNUjMEyZtwaVCS/HVBtjhKsCQW2XKPSC45TI1Cls2eybJq9WxaHpu05pXK/iWnyB0olX2yTqnswnYZcL8WKONF3OltyvBs/Q9qy32xueuts+0eog2QwRdQMtSAtxqUy3fmFglnbnsMNLgXNKjFCb0Fz/b76pTHd/7CRB1Dt6RcmTmoR9QLZbdZUlON3qP16dHPZqnMhjrBrXxXZnzovZ9Yl6ZO6JZa+S5NNbg2J6c5Hxe8Nndcdcjh6IWuiuBMnJihe3ObtNr8Jz0uO6WP/P2zficyz2ubzo/vLrpwIxqnAULU637inaGpAAAAAElFTkSuQmCC" />
+          </button>
           <iframe
             id="player"
             src={currentSource}
             allow="fullscreen"
             width="100%"
-            height="100%"  
+            height="100%"
+            title="Pelicula"
           ></iframe>
         </div>
       )}
