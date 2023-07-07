@@ -96,7 +96,7 @@ const SliderBox = ({ movies, title }: Props) => {
             {movies.map(({ id, title, poster, rate }, index) => (
               <div
                 key={index}
-                className="item-movie flex-shrink-0 bg-gray-200 flex flex-col items-center justify-center relative "
+                className="item-movie min-w-[188px] flex-shrink-0 bg-gray-200 flex flex-col items-center justify-center relative "
               >
                 <Rating rate={rate} />
                 <Link
