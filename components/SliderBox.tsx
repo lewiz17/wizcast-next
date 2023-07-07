@@ -111,8 +111,8 @@ const SliderBox = ({ movies, title }: Props) => {
                           : "/wlogo.png"
                       }
                       alt={title}
-                      width="0"
-                      height="0"
+                      width="220"
+                      height="270"
                       sizes="100vw"
                       className="w-full h-auto"
                       priority

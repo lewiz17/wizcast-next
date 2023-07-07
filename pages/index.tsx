@@ -1,11 +1,8 @@
 import { CMS_NAME } from "../lib/constants";
 import { GetServerSideProps } from "next";
-import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
 import Container from "../components/Container";
-import Card from "../components/CardItem";
 import Head from "next/head";
 
 const Layout = dynamic(() => import("../components/Layout"), {
@@ -35,45 +32,6 @@ type Props = {
 };
 
 export default function ListItems({ movies }: Props) {
-  const [listMovies, setListMovies] = useState<string[]>([]);
-  const [listPosters, setListPosters] = useState<string[]>([]);
-  const [listIDS, setListIDS] = useState<string[]>([]);
-  const [listRates, setListRates] = useState<number[]>([]);
-
-  const router = useRouter();
-  const { list } = router.query;
-
-  useEffect(() => {
-    const { top, popular } = movies;
-    const ids = [];
-    const titles = [];
-    const posters = [];
-    const rates = [];
-
-    if (list === "popular") {
-      Object.entries(popular).map((v, i) => {
-        const { title, poster, id, rate } = v[1];
-        ids.push(id);
-        titles.push(title);
-        posters.push(poster);
-        rates.push(rate);
-      });
-    } else {
-      Object.entries(top).map((v, i) => {
-        const { title, poster, id, rate } = v[1];
-        ids.push(id);
-        titles.push(title);
-        posters.push(poster);
-        rates.push(rate);
-      });
-    }
-
-    setListMovies(titles);
-    setListPosters(posters);
-    setListIDS(ids);
-    setListRates(rates);
-  }, [movies.top, movies.popular]);
-
   return (
     <>
       <Layout>
@@ -81,8 +39,20 @@ export default function ListItems({ movies }: Props) {
           <title>{`${CMS_NAME} - Estrenos ${new Date().getFullYear()}`}</title>
         </Head>
         <Container>
-          <SliderBox movies={movies.top} title={"Top Estrenos"} />
-          <SliderBox movies={movies.popular} title={"Populares"} />
+          {movies.top.length > 0 ? (
+            <SliderBox movies={movies.top} title={"Top Estrenos"} />
+          ) : (
+            <p className="flex justify-center items-center text-2xl">
+              Cargando...
+            </p>
+          )}
+          {movies.popular.length > 0 ? (
+            <SliderBox movies={movies.popular} title={"Populares"} />
+          ) : (
+            <p className="flex justify-center items-center text-2xl">
+              Cargando...
+            </p>
+          )}
         </Container>
       </Layout>
     </>
