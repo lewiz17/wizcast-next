@@ -3,11 +3,21 @@ import Layout from "../../../components/Layout";
 import Head from "next/head";
 import { CMS_NAME } from "../../../lib/constants";
 import Container from "../../../components/Container";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Sharer from "../../../components/Sharer";
-import VideoBox from "../../../components/StreamBox";
 import { formatDuration } from "../../../utils/helpers";
+import Tabber from "../../../components/Tabber";
+import dynamic from "next/dynamic";
+import { getMovieTrailerUrl } from "../../../utils/api";
+
+const VideoBox = dynamic(() => import("../../../components/StreamBox"), {
+  loading: () => (
+    <p className="flex justify-center items-center text-white h-[400px]">
+      Cargando...
+    </p>
+  ),
+});
 
 type MOVIE = {
   imdb_id: number;
@@ -51,6 +61,7 @@ function Movie({
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
   const [currentID, setCurrentID] = useState("");
   const [movieDescription, setMovieDescription] = useState("");
+  const [trailerUrl, setTrailerUrl] = useState<string | null>(null);
 
   const [fullUrl, setFullUrl] = useState("");
 
@@ -61,6 +72,42 @@ function Movie({
     setMovieDescription(movie.overview);
     setFullUrl(currentUrl);
   }, [currentID]);
+
+  useEffect(() => {
+    const fetchTrailerUrl = async () => {
+      const url = await getMovieTrailerUrl(movie.imdb_id?.toString());
+      setTrailerUrl(url);
+    };
+
+    fetchTrailerUrl();
+  }, [movie.imdb_id]);
+
+  if (trailerUrl === null) {
+    return <p>Loading...</p>;
+  }
+
+  const tabs = [
+    {
+      label: "Trailer",
+      content: (
+        <iframe
+          className="w-full lg:min-h-[400px] sm:min-h-[250px]"
+          src={trailerUrl}
+          allowFullScreen={true}
+        ></iframe>
+      ),
+    },
+    {
+      label: "Enlaces",
+      content: movie?.imdb_id ? (
+        <VideoBox videoID={movie.imdb_id?.toString().slice(2)} />
+      ) : (
+        <p className="flex justify-center items-center text-white">
+          Problema al cargar enlaces
+        </p>
+      ),
+    },
+  ];
 
   return (
     <Layout>
@@ -85,7 +132,7 @@ function Movie({
       </Head>
       <Container>
         <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-4 mb-8">
-          <div className="md:block md:w-full p-5 sm:mt-0 lg:mt-10 rounded overflow-hidden shadow md:order-2 lg:order-1">
+          <div className="item-view md:w-full p-5 sm:mt-0 lg:mt-10 rounded-lg overflow-hidden shadow md:order-2 lg:order-1">
             <div className="grid grid-cols-1 sm:grid-cols-1 sm:grid-flow-row md:grid-cols-2 gap-5">
               <Image
                 src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`}
@@ -96,18 +143,20 @@ function Movie({
               />
 
               <div className="info">
-                <h1 className="text-2xl font-bold">{movie.title}</h1>
+                <h1 className="text-2xl font-bold dark:text-white">
+                  {movie.title}
+                </h1>
                 <p className="flex py-2 gap-1">
-                  <span className="text-black">
+                  <span className="text-black dark:text-white">
                     <strong>{`${movie.vote_average.toFixed(1)} / 10`}</strong>
                   </span>
                   <span className="mx-1">{formatDuration(movie.runtime)}</span>
                   <span>{movie.release_date.split("-")[0]}</span>
                 </p>
-                <p className="py-2">
+                <p className="py-2 dark:text-white">
                   <strong>Sinopsis:</strong> {movieDescription}
                 </p>
-                <p className="py-2">
+                <p className="py-2 dark:text-white">
                   <strong>Generos:</strong>{" "}
                   {movie.genres.flatMap((v, i) =>
                     i === movie?.genres.length - 1
@@ -115,16 +164,16 @@ function Movie({
                       : ` ${v.name},`
                   )}
                 </p>
-                <p className="py-2">
+                <p className="py-2 dark:text-white">
                   <strong>Lanzamiento:</strong> {movie.release_date}
                 </p>
               </div>
             </div>
-          </div>
-          <div className="playzone md:block md:w-full p-5 mt-10 rounded overflow-hidden shadow md:order-1 lg:order-2">
-            <h2 className="text-2xl font-bold ">Servidores</h2>
-            <VideoBox videoID={movie.imdb_id?.toString().slice(2)} />
             <Sharer url={fullUrl} />
+          </div>
+          <div className="item-view md:w-full p-5 mt-10 rounded-lg overflow-hidden shadow md:order-1 lg:order-2">
+            <h2 className="text-2xl font-bold dark:text-white">Videos</h2>
+            <Tabber tabs={tabs} />
           </div>
         </div>
       </Container>

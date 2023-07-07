@@ -1,5 +1,12 @@
 const API_KEY = "a0a7e40dc8162ed7e37aa2fc97db5654";
 
+type MovieTrailer = {
+  id: string;
+  key: string;
+  name: string;
+  type: string;
+};
+
 export const searchMovies = async ({ search }) => {
     if (search === '') return null
 
@@ -23,3 +30,23 @@ export const searchMovies = async ({ search }) => {
         throw new Error('Error searching movies')
     }
 }
+
+export const getMovieTrailerUrl = async (movieId: string): Promise<string | null> => {
+  try {
+    const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=es-MX`;
+    const response = await fetch(url);
+    const result = await response.json();
+
+    const videos: MovieTrailer[] = result.results;
+
+    const trailer = videos.find((video) => video.type === 'Trailer');
+    if (trailer) {
+      return `https://www.youtube.com/embed/${trailer.key}`;
+    } else {
+      return null;
+    }
+  } catch (error) {
+    console.error('Error fetching movie trailer:', error);
+    return null;
+  }
+};

@@ -5,15 +5,6 @@
 body.dark {
     background-color: #000;
 }
-body.dark p {
-    color: #fff;
-}
-body.dark .info p {
-    color: #000;
-}
-body.dark .md\:block {
-    background-color: #fff;
-}
 .mitem {
     position: relative;
     display: flex;
@@ -54,7 +45,6 @@ body.dark .md\:block {
     display: flex;
     flex-flow: column;
     gap: 10px;
-    padding: 2rem;
     justify-content: center;
     align-items: center;
     color: #fff;
@@ -135,6 +125,22 @@ header {
 }
 .overlay-toright {
     background: linear-gradient(-90deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+}
+.item-view {
+    border: 1px solid #fff6;
+}
+
+#nprogress .bar {
+    background: #fff !important;
+}
+
+#nprogress .peg {
+    box-shadow: 0 0 10px #fff, 0 0 5px #fff;
+}
+
+#nprogress .spinner-icon {
+    border-top-color: #fff;
+    border-left-color: #fff;
 }
 
 @media screen and (max-width: 768px) {
