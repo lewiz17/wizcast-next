@@ -45,49 +45,28 @@ const SliderBox = ({ movies, title }: Props) => {
       </h2>
 
       <div className="w-full relative">
-        <div className="w-full absolute h-full">
-          <button
-            className="absolute inset-y-0 left-[-8rem] z-20 overlay-toleft w-20 flex justify-center items-center"
-            onClick={() => scrollLeftHandler("left")}
+        <button
+          className="absolute inset-y-0 lg:left-[-8rem] md:left-[-2rem] xs:left-[-2rem] z-20 overlay-toleft w-20 flex justify-center items-center"
+          onClick={() => scrollLeftHandler("left")}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            aria-hidden="true"
+            className="w-6 h-6 text-gray-800 dark:text-white"
+            viewBox="0 0 8 14"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              aria-hidden="true"
-              className="w-6 h-6 text-gray-800 dark:text-white"
-              viewBox="0 0 8 14"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"
-              />
-            </svg>
-          </button>
-          <button
-            className="absolute inset-y-0 right-[-8rem] z-20 overlay-toright w-20 flex justify-center items-center"
-            onClick={() => scrollLeftHandler("right")}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              aria-hidden="true"
-              className="w-6 h-6 text-gray-800 dark:text-white"
-              viewBox="0 0 8 14"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"
-              />
-            </svg>
-          </button>
-        </div>
-        <div className="pt-4 z-10overflow-hidden">
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"
+            />
+          </svg>
+        </button>
+
+        <div className="pt-4 z-10">
           <div
             className="flex overflow-x-visible space-x-4 transition-transform duration-500"
             ref={containerRef}
@@ -124,6 +103,26 @@ const SliderBox = ({ movies, title }: Props) => {
             ))}
           </div>
         </div>
+        <button
+          className="absolute inset-y-0 lg:right-[-8rem] md:right-[-2rem] xs:right-[-2rem] z-20 overlay-toright w-20 flex justify-center items-center"
+          onClick={() => scrollLeftHandler("right")}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            aria-hidden="true"
+            className="w-6 h-6 text-gray-800 dark:text-white"
+            viewBox="0 0 8 14"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   );
