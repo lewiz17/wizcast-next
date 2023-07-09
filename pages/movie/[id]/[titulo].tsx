@@ -149,8 +149,12 @@ function Movie({
                   <span className="text-black dark:text-white">
                     <strong>{`${movie.vote_average.toFixed(1)} / 10`}</strong>
                   </span>
-                  <span className="mx-1">{formatDuration(movie.runtime)}</span>
-                  <span>{movie.release_date.split("-")[0]}</span>
+                  <span className="mx-1 dark:text-white">
+                    {formatDuration(movie.runtime)}
+                  </span>
+                  <span className="dark:text-white">
+                    {movie.release_date.split("-")[0]}
+                  </span>
                 </p>
                 <p className="py-2 dark:text-white">
                   <strong>Sinopsis:</strong> {movieDescription}

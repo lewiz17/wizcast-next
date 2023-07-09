@@ -44,7 +44,7 @@ const SliderBox = ({ movies, title }: Props) => {
         {title}
       </h2>
 
-      <div className="w-screen relative">
+      <div className="w-screen relative px-10">
         <button
           className="absolute inset-y-0 px-2 z-20 left-[0px] overlay-toleft w-20 flex justify-center items-center"
           onClick={() => scrollLeftHandler("left")}
