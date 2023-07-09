@@ -39,14 +39,14 @@ const SliderBox = ({ movies, title }: Props) => {
   };
 
   return (
-    <div className="flex flex-col relative">
-      <h2 className="text-2xl font-bold text-white tracking-tight leading-tight mt-3">
+    <div className="flex flex-col relative mt-10">
+      <h2 className="text-2xl font-bold text-white tracking-tight leading-tight mt-3 px-10">
         {title}
       </h2>
 
-      <div className="w-full relative">
+      <div className="w-screen relative">
         <button
-          className="absolute inset-y-0 lg:left-[-8rem] md:left-[-2rem] xs:left-[-2rem] z-20 overlay-toleft w-20 flex justify-center items-center"
+          className="absolute inset-y-0 px-2 z-20 left-[0px] overlay-toleft w-20 flex justify-center items-center"
           onClick={() => scrollLeftHandler("left")}
         >
           <svg
@@ -104,7 +104,7 @@ const SliderBox = ({ movies, title }: Props) => {
           </div>
         </div>
         <button
-          className="absolute inset-y-0 lg:right-[-8rem] md:right-[-2rem] xs:right-[-2rem] z-20 overlay-toright w-20 flex justify-center items-center"
+          className="absolute inset-y-0 px-2 z-20 right-[0px] overlay-toright w-20 flex justify-center items-center"
           onClick={() => scrollLeftHandler("right")}
         >
           <svg

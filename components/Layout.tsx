@@ -50,7 +50,7 @@ const Layout = ({ children }: Props) => {
         currentMovie={routerID}
       />
 
-      <main className="container mx-auto mt-20 flex-grow">
+      <main className="mx-auto mt-20 flex-grow">
         {movieData?.length > 0 && isResult ? (
           <Result movies={movieData} loading={loading} />
         ) : (

@@ -9,6 +9,11 @@ type NavProps = {
 const Navbar: React.FC<NavProps> = ({ position }: NavProps) => {
   return (
     <nav className="flex items-center justify-end space-x-4">
+      <Link href={"/"} legacyBehavior>
+        <a className="text-lg font-medium leading-tight hover:text-blue text-white">
+          Inicio
+        </a>
+      </Link>
       <div className="select-item group relative cursor-pointer">
         {position === "header" ? (
           <>

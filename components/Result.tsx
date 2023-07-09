@@ -18,7 +18,7 @@ type Props = {
 
 const Result: React.FC<Props> = ({ movies, loading }) => {
   return (
-    <div className="result-wrap">
+    <div className="container mx-auto result-wrap">
       <h2 className="text-2xl font-bold tracking-tight leading-tight my-2 text-white">
         Resultados
       </h2>

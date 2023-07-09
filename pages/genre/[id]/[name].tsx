@@ -57,7 +57,7 @@ function Genre({
         <title>{`${CMS_NAME} - ${router.query.name}`}</title>
       </Head>
       <Container>
-        <div className="result-wrap">
+        <div className="container mx-auto result-wrap">
           <h2 className="text-2xl font-bold tracking-tight leading-tight my-2 text-white">
             {`Genero ${router.query.name}`}
           </h2>

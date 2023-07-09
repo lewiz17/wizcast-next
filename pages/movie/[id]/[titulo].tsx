@@ -130,7 +130,7 @@ function Movie({
         <meta name="twitter:url" content={fullUrl} />
       </Head>
       <Container>
-        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-4 mb-8">
+        <div className="container mx-auto grid md:grid-cols-1 lg:grid-cols-2 gap-4 mb-8">
           <div className="item-view md:w-full p-5 sm:mt-0 lg:mt-10 rounded-lg overflow-hidden shadow md:order-2 lg:order-1">
             <div className="grid grid-cols-1 sm:grid-cols-1 sm:grid-flow-row md:grid-cols-2 gap-5">
               <Image
