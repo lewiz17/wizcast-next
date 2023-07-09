@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
           </Link>
         </h2>
         <div className="bottom-menu md:flex xs:hidden sm:hidden">
-          <Navbar />
+          <Navbar position="" />
         </div>
       </div>
     </footer>

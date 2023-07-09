@@ -84,19 +84,6 @@ function Movie({
 
   const tabs = [
     {
-      label: "Trailer",
-      content:
-        trailerUrl === "" ? (
-          <p className="flex text-center text-white">Sin trailer latino</p>
-        ) : (
-          <iframe
-            className="w-full lg:min-h-[400px] sm:min-h-[250px]"
-            src={trailerUrl}
-            allowFullScreen={true}
-          ></iframe>
-        ),
-    },
-    {
       label: "Enlaces",
       content: movie?.imdb_id ? (
         <VideoBox videoID={movie.imdb_id?.toString().slice(2)} />
@@ -105,6 +92,19 @@ function Movie({
           Problema al cargar enlaces
         </p>
       ),
+    },
+    {
+      label: "Trailer",
+      content:
+        trailerUrl === "" ? (
+          <p className="flex text-center text-white">Trailer no encontrado</p>
+        ) : (
+          <iframe
+            className="w-full lg:min-h-[400px] sm:min-h-[250px]"
+            src={trailerUrl}
+            allowFullScreen={true}
+          ></iframe>
+        ),
     },
   ];
 

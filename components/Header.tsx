@@ -138,7 +138,7 @@ const Header: React.FC<Props> = ({
               placeholder="Vengadores, Spiderman..."
             />
           </div>
-          <Navbar />
+          <Navbar position="header" />
         </div>
       </div>
     </header>

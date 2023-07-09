@@ -33,7 +33,7 @@ export const searchMovies = async ({ search }) => {
 
 export const getMovieTrailerUrl = async (movieId: string): Promise<string | null> => {
   try {
-    const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=es-MX`;
+    const url = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}`;
     const response = await fetch(url);
     const result = await response.json();
 
