@@ -138,6 +138,7 @@ function Movie({
                 alt={movie.title}
                 width={260}
                 height={390}
+                className="item-view"
                 priority
               />
 
