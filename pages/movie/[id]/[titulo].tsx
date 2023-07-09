@@ -68,7 +68,7 @@ function Movie({
   useEffect(() => {
     const currentUrl = window.location.href;
 
-    setCurrentID(movie.imdb_id?.toString().slice(2));
+    setCurrentID(movie.imdb_id?.toString());
     setMovieDescription(movie.overview);
     setFullUrl(currentUrl);
   }, [currentID]);
@@ -76,26 +76,25 @@ function Movie({
   useEffect(() => {
     const fetchTrailerUrl = async () => {
       const url = await getMovieTrailerUrl(movie.imdb_id?.toString());
-      setTrailerUrl(url);
+      setTrailerUrl(url === null ? "" : url);
     };
 
     fetchTrailerUrl();
   }, [movie.imdb_id]);
 
-  if (trailerUrl === null) {
-    return <p>Loading...</p>;
-  }
-
   const tabs = [
     {
       label: "Trailer",
-      content: (
-        <iframe
-          className="w-full lg:min-h-[400px] sm:min-h-[250px]"
-          src={trailerUrl}
-          allowFullScreen={true}
-        ></iframe>
-      ),
+      content:
+        trailerUrl === "" ? (
+          <p className="flex text-center text-white">Sin trailer latino</p>
+        ) : (
+          <iframe
+            className="w-full lg:min-h-[400px] sm:min-h-[250px]"
+            src={trailerUrl}
+            allowFullScreen={true}
+          ></iframe>
+        ),
     },
     {
       label: "Enlaces",

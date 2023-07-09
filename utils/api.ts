@@ -39,8 +39,9 @@ export const getMovieTrailerUrl = async (movieId: string): Promise<string | null
 
     const videos: MovieTrailer[] = result.results;
 
-    const trailer = videos.find((video) => video.type === 'Trailer');
-    if (trailer) {
+    const trailer = videos.length> 0 ? videos.find((video) => video.type === 'Trailer') : "";
+
+    if (trailer !== '') {
       return `https://www.youtube.com/embed/${trailer.key}`;
     } else {
       return null;
