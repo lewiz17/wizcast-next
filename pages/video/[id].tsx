@@ -41,7 +41,7 @@ function Video({
   };
 
   return (
-    <div className="wrapper item-view">
+    <div className="wrapper item-view min-h-[320px]">
       {!hasSource && options.length > 0 && (
         <ul className="options items-center py-5">
           {Array.from({ length: options.length }).map((v, i) => {

@@ -129,7 +129,7 @@ const Header: React.FC<Props> = ({
         <div className="top-menu md:flex xs:hidden sm:hidden md:gap-5 lg:md:gap-4">
           <div className="relative flex items-center w-full h-10 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
             <input
-              className="peer h-10 w-full outline-none text-sm text-gray-700 pr-2"
+              className="peer h-10 w-full outline-none text-sm text-black pr-2"
               type="search"
               id="search"
               onChange={handleChange}
