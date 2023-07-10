@@ -10,14 +10,14 @@ const Navbar: React.FC<NavProps> = ({ position }: NavProps) => {
   return (
     <nav className="flex items-center justify-end space-x-4">
       <Link href={"/"} legacyBehavior>
-        <a className="text-lg font-medium leading-tight hover:text-blue text-white">
+        <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
           Inicio
         </a>
       </Link>
       <div className="select-item group relative cursor-pointer">
         {position === "header" ? (
           <>
-            <span className="text-lg font-medium leading-tight hover:text-blue text-white pb-3">
+            <span className="text-lg leading-tight hover:opacity-[0.8] text-white pb-3">
               Generos
             </span>
             <ul className="genres hidden group-hover:block absolute py-2 rounded bg-white mt-2 h-[500px] overflow-y-auto">
@@ -43,19 +43,21 @@ const Navbar: React.FC<NavProps> = ({ position }: NavProps) => {
         )}
       </div>
       <Link href={"https://wizcast.netlify.app"} legacyBehavior>
-        <a className="text-lg font-medium leading-tight hover:text-blue text-white">
+        <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
           Canales
         </a>
       </Link>
       <Link href="/about" legacyBehavior>
-        <a className="text-lg font-medium leading-tight hover:text-blue text-white">
+        <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
           Acerca
         </a>
       </Link>
-      <Link href={"https://ko-fi.com/wiz2023"} legacyBehavior>
-        <a className="text-lg font-medium leading-tight hover:text-blue text-white">
-          Apóyame
-        </a>
+      <Link
+        title="Mantengamos la plataforma activa, Envia tu grano de arena aquí"
+        href={"/donate"}
+        className="ml-2 text-black font-bold bg-white rounded-full py-2 px-4 hover:opacity-[0.8]"
+      >
+        Apoya
       </Link>
     </nav>
   );

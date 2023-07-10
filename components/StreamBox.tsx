@@ -12,7 +12,7 @@ const VideoBox: React.FC<VIDEO> = ({ videoID }) => {
         src={`/video/${videoID}`}
         allow="fullscreen"
         width={"100%"}
-        height={"400"}
+        height={"340"}
         title="Pelicula"
       ></iframe>
     ),

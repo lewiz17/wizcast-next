@@ -40,26 +40,31 @@ body.dark {
 }
 .wrapper {
     background: black;
-    padding: 1em;
 }
 .wrapper .options {
     display: flex;
-    flex-flow: column;
-    gap: 10px;
+    flex-flow: wrap;
+    gap: 40px;
     justify-content: center;
-    align-items: center;
     color: #fff;
 }
 .wrapper .options > p {
     font-size: 25px;
 }
 .wrapper .options li {
-    color: #fff;
     cursor: pointer;
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
+    font-weight: bold;
+    font-size: 18px;
     gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+.wrapper .options li + li {
+    font-weight: normal;
+    width: auto;
+    font-size: 16px;
 }
 .wrapper .options li img {
     max-height: 1rem;

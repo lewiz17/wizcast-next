@@ -56,28 +56,27 @@ function Genre({
       <Head>
         <title>{`${CMS_NAME} - ${router.query.name}`}</title>
       </Head>
-      <Container>
-        <div className="container mx-auto result-wrap">
-          <h2 className="text-2xl font-bold tracking-tight leading-tight my-2 text-white">
-            {`Genero ${router.query.name}`}
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-5 mb-8">
-            {genreMovies.flatMap((movie, i) => (
-              <Card
-                id={movie.id}
-                title={movie.title}
-                key={movie.id}
-                poster={
-                  movie.poster !== null
-                    ? `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster}`
-                    : "/wlogo.png"
-                }
-                rate={movie.rate}
-              />
-            ))}
-          </div>
+
+      <div className="container mx-auto result-wrap my-10">
+        <h2 className="text-2xl font-bold tracking-tight leading-tight my-2 text-white">
+          {`Genero ${router.query.name}`}
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-5 mb-8">
+          {genreMovies.flatMap((movie, i) => (
+            <Card
+              id={movie.id}
+              title={movie.title}
+              key={movie.id}
+              poster={
+                movie.poster !== null
+                  ? `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster}`
+                  : "/wlogo.png"
+              }
+              rate={movie.rate}
+            />
+          ))}
         </div>
-      </Container>
+      </div>
     </Layout>
   );
 }

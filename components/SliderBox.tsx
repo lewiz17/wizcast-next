@@ -39,14 +39,13 @@ const SliderBox = ({ movies, title }: Props) => {
   };
 
   return (
-    <div className="flex flex-col relative mt-10">
+    <div className="flex flex-col relative mt-5">
       <h2 className="text-2xl font-bold text-white tracking-tight leading-tight mt-3 px-10">
         {title}
       </h2>
-
-      <div className="w-screen relative px-10">
+      <div className="flex absolute w-[80px] h-[50px] right-[30px] justify-between">
         <button
-          className="absolute inset-y-0 px-2 z-20 left-[0px] overlay-toleft w-20 flex justify-center items-center"
+          className="inset-y-0 z-20 left-[0px] w-20 flex justify-center items-center"
           onClick={() => scrollLeftHandler("left")}
         >
           <svg
@@ -65,7 +64,29 @@ const SliderBox = ({ movies, title }: Props) => {
             />
           </svg>
         </button>
+        <button
+          className="inset-y-0 z-20 right-[0px] w-20 flex justify-center items-center"
+          onClick={() => scrollLeftHandler("right")}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            aria-hidden="true"
+            className="w-6 h-6 text-gray-800 dark:text-white"
+            viewBox="0 0 8 14"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"
+            />
+          </svg>
+        </button>
+      </div>
 
+      <div className="w-screen relative px-10 overflow-x-scroll">
         <div className="pt-4 z-10">
           <div
             className="flex overflow-x-visible space-x-4 transition-transform duration-500"
@@ -103,26 +124,6 @@ const SliderBox = ({ movies, title }: Props) => {
             ))}
           </div>
         </div>
-        <button
-          className="absolute inset-y-0 px-2 z-20 right-[0px] overlay-toright w-20 flex justify-center items-center"
-          onClick={() => scrollLeftHandler("right")}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            aria-hidden="true"
-            className="w-6 h-6 text-gray-800 dark:text-white"
-            viewBox="0 0 8 14"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"
-            />
-          </svg>
-        </button>
       </div>
     </div>
   );

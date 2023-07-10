@@ -41,6 +41,9 @@ export default function ListItems({ movies }: Props) {
           <title>{`${CMS_NAME} - Estrenos ${new Date().getFullYear()}`}</title>
         </Head>
         <Container>
+          <h2 className="text-[20px] container mt-20 flex justify-center text-2xl text-white font-bold mx-auto animate-bounce">
+            Pronto canal en telegram!
+          </h2>
           {movies.top.length > 0 ? (
             <SliderBox movies={movies.top} title={"Top Estrenos"} />
           ) : (
