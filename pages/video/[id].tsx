@@ -3,19 +3,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BackIcon, VideoIcon } from "../../components/Icons";
+import { memoize } from "lodash";
 
-type VIDEO = string;
+// Resto del código
+
+type VIDEO = string | string[];
 
 type ItemVideoProps = {
   items: VIDEO[];
 };
 
+const fetchItems = async (id: VIDEO) => {
+  const res = await fetch(`https://wizpelis.onrender.com/api/tt${id}`);
+  const items = await res.json();
+  return items;
+};
+
+const memoizedFetchItems = memoize(fetchItems);
+
 export const getServerSideProps: GetServerSideProps<ItemVideoProps> = async (
   context
 ) => {
   const { id } = context.params!;
-  const res = await fetch(`https://api-m1.vercel.app/api/tt${id}`);
-  const items = await res.json();
+  const items = await memoizedFetchItems(id);
 
   return {
     props: {
@@ -67,7 +77,7 @@ function Video({
         </ul>
       )}
       {!hasSource && options.length === 0 && (
-        <div className="options">
+        <div className="no-options">
           <Image src="/ouch.png" width={64} height={64} alt="info" />
           <p>No disponible por el momento</p>
           <span>Regresa más tarde o revisa nuestro catálogo</span>

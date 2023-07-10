@@ -48,6 +48,14 @@ body.dark {
     justify-content: center;
     color: #fff;
 }
+.wrapper .no-options {
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 98vh;
+}
+
 .wrapper .options > p {
     font-size: 25px;
 }
