@@ -19,13 +19,13 @@ const fetchItems = async (id: VIDEO) => {
   return items;
 };
 
-const memoizedFetchItems = memoize(fetchItems);
+//const memoizedFetchItems = memoize(fetchItems);
 
 export const getServerSideProps: GetServerSideProps<ItemVideoProps> = async (
   context
 ) => {
   const { id } = context.params!;
-  const items = await memoizedFetchItems(id);
+  const items = await fetchItems(id);
 
   return {
     props: {
