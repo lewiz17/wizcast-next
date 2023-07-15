@@ -10,10 +10,12 @@
     "postcss": "postcss styles/main.css -o .next/static/css/main.css"
   },
   "dependencies": {
+    "@types/axios": "^0.14.0",
     "@types/lodash": "^4.14.195",
     "@types/node": "20.0.0",
     "@types/react": "18.2.5",
     "@types/react-dom": "18.2.4",
+    "axios": "^1.4.0",
     "eslint": "8.39.0",
     "eslint-config-next": "13.4.1",
     "just-debounce-it": "^3.2.0",

@@ -14,7 +14,7 @@ type ItemVideoProps = {
 };
 
 const fetchItems = async (id: VIDEO) => {
-  const res = await fetch(`https://wizpelis.onrender.com/api/tt${id}`);
+  const res = await fetch(`https://api-m1.vercel.app/api/tt${id}`);
   const items = await res.json();
   return items;
 };
