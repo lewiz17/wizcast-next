@@ -15,19 +15,21 @@ type Movie = {
   rate: number;
 };
 
+type Relates = {
+  moviesRelates: Array<{
+    id: number;
+    overview: string;
+    poster_path: string;
+    release_date: string;
+    title: string;
+    vote_average: number;
+  }>;
+};
+
 type Props = {
   movies?: Movie[];
   title: string;
-  relates?: {
-    moviesRelates: [
-      {
-        id: number;
-        poster_path: string;
-        title: string;
-        vote_average: number;
-      }
-    ];
-  };
+  relates?: Relates;
 };
 
 const settings = {

@@ -1,20 +1,21 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  InferGetServerSidePropsType,
+} from "next";
 import Layout from "../../../components/Layout";
 import Head from "next/head";
 import { CMS_NAME } from "../../../lib/constants";
 import Container from "../../../components/Container";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Sharer from "../../../components/Sharer";
 import { formatDuration, formatRate } from "../../../utils/helpers";
 import Tabber from "../../../components/Tabber";
 import dynamic from "next/dynamic";
-import { getMovieTrailerUrl } from "../../../utils/api";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import Error from "next/error";
-import { type } from "os";
 import SliderBox from "../../../components/SliderBox";
+import { getData } from "../../api/movie.json";
 
 const VideoBox = dynamic(() => import("../../../components/StreamBox"), {
   loading: () => (
@@ -24,55 +25,65 @@ const VideoBox = dynamic(() => import("../../../components/StreamBox"), {
   ),
 });
 
+interface MovieGenre {
+  id?: number;
+  name?: string;
+}
+
+type MOVIE_REL = {
+  genre_ids: number[];
+  id: number;
+  overview: string;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  vote_average: number;
+};
+
 type MOVIE = {
   id: number;
   title: string;
-  genres: [
-    {
-      id: number;
-      name: string;
-    }
-  ];
-  date_release: string;
-  poster: string;
   overview: string;
-  rating: number;
+  poster: string;
   duration: number;
+  rating: number;
+  date_release;
   trailer: string;
+  castData: object[];
+  moviesRelates: MOVIE_REL[];
+  genres: MovieGenre[];
   sources: object;
+};
+
+type Relates = {
+  moviesRelates: Array<{
+    id: number;
+    overview: string;
+    poster_path: string;
+    release_date: string;
+    title: string;
+    vote_average: number;
+  }>;
 };
 
 type MovieProps = {
   movie: MOVIE;
-  related: MOVIERELATED;
-};
-
-type MOVIERELATED = {
-  moviesRelates: [
-    {
-      id: number;
-      poster_path: string;
-      title: string;
-      vote_average: number;
-    }
-  ];
+  related: Relates;
 };
 
 export const getServerSideProps: GetServerSideProps<MovieProps> = async (
-  context
+  context: GetServerSidePropsContext
 ) => {
   const { id } = context.params!;
 
-  const movieData = await fetch(
-    `http://localhost:3000/api/movie.json?id=${id}`
-  );
+  const movieData = await getData(id);
 
-  if (!movieData.ok) {
+  if (!movieData) {
     <Error statusCode={500} />;
   }
 
-  const movie = await movieData.json();
-  const related = { ...movie };
+  const movie = movieData;
+  const related = movieData;
 
   return {
     props: {

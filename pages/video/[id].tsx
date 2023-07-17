@@ -4,18 +4,17 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BackIcon, VideoIcon } from "../../components/Icons";
 import { memoize } from "lodash";
+import { getData } from "../api/movie.json";
 
 // Resto del código
 
 type MovieData = {
-  items: {
-    sources: ItemVideoProps;
-  };
+  items: ItemVideoProps;
 };
 
 type ItemVideoProps = {
-  vip: string;
-  fast: string;
+  vip?: string;
+  fast?: string;
   normal?: string;
   slow?: string;
 };
@@ -23,10 +22,10 @@ type ItemVideoProps = {
 export const getServerSideProps: GetServerSideProps<MovieData> = async (
   context
 ) => {
-  const { id, req } = context.params!;
+  const { id } = context.params!;
 
-  const resItems = await fetch(`http://localhost:3000/api/movie.json?id=${id}`);
-  const items = await resItems.json();
+  const resItems = (await getData(id)).sources;
+  const items: ItemVideoProps = resItems;
 
   return {
     props: {
@@ -46,7 +45,7 @@ function Video({
   const [hasSource, setHasSource] = useState(false);
 
   useEffect(() => {
-    setOptions(items.sources);
+    setOptions(items);
   }, [options]);
 
   const handleOption = (pos) => {

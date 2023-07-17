@@ -1,5 +1,5 @@
 type ErrorProps = {
-  statusCode: number;
+  statusCode?: number;
 };
 
 function Error({ statusCode }: ErrorProps) {
