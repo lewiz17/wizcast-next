@@ -34,35 +34,55 @@ type Props = {
 
 const settings = {
   dots: false,
-  infinite: true,
   speed: 500,
   slidesToShow: 6,
   slidesToScroll: 1,
   lazyload: "ondemand",
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 6,
+        infinite: true,
+      },
+    },
+    {
+      breakpoint: 770,
+      settings: {
+        slidesToShow: 4,
+        dots: true,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 479,
+      settings: "unslick",
+    },
+  ],
 };
 
 const SliderBox = ({ movies, relates, title }: Props) => {
   return (
     <div className="flex flex-col relative mt-5">
       {movies && (
-        <h2 className="text-2xl font-bold text-white tracking-tight leading-tight mt-3">
+        <h2 className="text-2xl xs:px-[3%] font-bold text-white tracking-tight leading-tight mt-3">
           {title}
         </h2>
       )}
       {relates && relates.moviesRelates.length > 6 && (
-        <h2 className="text-2xl font-bold text-white tracking-tight leading-tight mt-3">
+        <h2 className="text-2xl xs:px-[3%] font-bold text-white tracking-tight leading-tight mt-3">
           {title}
         </h2>
       )}
       <div className="container mx-auto">
-        <Slider {...settings}>
+        <Slider {...settings} className="flex flex-wrap gap-y-[10px] px-[3%]">
           {relates &&
             relates.moviesRelates.length > 6 &&
             relates.moviesRelates.map(
               ({ id, title, poster_path, vote_average }, index) => (
                 <div
                   key={index}
-                  className="item-movie w-[200px] flex pt-2 pr-3 hover:opacity-50"
+                  className="item-movie w-[200px] xs:w-[50%] xs:p-[0px] flex flex-col  pt-2 pr-3 hover:opacity-50"
                 >
                   <Link href={`/movie/${id}/${formatTitle(title)}`}>
                     <Image
@@ -96,7 +116,7 @@ const SliderBox = ({ movies, relates, title }: Props) => {
             movies.map(({ id, title, poster, rate }, index) => (
               <div
                 key={index}
-                className="item-movie w-[200px] flex pr-3 hover:opacity-50 pt-2"
+                className="item-movie w-[200px] xs:w-[50%] xs:p-[0px] flex flex-col pr-3 hover:opacity-50 pt-2"
               >
                 <Link href={`/movie/${id}/${formatTitle(title)}`}>
                   <Image
