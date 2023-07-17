@@ -30,3 +30,25 @@ export const BackIcon = () => {
     </svg>
   );
 };
+
+export const StarIcon = (props) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="si-glyph si-glyph-circle-star"
+      viewBox="0 0 16 16"
+      width={16}
+      height={16}
+      style={{ display: "inline-flex" }}
+      {...props}
+    >
+      <title>{"1047"}</title>
+      <path
+        fill="#ffd438"
+        fillRule="evenodd"
+        d="M8 .062c-4.419 0-8 3.559-8 7.947 0 4.39 3.581 7.949 8 7.949 4.418 0 8-3.56 8-7.949C16 3.621 12.418.062 8 .062Zm3.108 11.963L8.021 9.902l-3.088 2.123L6.112 8.59 3.024 6.465h3.817l1.18-3.435 1.18 3.435h3.816L9.93 8.59l1.178 3.435Z"
+        className="si-glyph-fill"
+      />
+    </svg>
+  );
+};

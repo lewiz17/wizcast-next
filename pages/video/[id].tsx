@@ -7,25 +7,26 @@ import { memoize } from "lodash";
 
 // Resto del código
 
-type VIDEO = string | string[];
+type MovieData = {
+  items: {
+    sources: ItemVideoProps;
+  };
+};
 
 type ItemVideoProps = {
-  items: VIDEO[];
+  vip: string;
+  fast: string;
+  normal?: string;
+  slow?: string;
 };
 
-const fetchItems = async (id: VIDEO) => {
-  const res = await fetch(`https://api-m1.vercel.app/api/tt${id}`);
-  const items = await res.json();
-  return items;
-};
-
-//const memoizedFetchItems = memoize(fetchItems);
-
-export const getServerSideProps: GetServerSideProps<ItemVideoProps> = async (
+export const getServerSideProps: GetServerSideProps<MovieData> = async (
   context
 ) => {
-  const { id } = context.params!;
-  const items = await fetchItems(id);
+  const { id, req } = context.params!;
+
+  const resItems = await fetch(`http://localhost:3000/api/movie.json?id=${id}`);
+  const items = await resItems.json();
 
   return {
     props: {
@@ -37,26 +38,29 @@ export const getServerSideProps: GetServerSideProps<ItemVideoProps> = async (
 function Video({
   items,
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
-  const [options, setOptions] = useState([]);
+  const [options, setOptions] = useState<ItemVideoProps>({
+    vip: "",
+    fast: "",
+  });
   const [currentSource, setSource] = useState("");
   const [hasSource, setHasSource] = useState(false);
 
   useEffect(() => {
-    setOptions(items);
+    setOptions(items.sources);
   }, [options]);
 
   const handleOption = (pos) => {
     setHasSource(true);
-    setSource(options[pos - 1]);
+    setSource(options[pos]);
   };
 
   return (
     <div className="wrapper item-view min-h-[320px]">
-      {!hasSource && options.length > 0 && (
+      {!hasSource && options && (
         <ul className="options items-center py-5">
-          {Array.from({ length: options.length }).map((v, i) => {
+          {Object.keys(options).map((v, i) => {
             return i == 0 ? (
-              <li onClick={() => handleOption(i + 1)} key={i}>
+              <li onClick={() => handleOption(v)} key={i} data-server={v}>
                 <img
                   className="w-[24px] object-cover"
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACDUlEQVR4nO1YMUscQRj9Iuz3aZB0AbGQC9inSJcqTULEXxCrraySOpBK/AsJeFsFUiT/wWa+yYlYWKSwFAUVCSm1MiE+8bjb827Xvdvd2b0smQev2/nmvZn3plgiDw8PD49/EYhoFW06wxadIqIVahpwK7xN6PGEmgY03kBEKz0TJ2jTa2oiYOUVVF42snwAPYDKPlR+ADRTmx44yi40WIMVdGmCN4XnbOXU48IA9imA5cPYgPIRDojrMRCVLx+MvIvFD/i20KyohB6obGKX5nKtMTQPyz8TBpR/YY8e5Zp1QAzlD7lEDw1Q/twtYmd2aeI1VjZSTr/PjYnn7MwtwvLurYbiBqyE8ekZeTH2++/zj6FykWHgEubhwvh9Z59D+by3JixuwEjrzuZ/oPw+83vlTxni+1H6mD1D1qFyNXjBpFXYQHeg5eNhEfwlrRew8mRo43sNyG8YWU7Nu+VoZK/jUuLjHiRFJHoBlW9jxQ/4NTXvNnFbxfOf6EHaq9LrBTrBU6j8ndiAyjU6wbOUvI8yLG9guAejQq66mbW8neP0+/HYTuR9lGXzf38P6iCXz39mD6qmOsj/2B5Uy9CdgaweVEXjKP/T6QG7y/9UeqAO8z+lHoTuDdTZA+M4//X2gN3nv9YeaAX5r7kHYXUG6uiBqSj/sYnBH4JKSFXDG2j7G/jPI+Th4eHhQXdwA668OoF3W4hAAAAAAElFTkSuQmCC"
@@ -65,9 +69,10 @@ function Video({
               </li>
             ) : (
               <li
-                onClick={() => handleOption(i + 1)}
+                onClick={() => handleOption(v)}
                 key={i}
                 className="text-black bg-white rounded-full py-2 px-3 hover:opacity-[0.8]"
+                data-server={v}
               >
                 <VideoIcon />
                 Servidor {i}
@@ -76,7 +81,7 @@ function Video({
           })}
         </ul>
       )}
-      {!hasSource && options.length === 0 && (
+      {!hasSource && Object.keys(options).length == 0 && (
         <div className="no-options">
           <Image src="/ouch.png" width={64} height={64} alt="info" />
           <p>No disponible por el momento</p>

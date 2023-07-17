@@ -1,22 +1,22 @@
 import React, { useMemo } from "react";
 
 type VIDEO = {
-  videoID: string;
+  video: number;
 };
 
-const VideoBox: React.FC<VIDEO> = ({ videoID }) => {
+const VideoBox: React.FC<VIDEO> = ({ video }) => {
   const memoizedIframe = useMemo(
     () => (
       <iframe
         className="py-2"
-        src={`/video/${videoID}`}
+        src={`/video/${video}`}
         allow="fullscreen"
         width={"100%"}
         height={"340"}
         title="Pelicula"
       ></iframe>
     ),
-    [videoID]
+    [video]
   );
 
   return memoizedIframe;

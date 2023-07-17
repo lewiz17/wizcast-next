@@ -2,6 +2,10 @@ export const formatTitle = (title) => {
     return String(title).toLocaleLowerCase().replaceAll(" ", "-");
 }
 
+export const formatRate = (num) => {
+    return num != undefined ? num.toFixed(1): 0;
+}
+
 export const formatDuration = (number) => {
     const runtime = number;
     const hours = Math.floor(runtime / 60);
