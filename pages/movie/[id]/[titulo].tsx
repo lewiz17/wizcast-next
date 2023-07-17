@@ -52,7 +52,6 @@ type MOVIE = {
   castData: object[];
   moviesRelates: MOVIE_REL[];
   genres: MovieGenre[];
-  sources: object;
 };
 
 type Relates = {

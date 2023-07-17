@@ -46,18 +46,6 @@ export async function getData(id) {
     const rating: number = dataMovie.data.vote_average;
     const genres: MovieGenre[] = dataMovie.data.genres;
 
-    // Utiliza los datos de la primera respuesta en la siguiente solicitud a otra API
-    const dataServers: AxiosResponse = await axios.get(`https://api-m1.vercel.app/api/${imdbID}`);
-
-    const servers: object[] = dataServers.data;
-
-    const links: object = servers.length > 0 ? {
-      vip: servers[0].toString(),
-      fast: servers[1].toString(),
-      normal: servers[2].toString(),
-      slow: servers[3].toString()
-    }: [];
-
     const dataVideos: AxiosResponse = await axios.get(`https://api.themoviedb.org/3/movie/${id}/videos`, {
       params: {
         api_key: 'a0a7e40dc8162ed7e37aa2fc97db5654'
@@ -97,6 +85,7 @@ export async function getData(id) {
 
     const movieJSON = {
       id: movieId,
+      imdbID,
       title: movieTitle,
       overview,
       poster,
@@ -106,11 +95,37 @@ export async function getData(id) {
       trailer: trailerKey,
       castData: castData,
       moviesRelates: relatedFiltered,
-      genres,
-      sources:links 
+      genres
     };
 
     return movieJSON;
+}
+
+export async function getSourcesVideo(id) {
+
+  const imdbID = (await getData(id)).imdbID;
+
+  const dataServers: AxiosResponse = await axios.get(`https://api-m1.vercel.app/api/${imdbID}`);
+
+  const servers: object[] = dataServers.data;
+
+  const links: object = servers.length > 3 ? {
+    vip: servers[0],
+    fast: servers[1],
+    normal: servers[2],
+    slow: servers[3]
+  }: servers.length > 0 ? {
+    vip: servers[0],
+    fast: servers[1],
+    normal: servers[2]
+  }: []
+
+  const videosSources = {
+    id,
+    sources:links 
+  };
+
+  return videosSources;
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

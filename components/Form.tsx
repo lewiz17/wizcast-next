@@ -15,14 +15,15 @@ const initialFormValues: FormValues = {
 export default function ContactForm() {
   const [formValues, setFormValues] = useState<FormValues>(initialFormValues);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = event.target;
     setFormValues((prevState) => ({ ...prevState, [name]: value }));
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(formValues);
     setFormValues(initialFormValues);
   };
 
@@ -57,7 +58,9 @@ export default function ContactForm() {
           onChange={handleInputChange}
         />
       </label>
-      <button className="text-white bg-blue hover:bg-gray font-bold py-2 px-4 rounded">Enviar</button>
+      <button className="text-white bg-blue hover:bg-gray font-bold py-2 px-4 rounded">
+        Enviar
+      </button>
     </form>
   );
 }

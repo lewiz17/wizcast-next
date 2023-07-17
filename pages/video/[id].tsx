@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BackIcon, VideoIcon } from "../../components/Icons";
 import { memoize } from "lodash";
-import { getData } from "../api/movie.json";
+import { getData, getSourcesVideo } from "../api/movie.json";
 
 // Resto del código
 
@@ -24,8 +24,8 @@ export const getServerSideProps: GetServerSideProps<MovieData> = async (
 ) => {
   const { id } = context.params!;
 
-  const resItems = (await getData(id)).sources;
-  const items: ItemVideoProps = resItems;
+  const resItems = await getSourcesVideo(id);
+  const items: ItemVideoProps = resItems.sources;
 
   return {
     props: {
@@ -55,7 +55,7 @@ function Video({
 
   return (
     <div className="wrapper item-view min-h-[320px]">
-      {!hasSource && options && (
+      {!hasSource && options && Object.keys(options).length > 0 && (
         <ul className="options items-center py-5">
           {Object.keys(options).map((v, i) => {
             return i == 0 ? (
@@ -80,6 +80,7 @@ function Video({
           })}
         </ul>
       )}
+
       {!hasSource && Object.keys(options).length == 0 && (
         <div className="no-options">
           <Image src="/ouch.png" width={64} height={64} alt="info" />

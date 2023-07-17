@@ -38,6 +38,7 @@ const settings = {
   slidesToShow: 6,
   slidesToScroll: 1,
   lazyload: "ondemand",
+  infinite: true,
   responsive: [
     {
       breakpoint: 1024,
@@ -75,7 +76,10 @@ const SliderBox = ({ movies, relates, title }: Props) => {
         </h2>
       )}
       <div className="container mx-auto">
-        <Slider {...settings} className="flex flex-wrap gap-y-[10px] px-[3%]">
+        <Slider
+          {...settings}
+          className="flex flex-wrap gap-y-[10px] xs:px-[3%]"
+        >
           {relates &&
             relates.moviesRelates.length > 6 &&
             relates.moviesRelates.map(

@@ -11,7 +11,7 @@ const About: React.FC = () => {
         <title>{`Site ${CMS_NAME}`}</title>
       </Head>
       <Container>
-        <div className="w-full p-5 my-10 rounded overflow-hidden shadow ">
+        <div className="container mx-auto w-full p-5 my-10 rounded overflow-hidden shadow ">
           <h2 className="text-2xl font-bold">Acerca de</h2>
           <p className="py-2">
             Bienvenido a nuestra página web de películas, donde encontrarás toda
