@@ -16,6 +16,7 @@ import dynamic from "next/dynamic";
 import Error from "next/error";
 import SliderBox from "../../../components/SliderBox";
 import { getData } from "../../api/movie.json";
+import { StarIcon } from "../../../components/Icons";
 
 const VideoBox = dynamic(() => import("../../../components/StreamBox"), {
   loading: () => (
@@ -171,7 +172,10 @@ function Movie({ movie, related }: MovieProps): JSX.Element {
                 </h1>
                 <p className="flex py-2 gap-1">
                   <span className="text-black dark:text-white">
-                    <strong>{formatRate(movie.rating)}</strong>
+                    <strong className="flex gap-2 items-center">
+                      <StarIcon />
+                      {formatRate(movie.rating)} -
+                    </strong>
                   </span>
                   <span className="mx-1 dark:text-white">
                     {formatDuration(movie.duration)}
