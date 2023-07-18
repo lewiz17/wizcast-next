@@ -5,6 +5,8 @@ import dynamic from "next/dynamic";
 import Container from "../components/Container";
 import Head from "next/head";
 import { StarIcon } from "../components/Icons";
+import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 
 const Layout = dynamic(() => import("../components/Layout"), {
   loading: () => <p>Cargando...</p>,
@@ -36,6 +38,29 @@ type Props = {
 };
 
 export default function ListItems({ movies }: Props) {
+  const TIMES = [10, 20, 30, 15, 25, 35, 5];
+  const OPTIONS = ["vote", "donate"];
+  const [currentTime, setCurrentTime] = useState(0);
+  const [currentOption, setCurrentOption] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setCurrentTime(Math.floor(Math.random() * TIMES.length));
+      setCurrentOption(Math.floor(Math.random() * OPTIONS.length));
+
+      if (OPTIONS[currentOption] == "donate") {
+        toast("Alguien hizo un aporte a WZP", {
+          icon: "👏",
+        });
+      } else {
+        toast("Alguien dió su voto en WZP", {
+          icon: "🔥",
+        });
+      }
+    }, TIMES[currentTime] * 1000);
+    return () => clearInterval(interval);
+  }, [currentTime, currentOption]);
+
   return (
     <>
       <Layout>

@@ -3,6 +3,7 @@ import "nprogress/nprogress.css";
 import "../styles/main.css";
 import { useEffect } from "react";
 import NProgress from "nprogress";
+import { Toaster } from "react-hot-toast";
 
 export default function MyApp({ Component, pageProps, router }: AppProps) {
   useEffect(() => {
@@ -21,5 +22,10 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
     };
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Component {...pageProps} />
+      <Toaster position="bottom-right" />
+    </>
+  );
 }
