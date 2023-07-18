@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 
 import Container from "../components/Container";
 import Head from "next/head";
+import { StarIcon } from "../components/Icons";
 
 const Layout = dynamic(() => import("../components/Layout"), {
   loading: () => <p>Cargando...</p>,
@@ -42,9 +43,25 @@ export default function ListItems({ movies }: Props) {
           <title>{`${CMS_NAME} - Estrenos ${new Date().getFullYear()}`}</title>
         </Head>
         <Container>
-          <h2 className="text-[20px] container mt-20 flex justify-center text-2xl text-white font-bold mx-auto animate-bounce">
-            Pronto canal en telegram!
-          </h2>
+          <details className="text-[12px] container mt-20 flex justify-center text-2xl text-white font-bold mx-auto">
+            <summary className="animate-bounce">
+              <StarIcon /> Vota por la nueva funcionalidad del portal:{" "}
+              <span>Leer más &rarr;</span>
+            </summary>
+            <p>
+              Hola amigos, gracias por visitar nuestra plataforma, estamos
+              trabajando para mejorar algunas secciones de la plataforma, Nos
+              gustaria que fueras parte del proceso dándonos tu opinión o
+              votando por tu funcionalidad favorita, Entra ahora y vota: <br />
+              <a
+                href="https://forms.gle/r2vTNzPrnkAo5Gjr5"
+                target="blank_"
+                className="my-1 inline-block text-black font-bold bg-white rounded-full py-2 px-4 hover:opacity-[0.8]"
+              >
+                Ir a votar
+              </a>
+            </p>
+          </details>
           {movies.top.length > 0 ? (
             <SliderBox movies={movies.top} title={"Top Estrenos"} />
           ) : (

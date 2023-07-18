@@ -42,11 +42,6 @@ const Navbar: React.FC<NavProps> = ({ position }: NavProps) => {
           ""
         )}
       </div>
-      <Link href={"https://wizcast.netlify.app"} legacyBehavior>
-        <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
-          Canales
-        </a>
-      </Link>
       <Link href="/about" legacyBehavior>
         <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
           Acerca

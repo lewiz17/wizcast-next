@@ -134,6 +134,40 @@ header {
 .item-movie:hover .title-hover {
     opacity: 1;
 }
+details {
+    padding: 0.5em 0.5em 0;
+}
+
+summary {
+    font-weight: bold;
+    margin: -0.5em -0.5em 0;
+    padding: 5px 20px;
+    display: flex;
+    gap: 10px;
+    color: #bbb;
+    cursor: pointer;
+    align-items: center;
+    font-size: 16px;
+}
+
+details[open] {
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    padding: 0.5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 0.5em;
+    animation: none;
+}
+details[open] p {
+    font-size: 16px;
+    font-weight: normal;
+    padding: 17px 20px;
+    line-height: 24px;
+    color: #bbb;
+}
 
 .overlay-toleft {
     background: linear-gradient(90deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
