@@ -58,15 +58,15 @@ export async function getData(id) {
     const genresIDs: number[] = genres && genres.map(g => g.id);
 
 
-    const dataRelates: AxiosResponse = await axios.get(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&release_date.gte=2000-01-01&with_genres=${genresIDs.join(',')}`, {
+    const dataRelates: AxiosResponse = await axios.get(`https://api.themoviedb.org/3/movie/${id}/recommendations`, {
       params: {
         api_key: 'a0a7e40dc8162ed7e37aa2fc97db5654',
         language: 'es-MX'
       }
     });
 
-    const related: MOVIE_REL[] = dataRelates.data.results.length> 0 ? dataRelates.data.results.slice(0,10): [];
-    const relatedFiltered: MOVIE_REL[] = related && related.filter(m => m.vote_average > 6.0 && m.id != id);
+    const related: MOVIE_REL[] = dataRelates.data.results.length> 0 ? dataRelates.data.results : [];
+    const relatedFiltered: MOVIE_REL[] = related && related.filter(m => m.vote_average > 5.0 && m.id != id);
 
     const movieCast: AxiosResponse = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits`, {
       params: {
