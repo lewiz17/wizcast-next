@@ -4,20 +4,19 @@ type PlayProps = {
 };
 
 const PlayBox: React.FC<PlayProps> = ({ onClick }) => {
-  const handleLocalClick = (e) => {
-    e.preventDefault();
-
+  const handleLocalClick = () => {
     onClick();
-    window.open(
-      "https://www.highwaycpmrevenue.com/wz3uu7ve?key=d7a0ed7005a5be369abb755781ba12e8",
-      "_blank"
-    );
   };
 
   return (
-    <div className="play-box" onClick={(e) => handleLocalClick(e)}>
-      <PlayIcon />
-    </div>
+    <a
+      href="https://www.highwaycpmrevenue.com/wz3uu7ve?key=d7a0ed7005a5be369abb755781ba12e8"
+      target="blank_"
+    >
+      <div className="play-box" onClick={() => handleLocalClick()}>
+        <PlayIcon />
+      </div>
+    </a>
   );
 };
 

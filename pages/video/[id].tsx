@@ -43,6 +43,7 @@ function Video({
   });
   const [currentSource, setSource] = useState("");
   const [hasSource, setHasSource] = useState(false);
+  const [statusDL, setStatusDL] = useState("Descargar");
 
   useEffect(() => {
     setOptions(items);
@@ -52,16 +53,14 @@ function Video({
     setHasSource(true);
     setSource(options[pos]);
   };
-  const handleDownload = (e, source) => {
-    e.preventDefault();
+  const handleDownload = (source) => {
+    setStatusDL("Abriendo descarga...");
 
-    window.open(
-      "https://www.highwaycpmrevenue.com/wz3uu7ve?key=d7a0ed7005a5be369abb755781ba12e8",
-      "_blank"
-    );
-
-    source.includes("/e/") &&
-      window.open(`${source.split("/e/")[0]}/d/${source.split("/e/")[1]}`);
+    setTimeout(() => {
+      source != "" &&
+        window.open(`${source.split("/e/")[0]}/d/${source.split("/e/")[1]}`);
+      setStatusDL("Descargar");
+    }, 3000);
   };
 
   return (
@@ -91,15 +90,16 @@ function Video({
           })}
         </ul>
       )}
-      {Object.keys(options).length > 0 && (
+      {options.fast.includes("/e/") && (
         <div className="flex justify-center">
           <a
-            href="#"
+            href="https://www.highwaycpmrevenue.com/wz3uu7ve?key=d7a0ed7005a5be369abb755781ba12e8"
             className="item-view rounded-lg py-2 px-4 text-white"
             title="Descargar Pelicula"
-            onClick={(e) => handleDownload(e, options.fast)}
+            target="_blank"
+            onClick={() => handleDownload(options.fast)}
           >
-            Descargar
+            {statusDL}
           </a>
         </div>
       )}
