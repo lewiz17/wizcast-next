@@ -19,6 +19,7 @@ const Tabber = ({ tabs }) => {
                 : "py-2 px-4 text-white"
             }
             onClick={() => handleTabClick(index)}
+            title={`${tab.label.slice(0, 10)}`}
           >
             {tab.label}
           </button>

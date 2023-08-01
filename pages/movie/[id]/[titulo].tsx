@@ -17,6 +17,7 @@ import Error from "next/error";
 import SliderBox from "../../../components/SliderBox";
 import { getData } from "../../api/movie.json";
 import { StarIcon } from "../../../components/Icons";
+import PlayBox from "../../../components/PlayBox";
 
 const VideoBox = dynamic(() => import("../../../components/StreamBox"), {
   loading: () => (
@@ -97,10 +98,12 @@ function Movie({ movie, related }: MovieProps): JSX.Element {
   const [movieDescription, setMovieDescription] = useState("");
   const [fullUrl, setFullUrl] = useState("");
   const [isLoading, setLoading] = useState(true);
+  const [showServers, setShowServers] = useState(false);
 
   useEffect(() => {
     const currentUrl = window.location.href;
 
+    setShowServers(false);
     setMovieDescription(movie?.overview);
     setFullUrl(currentUrl);
     setLoading(false);
@@ -108,13 +111,16 @@ function Movie({ movie, related }: MovieProps): JSX.Element {
 
   const tabs = [
     {
-      label: "Enlaces",
+      label: "Servidores 🇲🇽",
       content: isLoading ? (
         <p className="flex justify-center items-center text-white">
           Cargando...
         </p>
       ) : (
-        <VideoBox video={movie.id} />
+        <>
+          {!showServers && <PlayBox onClick={() => setShowServers(true)} />}
+          {showServers && <VideoBox video={movie.id} />}
+        </>
       ),
     },
     {

@@ -184,12 +184,23 @@ details[open] p {
 }
 
 #nprogress .peg {
-    box-shadow: 0 0 10px #fff, 0 0 5px #fff;
+    box-shadow:
+        0 0 10px #fff,
+        0 0 5px #fff;
 }
 
 #nprogress .spinner-icon {
     border-top-color: #fff;
     border-left-color: #fff;
+}
+
+.play-box {
+    display: flex;
+    justify-content: center;
+    min-height: 320px;
+    border: 1px solid #fff6;
+    align-items: center;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

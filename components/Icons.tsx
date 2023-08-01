@@ -52,3 +52,21 @@ export const StarIcon = (props) => {
     </svg>
   );
 };
+
+export const PlayIcon = (props) => {
+  return (
+    <svg
+      viewBox="-0.5 0 8 8"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="#fff"
+      stroke="#fff"
+      width={64}
+      height={64}
+      {...props}
+    >
+      <g strokeWidth={0} />
+      <g strokeLinecap="round" strokeLinejoin="round" />
+      <path fill="#fff" fillRule="evenodd" d="M0 0v8l7-4z" stroke="none" />
+    </svg>
+  );
+};

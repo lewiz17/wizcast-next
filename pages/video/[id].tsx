@@ -52,6 +52,17 @@ function Video({
     setHasSource(true);
     setSource(options[pos]);
   };
+  const handleDownload = (e, source) => {
+    e.preventDefault();
+
+    window.open(
+      "https://www.highwaycpmrevenue.com/wz3uu7ve?key=d7a0ed7005a5be369abb755781ba12e8",
+      "_blank"
+    );
+
+    source.includes("/e/") &&
+      window.open(`${source.split("/e/")[0]}/d/${source.split("/e/")[1]}`);
+  };
 
   return (
     <div className="wrapper item-view min-h-[320px]">
@@ -64,7 +75,7 @@ function Video({
                   className="w-[24px] object-cover"
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACDUlEQVR4nO1YMUscQRj9Iuz3aZB0AbGQC9inSJcqTULEXxCrraySOpBK/AsJeFsFUiT/wWa+yYlYWKSwFAUVCSm1MiE+8bjb827Xvdvd2b0smQev2/nmvZn3plgiDw8PD49/EYhoFW06wxadIqIVahpwK7xN6PGEmgY03kBEKz0TJ2jTa2oiYOUVVF42snwAPYDKPlR+ADRTmx44yi40WIMVdGmCN4XnbOXU48IA9imA5cPYgPIRDojrMRCVLx+MvIvFD/i20KyohB6obGKX5nKtMTQPyz8TBpR/YY8e5Zp1QAzlD7lEDw1Q/twtYmd2aeI1VjZSTr/PjYnn7MwtwvLurYbiBqyE8ekZeTH2++/zj6FykWHgEubhwvh9Z59D+by3JixuwEjrzuZ/oPw+83vlTxni+1H6mD1D1qFyNXjBpFXYQHeg5eNhEfwlrRew8mRo43sNyG8YWU7Nu+VoZK/jUuLjHiRFJHoBlW9jxQ/4NTXvNnFbxfOf6EHaq9LrBTrBU6j8ndiAyjU6wbOUvI8yLG9guAejQq66mbW8neP0+/HYTuR9lGXzf38P6iCXz39mD6qmOsj/2B5Uy9CdgaweVEXjKP/T6QG7y/9UeqAO8z+lHoTuDdTZA+M4//X2gN3nv9YeaAX5r7kHYXUG6uiBqSj/sYnBH4JKSFXDG2j7G/jPI+Th4eHhQXdwA668OoF3W4hAAAAAAElFTkSuQmCC"
                 />{" "}
-                Servidor VIP
+                Ver en VIP
               </li>
             ) : (
               <li
@@ -74,11 +85,23 @@ function Video({
                 data-server={v}
               >
                 <VideoIcon />
-                Servidor {i}
+                Ver Opcion {i}
               </li>
             );
           })}
         </ul>
+      )}
+      {Object.keys(options).length > 0 && (
+        <div className="flex justify-center">
+          <a
+            href="#"
+            className="item-view rounded-lg py-2 px-4 text-white"
+            title="Descargar Pelicula"
+            onClick={(e) => handleDownload(e, options.fast)}
+          >
+            Descargar
+          </a>
+        </div>
       )}
 
       {!hasSource && Object.keys(options).length == 0 && (
