@@ -45,22 +45,9 @@ export default function ListItems({ movies }: Props) {
         <Container>
           <details className="text-[12px] container mt-20 flex justify-center text-2xl text-white font-bold mx-auto">
             <summary className="animate-bounce">
-              <StarIcon /> Vota por la nueva funcionalidad del portal:{" "}
-              <span>Leer más &rarr;</span>
+              <StarIcon /> Gracias por todas sus respuestas, estaremos aplicando
+              los cambios más votados en los proximos dias.{" "}
             </summary>
-            <p>
-              Hola amigos, gracias por visitar nuestra plataforma, estamos
-              trabajando para mejorar algunas secciones de la plataforma, Nos
-              gustaria que fueras parte del proceso dándonos tu opinión o
-              votando por tu funcionalidad favorita, Entra ahora y vota: <br />
-              <a
-                href="https://forms.gle/r2vTNzPrnkAo5Gjr5"
-                target="blank_"
-                className="my-1 inline-block text-black font-bold bg-white rounded-full py-2 px-4 hover:opacity-[0.8]"
-              >
-                Ir a votar
-              </a>
-            </p>
           </details>
           {movies.top.length > 0 ? (
             <SliderBox movies={movies.top} title={"Top Estrenos"} />
