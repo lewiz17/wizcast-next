@@ -98,9 +98,8 @@ const SliderBox = ({ movies, relates, title }: Props) => {
                       alt={title}
                       width="220"
                       height="270"
-                      sizes="100vw"
                       className="w-full h-auto"
-                      priority
+                      loading="lazy"
                     />
                   </Link>
                   <span className="text-white text-[12px]">{title}</span>
@@ -132,9 +131,8 @@ const SliderBox = ({ movies, relates, title }: Props) => {
                     alt={title}
                     width="220"
                     height="270"
-                    sizes="100vw"
                     className="w-full h-auto"
-                    priority
+                    loading="lazy"
                   />
                 </Link>
                 <span className="text-white text-[12px]">{title}</span>
