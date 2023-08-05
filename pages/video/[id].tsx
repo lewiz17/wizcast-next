@@ -25,7 +25,14 @@ export const getServerSideProps: GetServerSideProps<MovieData> = async (
   const { id } = context.params!;
 
   const resItems = await getSourcesVideo(id);
-  const items: ItemVideoProps = resItems.sources;
+  const itemsSources: ItemVideoProps = resItems.sources;
+
+  const items: ItemVideoProps = {
+    vip: itemsSources.vip || null,
+    fast: itemsSources.fast || null,
+    normal: itemsSources.normal || null,
+    slow: itemsSources.slow || null,
+  };
 
   return {
     props: {
@@ -40,6 +47,8 @@ function Video({
   const [options, setOptions] = useState<ItemVideoProps>({
     vip: "",
     fast: "",
+    normal: "",
+    slow: "",
   });
   const [currentSource, setSource] = useState("");
   const [hasSource, setHasSource] = useState(false);
@@ -47,7 +56,7 @@ function Video({
 
   useEffect(() => {
     setOptions(items);
-  }, [options]);
+  }, []);
 
   const handleOption = (pos) => {
     setHasSource(true);
@@ -136,7 +145,7 @@ function Video({
           ></iframe>
         </div>
       )}
-      {options.fast.includes("/e/") && (
+      {options?.fast?.includes("/e/") && (
         <div className="flex justify-center">
           <a
             href="https://www.highwaycpmrevenue.com/wz3uu7ve?key=d7a0ed7005a5be369abb755781ba12e8"
