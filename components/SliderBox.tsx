@@ -89,7 +89,7 @@ const SliderBox = ({ movies, relates, title }: Props) => {
                   className="item-movie w-[200px] xs:w-[50%] xs:p-[0px] flex flex-col  pt-2 pr-3 hover:opacity-50"
                 >
                   <Link href={`/movie/${id}/${formatTitle(title)}`}>
-                    <Image
+                    <img
                       src={
                         poster_path !== null
                           ? `https://www.themoviedb.org/t/p/w500${poster_path}`
@@ -122,7 +122,7 @@ const SliderBox = ({ movies, relates, title }: Props) => {
                 className="item-movie w-[200px] xs:w-[50%] xs:p-[0px] flex flex-col pr-3 hover:opacity-50 pt-2"
               >
                 <Link href={`/movie/${id}/${formatTitle(title)}`}>
-                  <Image
+                  <img
                     src={
                       poster !== null
                         ? `https://www.themoviedb.org/t/p/w500${poster}`

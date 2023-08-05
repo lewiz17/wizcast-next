@@ -14,7 +14,13 @@ const Footer: React.FC = () => {
               className="text-3xl font-bold tracking-tight leading-tight text-white"
               title="Lewiz"
             >
-              <Image src={"/wlogo.png"} width={60} height={60} alt="logo" />
+              <img
+                src={"/wlogo.png"}
+                width={60}
+                height={60}
+                alt="logo"
+                loading="lazy"
+              />
               <Logo />
             </a>
           </Link>

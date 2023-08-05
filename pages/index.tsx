@@ -43,7 +43,7 @@ export default function ListItems({ movies }: Props) {
           <title>{`${CMS_NAME} - Estrenos ${new Date().getFullYear()}`}</title>
         </Head>
         <Container>
-          <h4>
+          <h4 className="mt-[4rem] flex items-center gap-[10px]">
             <StarIcon /> Gracias por todas sus respuestas, estaremos aplicando
             los cambios más votados en los proximos dias.{" "}
           </h4>

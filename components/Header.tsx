@@ -92,7 +92,13 @@ const Header: React.FC<Props> = ({
               className="text-3xl font-bold tracking-tight leading-tight text-white"
               title="Lewiz"
             >
-              <Image src={"/wlogo.png"} width={60} height={60} alt="logo" />
+              <img
+                src={"/wlogo.png"}
+                width={60}
+                height={60}
+                alt="logo"
+                loading="lazy"
+              />
               <Logo />
             </a>
           </Link>
@@ -128,15 +134,42 @@ const Header: React.FC<Props> = ({
         </div>
         <div className="top-menu md:flex xs:hidden sm:hidden md:gap-5 lg:md:gap-4">
           <div className="relative flex items-center w-full h-10 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
-            <input
-              className="peer h-10 w-full outline-none text-sm text-black pr-2"
-              type="search"
-              id="search"
-              onChange={handleChange}
-              value={search}
-              name="query"
-              placeholder="Vengadores, Spiderman..."
-            />
+            <form>
+              <label
+                htmlFor="default-search"
+                className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+              >
+                Search
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <svg
+                    className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      stroke="#999"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                    />
+                  </svg>
+                </div>
+                <input
+                  type="search"
+                  id="search"
+                  name="query"
+                  defaultValue={search}
+                  className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Que quieres ver..."
+                  onChange={handleChange}
+                />
+              </div>
+            </form>
           </div>
           <Navbar position="header" />
         </div>

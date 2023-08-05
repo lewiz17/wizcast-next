@@ -163,13 +163,13 @@ function Movie({ movie, related }: MovieProps): JSX.Element {
         <div className="container mx-auto grid md:grid-cols-1 lg:grid-cols-2 gap-4 my-5">
           <div className="item-view md:w-full p-5 sm:mt-0 lg:mt-10 rounded-lg overflow-hidden shadow md:order-2 lg:order-1">
             <div className="grid grid-cols-1 sm:grid-cols-1 sm:grid-flow-row md:grid-cols-2 gap-5">
-              <Image
+              <img
                 src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster}`}
                 alt={movie.title}
                 width={260}
                 height={390}
                 className="item-view"
-                priority
+                loading="lazy"
               />
 
               <div className="info">

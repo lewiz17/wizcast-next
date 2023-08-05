@@ -14,7 +14,7 @@ const Donate: React.FC = () => {
           proyecto
         </p>
         <div className="flex justify-center h-[300px] items-center">
-          <Image
+          <img
             alt="Qr"
             width={200}
             height={200}
@@ -22,6 +22,7 @@ const Donate: React.FC = () => {
             src={
               "https://storage.ko-fi.com/cdn/useruploads/C0C8MWA2R/qrcode.png?v=88297a00-21e1-493c-92ed-2530cd897b85?v=2"
             }
+            loading="lazy"
           />
         </div>
       </div>

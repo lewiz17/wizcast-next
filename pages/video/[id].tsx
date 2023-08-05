@@ -90,23 +90,16 @@ function Video({
           })}
         </ul>
       )}
-      {options.fast.includes("/e/") && (
-        <div className="flex justify-center">
-          <a
-            href="https://www.highwaycpmrevenue.com/wz3uu7ve?key=d7a0ed7005a5be369abb755781ba12e8"
-            className="item-view rounded-lg py-2 px-4 text-white"
-            title="Descargar Pelicula"
-            target="_blank"
-            onClick={() => handleDownload(options.fast)}
-          >
-            {statusDL}
-          </a>
-        </div>
-      )}
 
       {!hasSource && Object.keys(options).length == 0 && (
         <div className="no-options">
-          <Image src="/ouch.png" width={64} height={64} alt="info" />
+          <img
+            src="/ouch.png"
+            width={64}
+            height={64}
+            alt="info"
+            loading="lazy"
+          />
           <p>No disponible por el momento</p>
           <span>Regresa más tarde o revisa nuestro catálogo</span>
           <Link
@@ -141,6 +134,19 @@ function Video({
             height="100%"
             title="Pelicula"
           ></iframe>
+        </div>
+      )}
+      {options.fast.includes("/e/") && (
+        <div className="flex justify-center">
+          <a
+            href="https://www.highwaycpmrevenue.com/wz3uu7ve?key=d7a0ed7005a5be369abb755781ba12e8"
+            className="item-view rounded-lg py-2 px-4 text-white hover:opacity-[0.6]"
+            title="Descargar Pelicula"
+            target="_blank"
+            onClick={() => handleDownload(options.fast)}
+          >
+            {statusDL}
+          </a>
         </div>
       )}
     </div>
