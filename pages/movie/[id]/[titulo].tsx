@@ -98,12 +98,10 @@ function Movie({ movie, related }: MovieProps): JSX.Element {
   const [movieDescription, setMovieDescription] = useState("");
   const [fullUrl, setFullUrl] = useState("");
   const [isLoading, setLoading] = useState(true);
-  const [showServers, setShowServers] = useState(false);
 
   useEffect(() => {
     const currentUrl = window.location.href;
 
-    setShowServers(false);
     setMovieDescription(movie?.overview);
     setFullUrl(currentUrl);
     setLoading(false);
@@ -117,10 +115,7 @@ function Movie({ movie, related }: MovieProps): JSX.Element {
           Cargando...
         </p>
       ) : (
-        <>
-          {!showServers && <PlayBox onClick={() => setShowServers(true)} />}
-          {showServers && <VideoBox video={movie.id} />}
-        </>
+        <VideoBox video={movie.id} />
       ),
     },
     {

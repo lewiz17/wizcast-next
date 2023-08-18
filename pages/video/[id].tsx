@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { BackIcon, VideoIcon } from "../../components/Icons";
 import { memoize } from "lodash";
 import { getData, getSourcesVideo } from "../api/movie.json";
+import PlayBox from "../../components/PlayBox";
 
 // Resto del código
 
@@ -52,7 +53,7 @@ function Video({
   });
   const [currentSource, setSource] = useState("");
   const [hasSource, setHasSource] = useState(false);
-  const [statusDL, setStatusDL] = useState("Descargar");
+  const [showPlay, setShowPlay] = useState(true);
 
   useEffect(() => {
     setOptions(items);
@@ -62,42 +63,43 @@ function Video({
     setHasSource(true);
     setSource(options[pos]);
   };
-  const handleDownload = (source) => {
-    setStatusDL("Abriendo descarga...");
-
-    setTimeout(() => {
-      source != "" &&
-        window.open(`${source.split("/e/")[0]}/d/${source.split("/e/")[1]}`);
-      setStatusDL("Descargar");
-    }, 3000);
-  };
 
   return (
     <div className="wrapper item-view min-h-[320px]">
       {!hasSource && options && Object.keys(options).length > 0 && (
-        <ul className="options items-center py-5">
-          {Object.keys(options).map((v, i) => {
-            return i == 0 ? (
-              <li onClick={() => handleOption(v)} key={i} data-server={v}>
-                <img
-                  className="w-[24px] object-cover"
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACDUlEQVR4nO1YMUscQRj9Iuz3aZB0AbGQC9inSJcqTULEXxCrraySOpBK/AsJeFsFUiT/wWa+yYlYWKSwFAUVCSm1MiE+8bjb827Xvdvd2b0smQev2/nmvZn3plgiDw8PD49/EYhoFW06wxadIqIVahpwK7xN6PGEmgY03kBEKz0TJ2jTa2oiYOUVVF42snwAPYDKPlR+ADRTmx44yi40WIMVdGmCN4XnbOXU48IA9imA5cPYgPIRDojrMRCVLx+MvIvFD/i20KyohB6obGKX5nKtMTQPyz8TBpR/YY8e5Zp1QAzlD7lEDw1Q/twtYmd2aeI1VjZSTr/PjYnn7MwtwvLurYbiBqyE8ekZeTH2++/zj6FykWHgEubhwvh9Z59D+by3JixuwEjrzuZ/oPw+83vlTxni+1H6mD1D1qFyNXjBpFXYQHeg5eNhEfwlrRew8mRo43sNyG8YWU7Nu+VoZK/jUuLjHiRFJHoBlW9jxQ/4NTXvNnFbxfOf6EHaq9LrBTrBU6j8ndiAyjU6wbOUvI8yLG9guAejQq66mbW8neP0+/HYTuR9lGXzf38P6iCXz39mD6qmOsj/2B5Uy9CdgaweVEXjKP/T6QG7y/9UeqAO8z+lHoTuDdTZA+M4//X2gN3nv9YeaAX5r7kHYXUG6uiBqSj/sYnBH4JKSFXDG2j7G/jPI+Th4eHhQXdwA668OoF3W4hAAAAAAElFTkSuQmCC"
-                />{" "}
-                Ver en VIP
-              </li>
-            ) : (
-              <li
-                onClick={() => handleOption(v)}
-                key={i}
-                className="text-black bg-white rounded-full py-2 px-3 hover:opacity-[0.8]"
-                data-server={v}
-              >
-                <VideoIcon />
-                Ver Opcion {i}
-              </li>
-            );
-          })}
-        </ul>
+        <>
+          {showPlay && <PlayBox onClick={() => setShowPlay(false)} />}
+          {!showPlay && (
+            <ul className="options items-center py-5">
+              {Object.keys(options).map((v, i) => {
+                return i == 0 ? (
+                  <li
+                    onClick={() => handleOption(v)}
+                    key={i}
+                    data-server={v}
+                    className="text-white item-view rounded-full py-2 px-3 hover:opacity-[0.8]"
+                  >
+                    <img
+                      className="w-[24px] object-cover"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACDUlEQVR4nO1YMUscQRj9Iuz3aZB0AbGQC9inSJcqTULEXxCrraySOpBK/AsJeFsFUiT/wWa+yYlYWKSwFAUVCSm1MiE+8bjb827Xvdvd2b0smQev2/nmvZn3plgiDw8PD49/EYhoFW06wxadIqIVahpwK7xN6PGEmgY03kBEKz0TJ2jTa2oiYOUVVF42snwAPYDKPlR+ADRTmx44yi40WIMVdGmCN4XnbOXU48IA9imA5cPYgPIRDojrMRCVLx+MvIvFD/i20KyohB6obGKX5nKtMTQPyz8TBpR/YY8e5Zp1QAzlD7lEDw1Q/twtYmd2aeI1VjZSTr/PjYnn7MwtwvLurYbiBqyE8ekZeTH2++/zj6FykWHgEubhwvh9Z59D+by3JixuwEjrzuZ/oPw+83vlTxni+1H6mD1D1qFyNXjBpFXYQHeg5eNhEfwlrRew8mRo43sNyG8YWU7Nu+VoZK/jUuLjHiRFJHoBlW9jxQ/4NTXvNnFbxfOf6EHaq9LrBTrBU6j8ndiAyjU6wbOUvI8yLG9guAejQq66mbW8neP0+/HYTuR9lGXzf38P6iCXz39mD6qmOsj/2B5Uy9CdgaweVEXjKP/T6QG7y/9UeqAO8z+lHoTuDdTZA+M4//X2gN3nv9YeaAX5r7kHYXUG6uiBqSj/sYnBH4JKSFXDG2j7G/jPI+Th4eHhQXdwA668OoF3W4hAAAAAAElFTkSuQmCC"
+                    />{" "}
+                    Servidor VIP
+                  </li>
+                ) : (
+                  <li
+                    onClick={() => handleOption(v)}
+                    key={i}
+                    className="text-black bg-white rounded-full py-2 px-3 hover:opacity-[0.8]"
+                    data-server={v}
+                  >
+                    <VideoIcon />
+                    Servidor HD {i}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </>
       )}
 
       {!hasSource && Object.keys(options).length == 0 && (
@@ -143,19 +145,6 @@ function Video({
             height="100%"
             title="Pelicula"
           ></iframe>
-        </div>
-      )}
-      {options?.fast?.includes("/e/") && (
-        <div className="flex justify-center">
-          <a
-            href="https://www.highwaycpmrevenue.com/wz3uu7ve?key=d7a0ed7005a5be369abb755781ba12e8"
-            className="item-view rounded-lg py-2 px-4 text-white hover:opacity-[0.6]"
-            title="Descargar Pelicula"
-            target="_blank"
-            onClick={() => handleDownload(options.fast)}
-          >
-            {statusDL}
-          </a>
         </div>
       )}
     </div>

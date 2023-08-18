@@ -44,9 +44,13 @@ body.dark {
 .wrapper .options {
     display: flex;
     flex-flow: wrap;
-    gap: 40px;
+    gap: 20px;
     justify-content: center;
     color: #fff;
+}
+.wrapper .options [data-server="vip"] {
+    max-width: 200px;
+    margin: 0px 12rem;
 }
 .wrapper .no-options {
     display: flex;
