@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     // Realiza una solicitud HTTP a TMDb para obtener las series más populares
-    const response: AxiosResponse = await axios.get('https://api.themoviedb.org/3/tv/popular', {
+    const response: AxiosResponse = await axios.get('https://api.themoviedb.org/3/tv/top_rated', {
       params: {
         api_key: 'a0a7e40dc8162ed7e37aa2fc97db5654',
         language: 'es-MX' // Reemplaza con tu propia API key de TMDb

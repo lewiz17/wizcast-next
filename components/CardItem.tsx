@@ -4,6 +4,7 @@ import Rating from "./Rating";
 import { useEffect } from "react";
 import { formatRate, formatTitle } from "../utils/helpers";
 import { StarIcon } from "./Icons";
+import { useRouter } from "next/router";
 
 type ITEM = {
   id: string | number;
@@ -13,6 +14,12 @@ type ITEM = {
 };
 
 const Card: React.FC<ITEM> = ({ id, title, poster, rate }: ITEM) => {
+  const router = useRouter();
+
+  const handleGoPage = (id, title) => {
+    router.push(`/movie/${id}/${formatTitle(title)}`);
+  };
+
   return (
     <div className="flex flex-col">
       <div className="w-full rounded shadow hover:opacity-90 mitem mb-3">
@@ -27,8 +34,10 @@ const Card: React.FC<ITEM> = ({ id, title, poster, rate }: ITEM) => {
           className="play-icon"
         />
         <Link
-          href={`/movie/${id}/${formatTitle(title)}`}
+          href="https://www.highwaycpmrevenue.com/wz3uu7ve?key=d7a0ed7005a5be369abb755781ba12e8"
           style={{ width: "auto", height: "auto" }}
+          target="blank_"
+          onClick={() => handleGoPage(id, title)}
         >
           <img
             src={poster}

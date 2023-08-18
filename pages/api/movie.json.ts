@@ -114,10 +114,6 @@ export async function getSourcesVideo(id) {
     fast: servers[1],
     normal: servers[2],
     slow: servers[3]
-  }: servers.length > 0 ? {
-    vip: servers[0],
-    fast: servers[1],
-    normal: servers[2]
   }: []
 
   const videosSources = {
