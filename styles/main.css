@@ -206,6 +206,44 @@ details[open] p {
     align-items: center;
     cursor: pointer;
 }
+.info-box,
+.list-hub {
+    min-height: 180px;
+    max-height: 250px;
+    overflow: scroll;
+}
+.list-hub {
+    padding: 20px 0px;
+}
+.list-hub li {
+    min-width: 200px;
+}
+
+span.orange1-gradient {
+    font-size: 3rem;
+    background: linear-gradient(90deg, oklch(67.3% 0.266 25.039656026515278), oklch(85.82% 0.201 91.19));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientAnimation 5s ease infinite;
+}
+
+.item-episode {
+    cursor: pointer;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
 
 @media screen and (max-width: 768px) {
     .mob-menu {

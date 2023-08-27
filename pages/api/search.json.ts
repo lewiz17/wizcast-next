@@ -10,7 +10,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       params: {
         api_key: 'a0a7e40dc8162ed7e37aa2fc97db5654',
         query: q,
-        language: 'es-MX' // Reemplaza con tu propia API key de TMDb
+        language: 'es-MX',
+        page: 1,
+        per_page: 30
       }
     });
 

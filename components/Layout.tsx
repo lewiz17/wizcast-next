@@ -28,9 +28,27 @@ const Layout = ({ children }: Props) => {
   const [movieData, setmovieData] = useState<movies>([]);
   const [loading, setLoading] = useState<loading>(false);
   const [isResult, setisResult] = useState<boolean>(true);
-  const [currentId, setCurrentID] = useState<string | string[]>("");
+  const [numPage, setNumPage] = useState<number>(1);
+  const [total, setTotalResult] = useState<number>(0);
+  const [showLoad, setShowLoad] = useState<boolean>(true);
+  const [hideMenuItems, setHideItems] = useState(false);
 
   const routerID = router?.query?.id ? router.query.id : "";
+
+  console.log("movie data", total);
+
+  const handleLoadMore = (e) => {
+    e.preventDefault();
+    console.log("hizo click aqui");
+    // increment pagee
+    total == numPage ? setShowLoad(false) : setNumPage(numPage + 1);
+  };
+
+  useEffect(() => {
+    router.pathname.includes("serie")
+      ? setHideItems(true)
+      : setHideItems(false);
+  }, [router.pathname]);
 
   useEffect(() => {
     if (routerID != "") {
@@ -48,11 +66,25 @@ const Layout = ({ children }: Props) => {
       <Header
         handleData={setmovieData}
         handleLoading={setLoading}
+        handlePage={numPage}
+        handleTotalResults={setTotalResult}
         currentMovie={routerID}
+        hideItems={hideMenuItems}
       />
-      <main className="mx-auto my-10 flex-grow">
+      <main className="mx-auto mt-[4rem] flex-grow">
         {movieData?.length > 0 && isResult ? (
-          <Result movies={movieData} loading={loading} />
+          <>
+            <Result movies={movieData} loading={loading} />
+            {showLoad && (
+              <a
+                href="#"
+                onClick={(e) => handleLoadMore(e)}
+                className="flex justify-center item-view"
+              >
+                Load More
+              </a>
+            )}
+          </>
         ) : (
           children
         )}

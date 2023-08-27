@@ -21,25 +21,39 @@ import Logo from "./Logo";
 type Props = {
   handleData: (data: object) => void;
   handleLoading: (loading: boolean) => void;
+  handlePage: number;
+  handleTotalResults: (number) => void;
   currentMovie: string | string[];
+  hideItems: boolean;
 };
 
 const Header: React.FC<Props> = ({
   handleData,
   handleLoading,
+  handlePage,
+  handleTotalResults,
   currentMovie,
+  hideItems,
 }) => {
+  const router = useRouter();
   const [opened, setOpened] = useState(false);
   const { search, updateSearch } = useSearch();
 
   const [sort, setSort] = useState(false);
+  const [page, setPage] = useState(0);
 
-  const { movies, loading, getMovies } = useMovies({ search, sort });
+  const { movies, total, loading, getMovies } = useMovies({
+    search,
+    page,
+    sort,
+  });
 
   useEffect(() => {
-    handleData(movies);
     handleLoading(loading);
-  }, [movies, loading]);
+    handleData(movies);
+    setPage(handlePage);
+    handleTotalResults(total);
+  }, [movies, loading, total, handlePage]);
 
   useEffect(() => {
     updateSearch("");
@@ -48,10 +62,10 @@ const Header: React.FC<Props> = ({
   //console.log("desde header", currentMovie);
 
   const debouncedGetMovies = useCallback(
-    debounce((search) => {
-      getMovies({ search });
+    debounce((search, page) => {
+      getMovies({ search, page });
     }, 300),
-    [getMovies]
+    [getMovies, handlePage]
   );
 
   useEffect(() => {
@@ -80,7 +94,7 @@ const Header: React.FC<Props> = ({
   const handleChange = (event) => {
     const newSearch = event.target.value;
     updateSearch(newSearch);
-    debouncedGetMovies(newSearch);
+    debouncedGetMovies(newSearch, page);
   };
 
   return (
@@ -159,19 +173,21 @@ const Header: React.FC<Props> = ({
                     />
                   </svg>
                 </div>
-                <input
-                  type="search"
-                  id="search"
-                  name="query"
-                  defaultValue={search}
-                  className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Que quieres ver..."
-                  onChange={handleChange}
-                />
+                {!hideItems && (
+                  <input
+                    type="search"
+                    id="search"
+                    name="query"
+                    defaultValue={search}
+                    className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Que quieres ver..."
+                    onChange={handleChange}
+                  />
+                )}
               </div>
             </form>
           </div>
-          <Navbar position="header" />
+          <Navbar position="header" hideItems={hideItems} />
         </div>
       </div>
     </header>

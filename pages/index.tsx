@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import Container from "../components/Container";
 import Head from "next/head";
 import { StarIcon } from "../components/Icons";
+import Link from "next/link";
 
 const Layout = dynamic(() => import("../components/Layout"), {
   loading: () => <p>Cargando...</p>,
@@ -43,9 +44,14 @@ export default function ListItems({ movies }: Props) {
           <title>{`${CMS_NAME} - Estrenos ${new Date().getFullYear()}`}</title>
         </Head>
         <Container>
-          <h4 className="mt-[4rem] flex items-center gap-[10px]">
-            <StarIcon /> Gracias por todas sus respuestas, estaremos aplicando
-            los cambios más votados en los proximos dias.{" "}
+          <h4 className="mt-[4rem] flex gap-[10px] justify-center items-center">
+            Presentando:{" "}
+            <span className="orange1-gradient font-bold">
+              <Link href="/series" legacyBehavior>
+                WizSeries
+              </Link>
+            </span>
+            beta
           </h4>
           {movies.top.length > 0 ? (
             <SliderBox movies={movies.top} title={"Top Estrenos"} />

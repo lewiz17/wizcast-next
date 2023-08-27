@@ -7,11 +7,11 @@ type MovieTrailer = {
   type: string;
 };
 
-export const searchMovies = async ({ search }) => {
+export const searchMovies = async ({ search, page }) => {
     if (search === '') return null
 
     try {
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}&language=es-MX`);
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${search}&language=es-MX&page=${page}`);
         const result = await response.json();
 
         const movies = result.results;
@@ -24,7 +24,20 @@ export const searchMovies = async ({ search }) => {
             poster: movie.poster_path
         }))
 
-        return newMovies.filter((v) => v.rate >= 5)
+
+        const filteredMovies = newMovies.filter((v) => v.rate >= 5);
+        const uniqueMovies = [];
+
+        filteredMovies.forEach((movie) => {
+          if (!uniqueMovies.some((m) => m.id === movie.id)) {
+            uniqueMovies.push(movie);
+          }
+        });
+
+        return {
+          movies: uniqueMovies,
+          total: uniqueMovies.length
+        };
 
     } catch (e) {
         throw new Error('Error searching movies')

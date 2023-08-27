@@ -15,6 +15,25 @@ type Movie = {
   rate: number;
 };
 
+type Serie = {
+  backdrop_path: string;
+  first_air_date: string;
+  genre_ids: number[];
+  id: number;
+  name: string;
+  origin_country: string[];
+  original_language: string;
+  original_name: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  vote_average: number;
+  vote_count: number;
+  poster: string;
+  title: string;
+  rate: number;
+};
+
 type Relates = {
   moviesRelates: Array<{
     id: number;
@@ -30,6 +49,7 @@ type Props = {
   movies?: Movie[];
   title: string;
   relates?: Relates;
+  series?: Serie[];
 };
 
 const settings = {
@@ -62,7 +82,7 @@ const settings = {
   ],
 };
 
-const SliderBox = ({ movies, relates, title }: Props) => {
+const SliderBox = ({ movies, series, relates, title }: Props) => {
   return (
     <div className="flex flex-col relative mt-5">
       {movies && (
@@ -71,6 +91,11 @@ const SliderBox = ({ movies, relates, title }: Props) => {
         </h2>
       )}
       {relates && relates.moviesRelates.length > 6 && (
+        <h2 className="text-2xl xs:px-[3%] font-bold text-white tracking-tight leading-tight mt-3">
+          {title}
+        </h2>
+      )}
+      {series && (
         <h2 className="text-2xl xs:px-[3%] font-bold text-white tracking-tight leading-tight mt-3">
           {title}
         </h2>
@@ -122,6 +147,39 @@ const SliderBox = ({ movies, relates, title }: Props) => {
                 className="item-movie w-[200px] xs:w-[50%] xs:p-[0px] flex flex-col pr-3 hover:opacity-50 pt-2"
               >
                 <Link href={`/movie/${id}/${formatTitle(title)}`}>
+                  <img
+                    src={
+                      poster !== null
+                        ? `https://www.themoviedb.org/t/p/w500${poster}`
+                        : "/wlogo.png"
+                    }
+                    alt={title}
+                    width="220"
+                    height="270"
+                    className="w-full h-auto"
+                    loading="lazy"
+                  />
+                </Link>
+                <span className="text-white text-[12px]">{title}</span>
+                <span
+                  style={{
+                    display: "flex",
+                    gap: "4px",
+                    alignItems: "center",
+                  }}
+                >
+                  <StarIcon /> {formatRate(rate)}
+                </span>
+              </div>
+            ))}
+
+          {series &&
+            series.map(({ id, title, poster, rate }, index) => (
+              <div
+                key={index}
+                className="item-movie w-[200px] xs:w-[50%] xs:p-[0px] flex flex-col pr-3 hover:opacity-50 pt-2"
+              >
+                <Link href={`/serie/${id}/${formatTitle(title)}`}>
                   <img
                     src={
                       poster !== null

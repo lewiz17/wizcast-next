@@ -30,7 +30,7 @@ const Result: React.FC<Props> = ({ movies, loading }) => {
             <Card
               id={movie.id}
               title={movie.title}
-              key={movie.id}
+              key={i}
               poster={
                 movie.poster !== null
                   ? `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster}`
