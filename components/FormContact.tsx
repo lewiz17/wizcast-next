@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 export default function ContactForm() {
+  /*
   const [formValues, setFormValues] = useState({
     mail: "",
     subject: "",
@@ -34,14 +35,19 @@ export default function ContactForm() {
 
     e.preventDefault();
   };
-
+*/
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="px-4 mx-auto max-w-screen-md">
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-black dark:text-black">
           Escribenos...
         </h2>
-        <form className="space-y-8" onSubmit={handleSubmit} data-netlify="true">
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          className="space-y-8"
+        >
           <div>
             <label
               htmlFor="email"
@@ -55,8 +61,7 @@ export default function ContactForm() {
               className="shadow-sm bg-[#021420e0] border border-gray text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
               placeholder="nombre@gmail.com"
               required
-              name="mail"
-              onChange={handleChange}
+              name="correo"
             />
           </div>
           <div>
@@ -69,11 +74,10 @@ export default function ContactForm() {
             <input
               type="text"
               id="subject"
-              name="subject"
+              name="asunto"
               className="shadow-sm bg-[#021420e0] border border-gray text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
               placeholder="Describenos lo encontrado"
               required
-              onChange={handleChange}
             />
           </div>
           <div className="sm:col-span-2">
@@ -86,10 +90,9 @@ export default function ContactForm() {
             <textarea
               id="message"
               rows={6}
-              name="message"
+              name="mensaje"
               className="block p-2.5 w-full text-sm text-white bg-[#021420e0] rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
               placeholder="Detalles de la falla (opcional)"
-              onChange={handleChange}
             ></textarea>
           </div>
           <button
