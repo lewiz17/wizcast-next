@@ -1,11 +1,19 @@
 import { useState } from "react";
 
 export default function ContactForm() {
-  const [formValues, setFormvalues] = useState({
+  const [formValues, setFormValues] = useState({
     mail: "",
     subject: "",
     message: "",
   });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
 
   const encode = (data) => {
     return Object.keys(data)
@@ -49,6 +57,7 @@ export default function ContactForm() {
               required
               value={formValues.mail}
               name="email"
+              onChange={handleChange}
             />
           </div>
           <div>
@@ -66,6 +75,7 @@ export default function ContactForm() {
               placeholder="Describenos lo encontrado"
               required
               value={formValues.subject}
+              onChange={handleChange}
             />
           </div>
           <div className="sm:col-span-2">
@@ -82,6 +92,7 @@ export default function ContactForm() {
               className="block p-2.5 w-full text-sm text-white bg-[#021420e0] rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
               placeholder="Detalles de la falla (opcional)"
               value={formValues.message}
+              onChange={handleChange}
             ></textarea>
           </div>
           <button
