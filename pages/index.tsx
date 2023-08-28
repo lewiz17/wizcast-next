@@ -6,6 +6,7 @@ import Container from "../components/Container";
 import Head from "next/head";
 import { StarIcon } from "../components/Icons";
 import Link from "next/link";
+import { ModalProvider } from "../components/ModalContext";
 
 const Layout = dynamic(() => import("../components/Layout"), {
   loading: () => <p>Cargando...</p>,

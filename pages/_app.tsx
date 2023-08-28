@@ -1,8 +1,11 @@
 import { AppProps } from "next/app";
 import "nprogress/nprogress.css";
 import "../styles/main.css";
+import "../styles/modal.css";
 import { useEffect } from "react";
 import NProgress from "nprogress";
+import { ModalProvider } from "../components/ModalContext";
+import Modal from "../components/Modal";
 
 export default function MyApp({ Component, pageProps, router }: AppProps) {
   useEffect(() => {
@@ -23,7 +26,10 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <>
-      <Component {...pageProps} />
+      <ModalProvider>
+        <Component {...pageProps} />
+        <Modal />
+      </ModalProvider>
     </>
   );
 }

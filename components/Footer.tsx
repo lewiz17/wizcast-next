@@ -4,9 +4,11 @@ import Navbar from "./Navbar";
 import Image from "next/image";
 import Logo from "./Logo";
 import { useEffect, useState } from "react";
+import { useModalContext } from "./ModalContext";
 
 const Footer: React.FC = () => {
   const [currentDate, setCurrentDate] = useState(0);
+  const { openModal } = useModalContext();
 
   useEffect(() => {
     setCurrentDate(new Date().getFullYear());
@@ -21,6 +23,15 @@ const Footer: React.FC = () => {
         </span>
         <div className="bottom-menu md:flex xs:hidden sm:hidden">
           <Navbar position="" hideItems={true} />
+          <a
+            className="open-modal ml-2 cursor-pointer w-[24px] hover:opacity-[0.8]"
+            onClick={() => openModal()}
+          >
+            <img
+              src="/ouch.png"
+              title="Reportar enlace caido o notificar error"
+            />
+          </a>
         </div>
       </div>
     </footer>
