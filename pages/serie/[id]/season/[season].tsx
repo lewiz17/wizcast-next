@@ -100,7 +100,7 @@ function SeasonSerie({ season }: SeasonProps): JSX.Element {
                   loading="lazy"
                   title={ep.name}
                 />
-                <span className="text-white text-sm gap-x-2 text-center my-2 flex items-center flex justify-center">
+                <span className="text-white text-sm gap-x-2 text-center my-2 flex items-center flex justify-center w-[170px]">
                   <i className="text-xs rounded-[100px] bg-white px-2 text-black font-bold not-italic">
                     {season.numSeason}x{i + 1}
                   </i>
