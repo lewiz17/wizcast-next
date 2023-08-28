@@ -41,7 +41,7 @@ export default function ContactForm() {
         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-black dark:text-black">
           Escribenos...
         </h2>
-        <form className="space-y-8" onSubmit={handleSubmit}>
+        <form className="space-y-8" onSubmit={handleSubmit} data-netlify="true">
           <div>
             <label
               htmlFor="email"
