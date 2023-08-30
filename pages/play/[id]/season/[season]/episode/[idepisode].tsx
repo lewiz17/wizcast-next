@@ -1,9 +1,10 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { BackIcon, VideoIcon } from "../../../../../../components/Icons";
 import PlayBox from "../../../../../../components/PlayBox";
 import { getSourcesEpisode } from "../../../../../api/series.json";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 // Resto del código
 
@@ -57,6 +58,7 @@ function VideoEpisode({
   const [currentSource, setSource] = useState("");
   const [hasSource, setHasSource] = useState(false);
   const [showPlay, setShowPlay] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     setOptions(items);
@@ -80,14 +82,20 @@ function VideoEpisode({
           <>
             {showPlay && <PlayBox onClick={() => setShowPlay(false)} />}
             {!showPlay && (
-              <ul className="flex flex-col gap-y-3 items-center py-5">
+              <ul
+                className={`${
+                  router.asPath.includes("episode")
+                    ? "grid grid-cols-2 grid-rows-2 gap-4 justify-center items-center max-w-[45%] mx-auto h-[60vh]"
+                    : "flex flex-col gap-y-3 items-center"
+                }   py-5`}
+              >
                 {Object.keys(options).map((v, i) => {
                   return i == 0 ? (
                     <li
                       onClick={() => handleOption(v)}
                       key={i}
                       data-server={v}
-                      className="flex gap-x-2 text-white item-view rounded-full py-2 px-3 hover:opacity-[0.8]"
+                      className="flex gap-x-2 text-white item-view rounded-full py-2 px-3 hover:opacity-[0.8] cursor-pointer justify-center"
                     >
                       <img
                         className="w-[24px] object-cover"
@@ -99,7 +107,7 @@ function VideoEpisode({
                     <li
                       onClick={() => handleOption(v)}
                       key={i}
-                      className="flex gap-x-2 text-black bg-white rounded-full py-2 px-3 hover:opacity-[0.8]"
+                      className="flex gap-x-2 text-black bg-white rounded-full py-2 px-3 hover:opacity-[0.8] cursor-pointer justify-center"
                       data-server={v}
                     >
                       <VideoIcon />
