@@ -71,7 +71,7 @@ const Layout = ({ children }: Props) => {
         currentMovie={routerID}
         hideItems={hideMenuItems}
       />
-      <main className="mx-auto mt-[4rem] flex-grow">
+      <main className="mx-auto my-[4rem] flex-grow">
         {movieData?.length > 0 && isResult ? (
           <>
             <Result movies={movieData} loading={loading} />

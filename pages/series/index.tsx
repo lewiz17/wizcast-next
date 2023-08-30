@@ -139,10 +139,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
     rate: serie.vote_average,
   }));
 
-  const nowSeriesFinal = nowPlayingSeriesData.filter((v) => v.rate >= 6);
-  const netflixSeriesFinal = netflixSeriesData.filter((v) => v.rate >= 6);
-  const disneySeriesFinal = disneySeriesData.filter((v) => v.rate >= 6);
-  const primeSeriesFinal = primeSeriesData.filter((v) => v.rate >= 6);
+  const nowSeriesFinal = nowPlayingSeriesData.filter((v) => v.rate >= 7.5);
+  const netflixSeriesFinal = netflixSeriesData.filter((v) => v.rate >= 7.5);
+  const disneySeriesFinal = disneySeriesData.filter((v) => v.rate >= 7.5);
+  const primeSeriesFinal = primeSeriesData.filter((v) => v.rate >= 7.5);
 
   return {
     props: {

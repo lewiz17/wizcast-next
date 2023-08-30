@@ -63,6 +63,10 @@ function VideoEpisode({
   }, []);
 
   const handleOption = (pos) => {
+    window.open(
+      "https://www.highwaycpmrevenue.com/wz3uu7ve?key=d7a0ed7005a5be369abb755781ba12e8",
+      "_blank"
+    );
     setHasSource(true);
     setSource(options[pos]);
   };
