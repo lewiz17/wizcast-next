@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
         </span>
         <div className="bottom-menu md:flex xs:hidden sm:hidden">
           <Navbar position="" hideItems={true} />
-          {/*<a
+          <a
             className="open-modal ml-2 cursor-pointer w-[24px] hover:opacity-[0.8]"
             onClick={() => openModal()}
           >
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
               src="/ouch.png"
               title="Reportar enlace caido o notificar error"
             />
-          </a>*/}
+          </a>
         </div>
       </div>
     </footer>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto</title>
+  </head>
+  <style>
+    input,
+    button,
+    textarea {
+      border: 2px solid rgba(0, 0, 0, 0.6);
+      background-image: none;
+      background-color: #dadad3;
+      box-shadow: none;
+      padding: 5px;
+    }
+    input:focus,
+    button:focus,
+    textarea:focus {
+      outline: none;
+    }
+    input,
+    textarea {
+      min-width: 190px;
+    }
+    button[type="submit"] {
+      text-transform: uppercase;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    textarea {
+      min-height: 50px;
+      resize: vertical;
+    }
+    .feed-card {
+      border: 1px solid black;
+      max-width: 980px;
+      width: 100%;
+      background-color: #fff;
+      margin: 0 auto;
+    }
+    .feed-header {
+      text-align: center;
+      padding: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      border-bottom: 1px solid black;
+    }
+    .feed-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .feed-body button {
+      margin-top: 10px;
+      align-self: flex-end;
+    }
+    .form-global p {
+      display: flex;
+      justify-content: center;
+    }
+    .form-global p label {
+      width: 80px;
+    }
+  </style>
+  <body>
+    <div class="feed-card">
+      <div class="feed-header">Reporte / Contacto</div>
+      <div class="feed-body">
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          class="form-global"
+        >
+          <p>
+            <label>Nombre:</label>
+            <input type="text" name="nombre" placeholder="Nombre" />
+          </p>
+          <p>
+            <label>Email: </label
+            ><input type="email" name="email" placeholder="Email" />
+          </p>
+          <p>
+            <label>Detalles: </label>
+            <textarea
+              name="mensaje"
+              placeholder="Cuentanos en que podemos ayudar"
+            ></textarea>
+          </p>
+          <p>
+            <button type="submit">Enviar reporte</button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

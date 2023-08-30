@@ -13,7 +13,12 @@ const Modal = () => {
               &times;
             </span>
             <div className="contact-wrapper">
-              <ContactForm />
+              <iframe
+                src="/contact.html"
+                className="form-url"
+                width={"100%"}
+                height={"100%"}
+              />
             </div>
           </div>
         </div>

@@ -233,6 +233,10 @@ span.orange1-gradient {
     cursor: pointer;
 }
 
+.contact-wrapper {
+    height: 23rem;
+}
+
 @keyframes gradientAnimation {
     0% {
         background-position: 0 0;

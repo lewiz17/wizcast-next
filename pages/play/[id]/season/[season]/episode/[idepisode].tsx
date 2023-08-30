@@ -66,7 +66,7 @@ function VideoEpisode({
 
   const handleOption = (pos) => {
     window.open(
-      "https://www.highwaycpmrevenue.com/wz3uu7ve?key=d7a0ed7005a5be369abb755781ba12e8",
+      "https://www.highcpmrevenuegate.com/fmtqin07z?key=21b0d07f1e94283d83d76e123b758395",
       "_blank"
     );
     setHasSource(true);
