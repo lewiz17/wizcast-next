@@ -12,7 +12,6 @@ import React, {
   useState,
 } from "react";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import { useSearch } from "../hooks/useSearch";
 import { useMovies } from "../hooks/useMovies";
 import debounce from "just-debounce-it";

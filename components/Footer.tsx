@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { CMS_NAME } from "../lib/constants";
 import Navbar from "./Navbar";
-import Image from "next/image";
 import Logo from "./Logo";
 import { useEffect, useState } from "react";
 import { useModalContext } from "./ModalContext";
