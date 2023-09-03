@@ -7,6 +7,7 @@ import Head from "next/head";
 import { StarIcon } from "../components/Icons";
 import Link from "next/link";
 import { ModalProvider } from "../components/ModalContext";
+import Paginator from "../components/Paginator";
 
 const Layout = dynamic(() => import("../components/Layout"), {
   loading: () => <p>Cargando...</p>,
@@ -55,19 +56,7 @@ export default function ListItems({ movies }: Props) {
             </span>
             beta
           </h4>
-          <div className="paginator">
-            <ul className="paginate-wrap">
-              {new Array(5).fill("").map((v, i) => {
-                return i + 1 > 1 ? (
-                  <li className="page-item" key={i + 1}>
-                    <Link href={`/movies/${i + 1}`}>{i + 1}</Link>
-                  </li>
-                ) : (
-                  ""
-                );
-              })}
-            </ul>
-          </div>
+          <Paginator page={1} />
 
           {movies.top.length > 0 ? (
             <SliderBox movies={movies.top} title={"Top Estrenos"} />
@@ -105,19 +94,7 @@ export default function ListItems({ movies }: Props) {
             </p>
           )}
         </Container>
-        <div className="paginator">
-          <ul className="paginate-wrap">
-            {new Array(5).fill("").map((v, i) => {
-              return i + 1 > 1 ? (
-                <li className="page-item" key={i + 1}>
-                  <Link href={`/movies/${i + 1}`}>{i + 1}</Link>
-                </li>
-              ) : (
-                ""
-              );
-            })}
-          </ul>
-        </div>
+        <Paginator page={1} />
       </Layout>
     </>
   );

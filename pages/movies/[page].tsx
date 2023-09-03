@@ -6,6 +6,7 @@ import Container from "../../components/Container";
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Paginator from "../../components/Paginator";
 
 const Layout = dynamic(() => import("../../components/Layout"), {
   loading: () => <p>Cargando...</p>,
@@ -54,24 +55,7 @@ export default function ListItems({ movies }: Props) {
           <h4 className="mt-[4rem] flex gap-[10px] justify-center items-center">
             WizPelis - Pagina {movies.page}
           </h4>
-          {showPaginate && (
-            <div className="paginator">
-              <ul className="paginate-wrap">
-                {new Array(5).fill("").map((v, i) => {
-                  return (
-                    <li
-                      className={`page-item ${
-                        i + 1 == Number(movies.page) ? "active" : ""
-                      }`}
-                      key={i + 1}
-                    >
-                      <Link href={`/movies/${i + 1}`}>{i + 1}</Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          )}
+          {showPaginate && <Paginator page={movies.page} />}
           {movies.top.length > 0 ? (
             <SliderBox movies={movies.top} title={"Top Estrenos"} />
           ) : (
@@ -97,33 +81,7 @@ export default function ListItems({ movies }: Props) {
           ) : (
             ""
           )}
-          {showPaginate && (
-            <div className="paginator">
-              <ul className="paginate-wrap">
-                {new Array(5).fill("").map((v, i) => {
-                  return i + 1 == 1 ? (
-                    <li
-                      className={`page-item ${
-                        i + 1 == Number(movies.page) ? "active" : ""
-                      }`}
-                      key={i + 1}
-                    >
-                      <Link href={`/`}>{i + 1}</Link>
-                    </li>
-                  ) : (
-                    <li
-                      className={`page-item ${
-                        i + 1 == Number(movies.page) ? "active" : ""
-                      }`}
-                      key={i + 1}
-                    >
-                      <Link href={`/movies/${i + 1}`}>{i + 1}</Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          )}
+          {showPaginate && <Paginator page={movies.page} />}
         </Container>
       </Layout>
     </>
