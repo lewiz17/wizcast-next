@@ -236,11 +236,17 @@ span.orange1-gradient {
 .contact-wrapper {
     height: 23rem;
 }
+.paginator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
 .paginate-wrap {
     display: flex;
     gap: 10px;
     justify-content: center;
-    margin-top: 20px;
 }
 .paginate-wrap .page-item {
     display: flex;

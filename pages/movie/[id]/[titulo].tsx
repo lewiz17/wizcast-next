@@ -8,7 +8,6 @@ import Head from "next/head";
 import { CMS_NAME } from "../../../lib/constants";
 import Container from "../../../components/Container";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Sharer from "../../../components/Sharer";
 import { formatDuration, formatRate } from "../../../utils/helpers";
 import Tabber from "../../../components/Tabber";
@@ -183,7 +182,7 @@ function Movie({ movie, related }: MovieProps): JSX.Element {
                   </span>
                   <span className="dark:text-white">{movie?.date_release}</span>
                 </p>
-                <p className="py-2 dark:text-white">
+                <p className="info-box py-2 dark:text-white">
                   <strong>Sinopsis:</strong> {movieDescription}
                 </p>
                 <p className="py-2 dark:text-white">

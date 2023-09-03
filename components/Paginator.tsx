@@ -10,6 +10,7 @@ export default function Paginator({ page }) {
 
   return (
     <div className="paginator">
+      <span>Paginas:</span>
       <ul className="paginate-wrap">
         {new Array(5).fill("").map((v, i) => {
           return i + 1 == 1 ? (
