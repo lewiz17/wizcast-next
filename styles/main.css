@@ -252,6 +252,11 @@ span.orange1-gradient {
     display: flex;
     border: 1px solid;
 }
+.paginate-wrap .page-item:hover {
+    opacity: 0.6;
+    background-color: #fff;
+    color: #000;
+}
 .paginate-wrap .page-item a {
     padding: 2px 10px;
 }
