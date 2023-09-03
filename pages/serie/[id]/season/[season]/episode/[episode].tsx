@@ -9,7 +9,11 @@ import Container from "../../../../../../components/Container";
 import { useEffect, useState } from "react";
 import SeriePlayer from "../../../../../../components/SeriePlayer";
 import SeasonBox from "../../../../../../components/SeasonBox";
-import { getSerie } from "../../../../../api/series.json";
+import {
+  getSeasonSerie,
+  getSerie,
+  getSourcesEpisode,
+} from "../../../../../api/series.json";
 import { BackIcon } from "../../../../../../components/Icons";
 import { useRouter } from "next/router";
 import { formatTitle } from "../../../../../../utils/helpers";
@@ -21,6 +25,7 @@ type SerieProps = {
     episode: number;
     count: number;
     name: string;
+    nameEpisode: string;
   };
 };
 
@@ -29,12 +34,16 @@ export const getServerSideProps: GetServerSideProps = async (
 ) => {
   const { id, season, episode } = context.params!;
 
-  const { seasons, title } = await getSerie(id);
+  const { seasons, title, serieID } = await getSerie(id);
+
+  const { name } = (await getSourcesEpisode(id, season, episode))
+    .episodeData[0];
 
   const serieData = {
     id: id,
     season: season,
     episode: episode,
+    nameEpisode: name,
     count: seasons,
     name: title,
   };
@@ -64,10 +73,11 @@ function Episode({ serieData }: SerieProps): JSX.Element {
             >
               <BackIcon />
             </button>
-            <strong>WizSerie</strong> - {serieData.name} -{" "}
+            <strong>{serieData.name}</strong>{" "}
             <span className="text-sm rounded-[100px] bg-white px-2 text-black font-bold">
               {serieData.season}x{serieData.episode}
             </span>
+            <span>{serieData.nameEpisode}</span>
           </h1>
           <SeriePlayer
             id={serieData.id}

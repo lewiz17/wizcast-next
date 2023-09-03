@@ -128,8 +128,9 @@ export async function getSourcesEpisode(id, season, episode) {
 
 
   let imdbID = (await getSerie(id)).serieID;
+  let episodes = (await getSeasonSerie(id, season)).episodes;
 
-  console.log('serie imdb', imdbID);
+  const currentEpisode = episodes.filter((v, i) => i+1 == episode );
 
   let formatEpisode = episode <=9 ? `0${episode}`: episode;
   const dataServers: AxiosResponse = await axios.get(`https://api-m1.vercel.app/api/${imdbID}-${season}x${formatEpisode}`);
@@ -145,6 +146,7 @@ export async function getSourcesEpisode(id, season, episode) {
 
   const videosSources = {
     id,
+    episodeData: currentEpisode,
     sources:links 
   };
 
@@ -156,7 +158,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const { id, season, episode } = req.query;
 
   try {
-    const jsonData = await getSerie(id);
+    const jsonData = await getSourcesEpisode(id, season, episode);
     res.status(200).json(jsonData)
   } catch (error) {
     console.error(error);
