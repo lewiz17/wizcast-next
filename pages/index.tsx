@@ -44,6 +44,7 @@ export default function ListItems({ movies }: Props) {
         <Head>
           <title>{`${CMS_NAME} - Estrenos ${new Date().getFullYear()}`}</title>
         </Head>
+
         <Container>
           <h4 className="mt-[4rem] flex gap-[10px] justify-center items-center">
             Presentando:{" "}
@@ -54,6 +55,20 @@ export default function ListItems({ movies }: Props) {
             </span>
             beta
           </h4>
+          <div className="paginator">
+            <ul className="paginate-wrap">
+              {new Array(5).fill("").map((v, i) => {
+                return i + 1 > 1 ? (
+                  <li className="page-item" key={i + 1}>
+                    <Link href={`/movies/${i + 1}`}>{i + 1}</Link>
+                  </li>
+                ) : (
+                  ""
+                );
+              })}
+            </ul>
+          </div>
+
           {movies.top.length > 0 ? (
             <SliderBox movies={movies.top} title={"Top Estrenos"} />
           ) : (
@@ -82,7 +97,7 @@ export default function ListItems({ movies }: Props) {
               Cargando...
             </p>
           )}
-          {movies.prime.length > 0 ? (
+          {movies.prime.length > 6 ? (
             <SliderBox movies={movies.prime} title={"Amazon Prime Peliculas"} />
           ) : (
             <p className="flex justify-center items-center text-2xl">
@@ -90,6 +105,19 @@ export default function ListItems({ movies }: Props) {
             </p>
           )}
         </Container>
+        <div className="paginator">
+          <ul className="paginate-wrap">
+            {new Array(5).fill("").map((v, i) => {
+              return i + 1 > 1 ? (
+                <li className="page-item" key={i + 1}>
+                  <Link href={`/movies/${i + 1}`}>{i + 1}</Link>
+                </li>
+              ) : (
+                ""
+              );
+            })}
+          </ul>
+        </div>
       </Layout>
     </>
   );
@@ -103,7 +131,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
         `https://api.themoviedb.org/3/movie/now_playing?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX&sort_by=popularity.desc&release_date.gte=2000-01-01&release_date.lte=${currentDate}`
       ),
       fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX&sort_by=primary_release_date.desc&with_watch_providers=8&watch_region=CO&vote_count.gte=300&year=${new Date().getFullYear()}`
+        `https://api.themoviedb.org/3/discover/movie?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX&sort_by=popularity.desc&with_watch_providers=8&watch_region=CO&vote_average.lte=100&year=${new Date().getFullYear()}`
       ),
       fetch(
         `https://api.themoviedb.org/3/discover/movie?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX&sort_by=primary_release_date.desc&with_watch_providers=384&watch_region=CO&vote_count.gte=300&year=${new Date().getFullYear()}`
