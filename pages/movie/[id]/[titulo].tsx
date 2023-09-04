@@ -207,7 +207,10 @@ function Movie({ movie, related }: MovieProps): JSX.Element {
         </div>
         <div className="hmax-[300px]">
           {related ? (
-            <SliderBox relates={related} title={`Similares a ${movie.title}`} />
+            <SliderBox
+              relates={related}
+              title={`Porque viste ${movie.title}`}
+            />
           ) : (
             <p className="flex justify-center items-center text-2xl">
               Cargando...

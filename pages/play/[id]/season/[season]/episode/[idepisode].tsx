@@ -149,7 +149,7 @@ function VideoEpisode({
           <p>No disponible por el momento</p>
           <span>
             Puede que algunos episodios no estén disponibles en BETA, intenta
-            ver otra temporada
+            ver otro epidosio / temporada
           </span>
           <Link
             href="/series"
