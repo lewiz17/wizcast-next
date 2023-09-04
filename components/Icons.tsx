@@ -70,3 +70,63 @@ export const PlayIcon = (props) => {
     </svg>
   );
 };
+
+export const NextIcon = (props) => {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="#000000"
+      {...props}
+      width={32}
+      height={32}
+      className="arrow-next"
+    >
+      <g id="SVGRepo_bgCarrier" strokeWidth={0} />
+      <g
+        id="SVGRepo_tracerCarrier"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <g id="SVGRepo_iconCarrier">
+        <polyline
+          fill="none"
+          stroke="#ffffff"
+          strokeWidth={2}
+          points="7 2 17 12 7 22"
+          transform="matrix(-1 0 0 1 24 0)"
+        />
+      </g>
+    </svg>
+  );
+};
+
+export const PrevIcon = (props) => {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="#000000"
+      {...props}
+      width={32}
+      height={32}
+      className="arrow"
+    >
+      <g id="SVGRepo_bgCarrier" strokeWidth={0} />
+      <g
+        id="SVGRepo_tracerCarrier"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <g id="SVGRepo_iconCarrier">
+        <polyline
+          fill="none"
+          stroke="#ffffff"
+          strokeWidth={2}
+          points="7 2 17 12 7 22"
+          transform="matrix(-1 0 0 1 24 0)"
+        />
+      </g>
+    </svg>
+  );
+};

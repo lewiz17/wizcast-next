@@ -56,7 +56,7 @@ export default function ListItems({ movies }: Props) {
             </span>
             beta
           </h4>
-          <Paginator page={1} />
+          <Paginator />
 
           {movies.top.length > 0 ? (
             <SliderBox movies={movies.top} title={"Top Estrenos"} />
@@ -94,7 +94,7 @@ export default function ListItems({ movies }: Props) {
             </p>
           )}
         </Container>
-        <Paginator page={1} />
+        <Paginator />
       </Layout>
     </>
   );

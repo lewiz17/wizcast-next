@@ -55,7 +55,7 @@ export default function ListItems({ movies }: Props) {
           <h4 className="mt-[4rem] flex gap-[10px] justify-center items-center">
             WizPelis - Pagina {movies.page}
           </h4>
-          {showPaginate && <Paginator page={movies.page} />}
+          {showPaginate && <Paginator />}
           {movies.top.length > 0 ? (
             <SliderBox movies={movies.top} title={"Top Estrenos"} />
           ) : (
@@ -81,7 +81,7 @@ export default function ListItems({ movies }: Props) {
           ) : (
             ""
           )}
-          {showPaginate && <Paginator page={movies.page} />}
+          {showPaginate && <Paginator />}
         </Container>
       </Layout>
     </>

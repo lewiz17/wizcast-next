@@ -264,6 +264,21 @@ span.orange1-gradient {
     background-color: #fff;
     color: #000;
 }
+.arrow {
+    border: 1px solid;
+    padding: 6px;
+    border-radius: 100px;
+}
+.arrow-next {
+    border: 1px solid;
+    padding: 6px;
+    border-radius: 100px;
+    transform: rotate(180deg);
+}
+.arrow:hover,
+.arrow-next:hover {
+    opacity: 0.6;
+}
 
 @keyframes gradientAnimation {
     0% {
