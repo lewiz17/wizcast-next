@@ -10,7 +10,7 @@ type ITEM = {
   title: string;
   poster: string;
   rate: number;
-  type: string;
+  type?: string;
 };
 
 const Card: React.FC<ITEM> = ({ id, title, poster, rate, type }: ITEM) => {
