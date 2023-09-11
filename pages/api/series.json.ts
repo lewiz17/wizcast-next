@@ -128,6 +128,7 @@ export async function getSourcesEpisode(id, season, episode) {
 
 
   let imdbID = (await getSerie(id)).serieID;
+  let nameSerie = (await getSerie(id)).title;
   let episodes = (await getSeasonSerie(id, season)).episodes;
 
   const currentEpisode = episodes.filter((v, i) => i+1 == episode );
@@ -135,7 +136,14 @@ export async function getSourcesEpisode(id, season, episode) {
   let formatEpisode = episode <=9 ? `0${episode}`: episode;
   const dataServers: AxiosResponse = await axios.get(`https://api-m1.vercel.app/api/${imdbID}-${season}x${formatEpisode}`);
 
-  const servers: object[] = dataServers.data;
+  let tempName = nameSerie.split(" ").length > 1 ? nameSerie.split(" ")[1] : nameSerie;
+  let tempName2 = nameSerie.split(" ").length > 2 ? nameSerie.split(" ")[0]+nameSerie.split(" ")[1].slice(0,1)+nameSerie.split(" ")[2] : tempName;
+
+  const dataServersFallback: AxiosResponse = dataServers.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName}-${season}x${formatEpisode}`) : dataServers;
+
+  const dataServersFallback2: AxiosResponse = dataServersFallback.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName2}-${season}x${formatEpisode}`) : dataServersFallback;
+
+  const servers: object[] = dataServersFallback2.data;
 
   const links: object = {
     vip: servers[0],
