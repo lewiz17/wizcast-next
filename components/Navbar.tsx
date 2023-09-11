@@ -10,6 +10,10 @@ type NavProps = {
 };
 
 const Navbar: React.FC<NavProps> = ({ position, hideItems }: NavProps) => {
+  const router = useRouter();
+
+  const isMovie = router.asPath.includes("serie") ? false : true;
+
   return (
     <nav className="flex items-center justify-end space-x-4">
       <Link href={"/"} legacyBehavior>
@@ -17,11 +21,19 @@ const Navbar: React.FC<NavProps> = ({ position, hideItems }: NavProps) => {
           Inicio
         </a>
       </Link>
-      <Link href={"/series"} legacyBehavior>
-        <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
-          Series
-        </a>
-      </Link>
+      {isMovie ? (
+        <Link href={"/series"} legacyBehavior>
+          <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
+            Series
+          </a>
+        </Link>
+      ) : (
+        <Link href={"/"} legacyBehavior>
+          <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
+            Peliculas
+          </a>
+        </Link>
+      )}
       {!hideItems && (
         <div className="select-item group relative cursor-pointer">
           {position === "header" ? (
