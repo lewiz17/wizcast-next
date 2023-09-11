@@ -2,21 +2,22 @@ import { Ref, useEffect } from "react";
 import Card from "./CardItem";
 import { useRouter } from "next/router";
 
-type Movie = {
+type ITEM_SEARCH = {
   id: string | number;
   title: string;
   poster: string;
   rate: number;
+  type: string;
 };
 
 type Loading = boolean;
 
 type Props = {
-  movies: Movie[];
+  items: ITEM_SEARCH[];
   loading: Loading;
 };
 
-const Result: React.FC<Props> = ({ movies, loading }) => {
+const Result: React.FC<Props> = ({ items, loading }) => {
   return (
     <div className="container mx-auto result-wrap my-10">
       <h2 className="text-2xl font-bold tracking-tight leading-tight my-2 text-white">
@@ -26,17 +27,18 @@ const Result: React.FC<Props> = ({ movies, loading }) => {
         {loading ? (
           <p>Cargando...</p>
         ) : (
-          movies.flatMap((movie, i) => (
+          items.flatMap((item, i) => (
             <Card
-              id={movie.id}
-              title={movie.title}
+              id={item.id}
+              title={item.title}
               key={i}
               poster={
-                movie.poster !== null
-                  ? `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster}`
+                item.poster !== null
+                  ? `https://www.themoviedb.org/t/p/w220_and_h330_face${item.poster}`
                   : "/wlogo.png"
               }
-              rate={movie.rate}
+              rate={item.rate}
+              type={item.type}
             />
           ))
         )}

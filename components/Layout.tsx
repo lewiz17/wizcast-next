@@ -5,17 +5,19 @@ import Meta from "./Meta";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { searchGeneral } from "../pages/api/search.json";
 
 const Result = dynamic(() => import("./Result"), {
   loading: () => <p>Cargando...</p>,
 });
 
-type movies = {
+type ITEM_SEARCH = {
   id: string | number;
   title: string;
   poster: string;
   rate: number;
-}[];
+  type: string;
+};
 
 type loading = boolean;
 
@@ -25,7 +27,7 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   const router = useRouter();
-  const [movieData, setmovieData] = useState<movies>([]);
+  const [movieData, setmovieData] = useState<ITEM_SEARCH[]>([]);
   const [loading, setLoading] = useState<loading>(false);
   const [isResult, setisResult] = useState<boolean>(true);
   const [numPage, setNumPage] = useState<number>(1);
@@ -60,6 +62,11 @@ const Layout = ({ children }: Props) => {
     setisResult(true);
   }, [movieData]);
 
+  const handleSearch = async (query) => {
+    const media = await searchGeneral(query);
+    setmovieData(media.results);
+  };
+
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       <Meta />
@@ -70,20 +77,12 @@ const Layout = ({ children }: Props) => {
         handleTotalResults={setTotalResult}
         currentMovie={routerID}
         hideItems={hideMenuItems}
+        handleSearch={handleSearch}
       />
       <main className="mx-auto my-[4rem] flex-grow">
         {movieData?.length > 0 && isResult ? (
           <>
-            <Result movies={movieData} loading={loading} />
-            {showLoad && (
-              <a
-                href="#"
-                onClick={(e) => handleLoadMore(e)}
-                className="flex justify-center item-view"
-              >
-                Load More
-              </a>
-            )}
+            <Result items={movieData} loading={loading} />
           </>
         ) : (
           children
