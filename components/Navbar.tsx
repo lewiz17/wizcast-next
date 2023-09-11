@@ -16,11 +16,20 @@ const Navbar: React.FC<NavProps> = ({ position, hideItems }: NavProps) => {
 
   return (
     <nav className="flex items-center justify-end space-x-4">
-      <Link href={"/"} legacyBehavior>
-        <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
-          Inicio
-        </a>
-      </Link>
+      {isMovie ? (
+        <Link href={"/"} legacyBehavior>
+          <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
+            Inicio
+          </a>
+        </Link>
+      ) : (
+        <Link href={"/series"} legacyBehavior>
+          <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
+            Inicio
+          </a>
+        </Link>
+      )}
+
       {isMovie ? (
         <Link href={"/series"} legacyBehavior>
           <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
