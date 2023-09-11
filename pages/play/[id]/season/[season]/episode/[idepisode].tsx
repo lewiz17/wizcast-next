@@ -85,7 +85,7 @@ function VideoEpisode({
               <ul
                 className={`${
                   router.asPath.includes("episode")
-                    ? "grid grid-cols-2 grid-rows-2 gap-4 justify-center items-center max-w-[45%] mx-auto h-[60vh]"
+                    ? "grid md:grid-cols-2 sm:grid-cols-1 gap-4 justify-center items-center max-w-[45%] mx-auto h-[60vh]"
                     : "flex flex-col gap-y-3 items-center"
                 }   py-5`}
               >
