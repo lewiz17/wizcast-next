@@ -48,13 +48,12 @@ export default function ListItems({ movies }: Props) {
 
         <Container>
           <h4 className="mt-[4rem] flex gap-[10px] justify-center items-center">
-            Presentando:{" "}
-            <span className="orange1-gradient font-bold">
+            Ampliamos nuestro catalogo de Series disfruta ahora en:
+            <span className="orange1-gradient font-bold block">
               <Link href="/series" legacyBehavior>
                 WizSeries
               </Link>
             </span>
-            beta
           </h4>
           <Paginator />
 

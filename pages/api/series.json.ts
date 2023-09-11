@@ -106,7 +106,7 @@ export async function getSeasonSerie(ttid, numSeason) {
 
   const episodes: episode[] = seasonSerie.data.episodes;
 
-  const mapEpisodes =  episodes.slice(0, maxEpisodes).map((ep) => {
+  const mapEpisodes =  episodes.map((ep) => {
     return {
         id: ep.id,
         name: ep.name,

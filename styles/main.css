@@ -221,7 +221,7 @@ details[open] p {
 
 span.orange1-gradient {
     font-size: 3rem;
-    background: linear-gradient(90deg, oklch(67.3% 0.266 25.039656026515278), oklch(85.82% 0.201 91.19));
+    background: linear-gradient(90deg, oklch(0.39 0.21 303.04), oklch(0.78 0.19 217.72));
     background-size: 200% 200%;
     -webkit-background-clip: text;
     background-clip: text;
