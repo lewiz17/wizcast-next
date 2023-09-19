@@ -279,6 +279,10 @@ span.orange1-gradient {
 .arrow-next:hover {
     opacity: 0.6;
 }
+.block-unit {
+    display: flex;
+    justify-content: center;
+}
 
 @keyframes gradientAnimation {
     0% {

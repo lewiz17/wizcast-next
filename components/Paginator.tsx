@@ -60,26 +60,6 @@ export default function Paginator() {
       >
         <NextIcon />
       </a>
-      {/*<ul className="paginate-wrap">
-        {new Array(5).fill("").map((v, i) => {
-          return i + 1 == 1 ? (
-            currentPage == 1 ? (
-              ""
-            ) : (
-              <li className={`page-item`} key={i + 1}>
-                <Link href={`/`}>{i + 1}</Link>
-              </li>
-            )
-          ) : (
-            <li
-              className={`page-item ${i + 1 == currentPage ? "active" : ""}`}
-              key={i + 1}
-            >
-              <Link href={`/movies/${i + 1}`}>{i + 1}</Link>
-            </li>
-          );
-        })}
-      </ul>*/}
     </div>
   );
 }
