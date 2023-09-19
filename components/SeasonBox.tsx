@@ -62,7 +62,7 @@ const SeasonBox: React.FC<SeasonProps> = ({ count, id }) => {
 
       <div
         className={`season-content ${
-          router.asPath.includes("episode") ? "h-auto" : "h-[27em]"
+          router.asPath.includes("episode") ? "h-[30em]" : "h-[27em]"
         }  mt-4`}
       >
         <iframe

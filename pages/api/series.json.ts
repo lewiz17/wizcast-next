@@ -58,6 +58,7 @@ export async function getSerie(id) {
   const rating: number = dataSerie.data.vote_average;
   const genres: SerieGenre[] = dataSerie.data.genres;
   const seasons: number = dataSerie.data.number_of_seasons;
+  const totalEpisodes: number = dataSerie.data.number_of_episodes;
   const lastEpisode: number = dataSerie.data.last_episode_to_air.episode_number;
 
   const dataIDs: AxiosResponse = await axios.get(`https://api.themoviedb.org/3/tv/${id}/external_ids`, {
@@ -78,6 +79,7 @@ export async function getSerie(id) {
     genres: genres,
     lastEpisode: lastEpisode,
     seasons,
+    totalEpisodes
   };
 
   return serieJSON;
@@ -87,6 +89,7 @@ type episode = {
   id: number
   name: string
   still_path: string
+  episode_number: number
 }
 
 export async function getSeasonSerie(ttid, numSeason) {
@@ -110,7 +113,8 @@ export async function getSeasonSerie(ttid, numSeason) {
     return {
         id: ep.id,
         name: ep.name,
-        poster: ep.still_path
+        poster: ep.still_path,
+        epnumber: ep.episode_number
     }
   })
 
@@ -131,29 +135,39 @@ export async function getSourcesEpisode(id, season, episode) {
   let nameSerie = (await getSerie(id)).title;
   let episodes = (await getSeasonSerie(id, season)).episodes;
 
-  const currentEpisode = episodes.filter((v, i) => i+1 == episode );
+  const currentEpisode = episodes.filter((v, i) => v.epnumber == episode );
 
   let formatEpisode = episode <=9 ? `0${episode}`: episode;
-  const dataServers: AxiosResponse = await axios.get(`https://api-m1.vercel.app/api/${imdbID}-${season}x${formatEpisode}`);
+
+  let numEpisode = `${season}x${formatEpisode}`;
+
+  const dataServers: AxiosResponse = await axios.get(`https://api-m1.vercel.app/api/${imdbID}-${numEpisode}`);
 
   let tempName = nameSerie.split(" ").length > 1 ? nameSerie.split(" ")[1] : nameSerie;
   let tempName2 = nameSerie.split(" ").length > 1 ? nameSerie.split(" ")[0]+nameSerie.split(" ")[1] : tempName;
   let tempName3 = nameSerie.split(" ").length >= 2 ? nameSerie.split(" ")[0]+nameSerie.split(" ")[1].slice(0,1)+nameSerie.split(" ")[2] : tempName2;
   let tempName4 = nameSerie.split(" ").length > 2 ? nameSerie.split(" ")[0].slice(0,1)+nameSerie.split(" ")[1].slice(0,1)+nameSerie.split(" ")[2].slice(0,1) : tempName3;
   let tempName5 = imdbID == "tt0944947" ? 'got' : tempName4;
+  let tempName6 = imdbID == "tt4644488" ? 'dballsuper' : tempName4;
+  let tempName7 = imdbID == "tt0388629" ? `${imdbID}-1x${episode}` : tempName4; //one piece
 
 
-  const dataServersFallback: AxiosResponse = dataServers.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName}-${season}x${formatEpisode}`) : dataServers;
+  const dataServersFallback: AxiosResponse = dataServers.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName}-${numEpisode}`) : dataServers;
 
-  const dataServersFallback2: AxiosResponse = dataServersFallback.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName2}-${season}x${formatEpisode}`) : dataServersFallback;
+  const dataServersFallback2: AxiosResponse = dataServersFallback.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName2}-${numEpisode}`) : dataServersFallback;
 
-  const dataServersFallback3: AxiosResponse = dataServersFallback2.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName3}-${season}x${formatEpisode}`) : dataServersFallback2;
+  const dataServersFallback3: AxiosResponse = dataServersFallback2.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName3}-${numEpisode}`) : dataServersFallback2;
 
-  const dataServersFallback4: AxiosResponse = dataServersFallback3.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName4}-${season}x${formatEpisode}`) : dataServersFallback3;
+  const dataServersFallback4: AxiosResponse = dataServersFallback3.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName4}-${numEpisode}`) : dataServersFallback3;
 
-  const dataServersFallback5: AxiosResponse = dataServersFallback4.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName5}-${season}x${formatEpisode}`) : dataServersFallback4;
+  const dataServersFallback5: AxiosResponse = dataServersFallback4.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName5}-${numEpisode}`) : dataServersFallback4;
 
-  const servers: object[] = dataServersFallback5.data;
+  const dataServersFallback6: AxiosResponse = dataServersFallback5.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName6}-${numEpisode}`) : dataServersFallback5;
+
+  const dataServersFallback7: AxiosResponse = dataServersFallback6.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName7}`) : dataServersFallback6;
+
+  
+  const servers: object[] = dataServersFallback7.data;
 
   const links: object = {
     vip: servers[0],
@@ -170,6 +184,8 @@ export async function getSourcesEpisode(id, season, episode) {
 
   return videosSources;
 }
+
+
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
