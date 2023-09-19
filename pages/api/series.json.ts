@@ -137,13 +137,23 @@ export async function getSourcesEpisode(id, season, episode) {
   const dataServers: AxiosResponse = await axios.get(`https://api-m1.vercel.app/api/${imdbID}-${season}x${formatEpisode}`);
 
   let tempName = nameSerie.split(" ").length > 1 ? nameSerie.split(" ")[1] : nameSerie;
-  let tempName2 = nameSerie.split(" ").length > 2 ? nameSerie.split(" ")[0]+nameSerie.split(" ")[1].slice(0,1)+nameSerie.split(" ")[2] : tempName;
+  let tempName2 = nameSerie.split(" ").length > 1 ? nameSerie.split(" ")[0]+nameSerie.split(" ")[1] : tempName;
+  let tempName3 = nameSerie.split(" ").length >= 2 ? nameSerie.split(" ")[0]+nameSerie.split(" ")[1].slice(0,1)+nameSerie.split(" ")[2] : tempName2;
+  let tempName4 = nameSerie.split(" ").length > 2 ? nameSerie.split(" ")[0].slice(0,1)+nameSerie.split(" ")[1].slice(0,1)+nameSerie.split(" ")[2].slice(0,1) : tempName3;
+  let tempName5 = imdbID == "tt0944947" ? 'got' : tempName4;
+
 
   const dataServersFallback: AxiosResponse = dataServers.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName}-${season}x${formatEpisode}`) : dataServers;
 
   const dataServersFallback2: AxiosResponse = dataServersFallback.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName2}-${season}x${formatEpisode}`) : dataServersFallback;
 
-  const servers: object[] = dataServersFallback2.data;
+  const dataServersFallback3: AxiosResponse = dataServersFallback2.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName3}-${season}x${formatEpisode}`) : dataServersFallback2;
+
+  const dataServersFallback4: AxiosResponse = dataServersFallback3.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName4}-${season}x${formatEpisode}`) : dataServersFallback3;
+
+  const dataServersFallback5: AxiosResponse = dataServersFallback4.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName5}-${season}x${formatEpisode}`) : dataServersFallback4;
+
+  const servers: object[] = dataServersFallback5.data;
 
   const links: object = {
     vip: servers[0],
