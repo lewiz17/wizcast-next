@@ -114,7 +114,21 @@ function Movie({ movie, related }: MovieProps): JSX.Element {
           Cargando...
         </p>
       ) : (
-        <VideoBox video={movie.id} />
+        <>
+          <VideoBox video={movie.id} />
+          <div className="block-unit">
+            <iframe
+              src="//profitablecreativeformat.com/watchnew?key=471ba32b3bc97c7848935b3e85989bc6"
+              width={320}
+              height={50}
+            ></iframe>
+            <iframe
+              src="//profitablecreativeformat.com/watchnew?key=471ba32b3bc97c7848935b3e85989bc6"
+              width={320}
+              height={50}
+            ></iframe>
+          </div>
+        </>
       ),
     },
     {
