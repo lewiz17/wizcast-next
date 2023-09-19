@@ -8,7 +8,6 @@ import { StarIcon } from "../components/Icons";
 import Link from "next/link";
 import { ModalProvider } from "../components/ModalContext";
 import Paginator from "../components/Paginator";
-import ExternalUnit from "../components/BlockAds";
 
 const Layout = dynamic(() => import("../components/Layout"), {
   loading: () => <p>Cargando...</p>,

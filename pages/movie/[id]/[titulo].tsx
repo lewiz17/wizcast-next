@@ -198,6 +198,19 @@ function Movie({ movie, related }: MovieProps): JSX.Element {
                 </p>
               </div>
             </div>
+            <div className="block-unit">
+              <iframe
+                src="//profitablecreativeformat.com/watchnew?key=471ba32b3bc97c7848935b3e85989bc6"
+                width={320}
+                height={50}
+              ></iframe>
+              <iframe
+                src="//profitablecreativeformat.com/watchnew?key=471ba32b3bc97c7848935b3e85989bc6"
+                width={320}
+                height={50}
+              ></iframe>
+            </div>
+
             <Sharer url={fullUrl} />
           </div>
           <div className="item-view md:w-full p-5 mt-10 rounded-lg overflow-hidden shadow md:order-1 lg:order-2">

@@ -282,6 +282,8 @@ span.orange1-gradient {
 .block-unit {
     display: flex;
     justify-content: center;
+    overflow: hidden;
+    gap: 10px;
 }
 
 @keyframes gradientAnimation {

@@ -1,5 +1,4 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import ExternalUnit from "../components/BlockAds";
 
 const GA_TRACKING_ID = "G-GV9HP0EZL0";
 
@@ -27,7 +26,6 @@ export default function Document() {
       <body className="dark">
         <Main />
         <NextScript />
-        <ExternalUnit />
       </body>
     </Html>
   );
