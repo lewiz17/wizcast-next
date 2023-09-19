@@ -144,6 +144,7 @@ function VideoEpisode({
             width={64}
             height={64}
             alt="info"
+            decoding="async"
             loading="lazy"
           />
           <p>No disponible por el momento</p>
