@@ -110,7 +110,7 @@ export async function getSourcesVideo(id) {
 
   const servers: object[] = dataServers.data;
 
-  const links: object = servers.length > 3 ? {
+  const links: object = servers.length > 0 ? {
     vip: servers[0],
     fast: servers[1],
     normal: servers[2],
