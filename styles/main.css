@@ -235,6 +235,8 @@ span.orange1-gradient {
 
 .contact-wrapper {
     height: 23rem;
+    display: flex;
+    padding: 1rem 0;
 }
 .paginator {
     display: flex;
