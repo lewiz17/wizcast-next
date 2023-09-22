@@ -16,6 +16,8 @@ type ITEM = {
 const Card: React.FC<ITEM> = ({ id, title, poster, rate, type }: ITEM) => {
   const router = useRouter();
 
+  console.log("tipo", type, title);
+
   const handleGoPage = (id, title, type) => {
     if (type == "movie") {
       router.push(`/movie/${id}/${formatTitle(title)}`);

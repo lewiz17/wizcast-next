@@ -67,6 +67,8 @@ const Layout = ({ children }: Props) => {
     setmovieData(media.results);
   };
 
+  console.log("movie data desde layout", movieData);
+
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
       <Meta />

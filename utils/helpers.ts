@@ -1,6 +1,20 @@
+export const removeAccents = (str) => {
+    const accents = "ÀÁÂÃÄÅàáâãäåÇçÐðÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøÙÚÛÜùúûüÝý";
+    const accentsOut = "AAAAAAaaaaaaCcDdEEEEeeeeIIIIiiiiNnOOOOOOooooooUUUUuuuuYY";
+
+    return str
+        .split("")
+        .map((letter) => {
+        const index = accents.indexOf(letter);
+        return index !== -1 ? accentsOut[index] : letter;
+        })
+        .join("");
+};
+  
 export const formatTitle = (title) => {
-    return String(title).toLocaleLowerCase().replaceAll(" ", "-");
-}
+    const normalizedTitle = removeAccents(String(title).toLowerCase());
+    return normalizedTitle.replaceAll(" ", "-");
+};
 
 export const formatRate = (num) => {
     return num != undefined ? num.toFixed(1): 0;

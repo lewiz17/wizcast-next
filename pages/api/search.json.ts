@@ -7,6 +7,7 @@ export interface ITEM_SEARCH {
   backdrop_path: string
   id: number
   name: string
+  title: string
   original_language: string
   original_name: string
   overview: string
@@ -65,7 +66,7 @@ export async function searchGeneral(query) {
     const mapItems =  items.map((item) => {
       return {
           id: item.id,
-          title: item.name,
+          title: item.name === undefined ? item.title : item.name,
           poster: item.poster_path,
           rate: item.vote_average,
           type: item.media_type

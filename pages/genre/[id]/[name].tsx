@@ -15,6 +15,7 @@ type Movie = {
   poster_path: string;
   release_date: number;
   vote_average: number;
+  type: string;
 };
 
 type GenreProps = {
@@ -67,6 +68,7 @@ function Genre({
               id={movie.id}
               title={movie.title}
               key={movie.id}
+              type={"movie"}
               poster={
                 movie.poster !== null
                   ? `https://www.themoviedb.org/t/p/w220_and_h330_face${movie.poster}`

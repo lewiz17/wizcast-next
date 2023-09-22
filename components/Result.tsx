@@ -18,6 +18,8 @@ type Props = {
 };
 
 const Result: React.FC<Props> = ({ items, loading }) => {
+  console.log("items results", items);
+
   return (
     <div className="container mx-auto result-wrap my-10">
       <h2 className="text-2xl font-bold tracking-tight leading-tight my-2 text-white">
