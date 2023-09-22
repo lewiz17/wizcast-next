@@ -24,7 +24,7 @@ type Movie = {
   release: string;
   rate: number;
   poster_path: string;
-  release_date: number;
+  release_date: string;
   vote_average: number;
 };
 

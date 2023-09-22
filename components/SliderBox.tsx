@@ -132,7 +132,7 @@ const SliderBox = ({ movies, series, relates, title }: Props) => {
                     />
                   </Link>
                   <span className="text-white text-[12px]">
-                    {title} - {release_date}
+                    {title} - {release_date.split("-")[0]}
                   </span>
                   <span
                     style={{
@@ -167,7 +167,7 @@ const SliderBox = ({ movies, series, relates, title }: Props) => {
                   />
                 </Link>
                 <span className="text-white text-[12px]">
-                  {title} - {release}
+                  {title} - {release.split("-")[0]}
                 </span>
                 <span
                   style={{
