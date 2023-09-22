@@ -71,7 +71,7 @@ export async function searchGeneral(query) {
           poster: item.poster_path,
           rate: item.vote_average,
           type: item.media_type,
-          date: item.first_air_date != undefined ? item.first_air_date : item.release_date
+          date: item?.first_air_date?.split('-')[0] || item?.release_date?.split('-')[0]
       }
     })
 

@@ -11,7 +11,7 @@ type ITEM = {
   poster: string;
   rate: number;
   type?: string;
-  date: string;
+  date?: string;
 };
 
 const Card: React.FC<ITEM> = ({
@@ -68,7 +68,7 @@ const Card: React.FC<ITEM> = ({
       </div>
 
       <span className="text-white text-[12px]">
-        {title} - {date.split("-")[0]}
+        {title} - {date}
       </span>
       <span
         style={{

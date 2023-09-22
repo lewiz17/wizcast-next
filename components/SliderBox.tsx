@@ -131,7 +131,9 @@ const SliderBox = ({ movies, series, relates, title }: Props) => {
                       loading="lazy"
                     />
                   </Link>
-                  <span className="text-white text-[12px]">{title}</span>
+                  <span className="text-white text-[12px]">
+                    {title} - {release_date}
+                  </span>
                   <span
                     style={{
                       display: "flex",
@@ -140,10 +142,6 @@ const SliderBox = ({ movies, series, relates, title }: Props) => {
                     }}
                   >
                     <StarIcon /> {formatRate(vote_average)}
-                  </span>
-                  <span className="text-white text-[12px]">
-                    {" "}
-                    - {release_date}
                   </span>
                 </div>
               )
@@ -169,7 +167,7 @@ const SliderBox = ({ movies, series, relates, title }: Props) => {
                   />
                 </Link>
                 <span className="text-white text-[12px]">
-                  {title} - {release.split("-")[0]}
+                  {title} - {release}
                 </span>
                 <span
                   style={{

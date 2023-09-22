@@ -10,7 +10,7 @@ type Movie = {
   id: number;
   title: string;
   poster: string;
-  release: number;
+  release: string;
   rate: number;
   poster_path: string;
   release_date: number;
@@ -75,6 +75,7 @@ function Genre({
                   : "/wlogo.png"
               }
               rate={movie.rate}
+              date={movie.release}
             />
           ))}
         </div>
