@@ -17,6 +17,7 @@ type ITEM_SEARCH = {
   poster: string;
   rate: number;
   type: string;
+  date: string;
 };
 
 type loading = boolean;
@@ -37,11 +38,8 @@ const Layout = ({ children }: Props) => {
 
   const routerID = router?.query?.id ? router.query.id : "";
 
-  console.log("movie data", total);
-
   const handleLoadMore = (e) => {
     e.preventDefault();
-    console.log("hizo click aqui");
     // increment pagee
     total == numPage ? setShowLoad(false) : setNumPage(numPage + 1);
   };
@@ -66,8 +64,6 @@ const Layout = ({ children }: Props) => {
     const media = await searchGeneral(query);
     setmovieData(media.results);
   };
-
-  console.log("movie data desde layout", movieData);
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">

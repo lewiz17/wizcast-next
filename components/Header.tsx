@@ -61,8 +61,6 @@ const Header: React.FC<Props> = ({
     updateSearch("");
   }, [currentMovie]);
 
-  //console.log("desde header", currentMovie);
-
   const debouncedGetMovies = useCallback(
     debounce((search, page) => {
       getMovies({ search, page });

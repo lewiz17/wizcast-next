@@ -21,7 +21,7 @@ type Movie = {
   id: number;
   title: string;
   poster: string;
-  release: number;
+  release: string;
   rate: number;
   poster_path: string;
   release_date: number;

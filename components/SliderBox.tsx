@@ -13,6 +13,7 @@ type Movie = {
   title: string;
   poster: string;
   rate: number;
+  release: string;
 };
 
 type Serie = {
@@ -108,7 +109,10 @@ const SliderBox = ({ movies, series, relates, title }: Props) => {
           {relates &&
             relates.moviesRelates.length > 6 &&
             relates.moviesRelates.map(
-              ({ id, title, poster_path, vote_average }, index) => (
+              (
+                { id, title, poster_path, vote_average, release_date },
+                index
+              ) => (
                 <div
                   key={index}
                   className="item-movie w-[200px] xs:w-[50%] xs:p-[0px] flex flex-col  pt-2 pr-3 hover:opacity-50"
@@ -137,11 +141,15 @@ const SliderBox = ({ movies, series, relates, title }: Props) => {
                   >
                     <StarIcon /> {formatRate(vote_average)}
                   </span>
+                  <span className="text-white text-[12px]">
+                    {" "}
+                    - {release_date}
+                  </span>
                 </div>
               )
             )}
           {movies &&
-            movies.map(({ id, title, poster, rate }, index) => (
+            movies.map(({ id, title, poster, rate, release }, index) => (
               <div
                 key={index}
                 className="item-movie w-[200px] xs:w-[50%] xs:p-[0px] flex flex-col pr-3 hover:opacity-50 pt-2"
@@ -160,7 +168,9 @@ const SliderBox = ({ movies, series, relates, title }: Props) => {
                     loading="lazy"
                   />
                 </Link>
-                <span className="text-white text-[12px]">{title}</span>
+                <span className="text-white text-[12px]">
+                  {title} - {release.split("-")[0]}
+                </span>
                 <span
                   style={{
                     display: "flex",

@@ -103,8 +103,6 @@ export async function getData(id) {
 
 export async function getSourcesVideo(id) {
 
-  console.log(id);
-
   const imdbID = id.includes('x') ? `tt${id}` : (await getData(id)).imdbID;
   const dataServers: AxiosResponse = await axios.get(`https://api-m1.vercel.app/api/${imdbID}`);
 

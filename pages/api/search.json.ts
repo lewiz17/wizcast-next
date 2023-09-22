@@ -19,6 +19,7 @@ export interface ITEM_SEARCH {
   vote_average: number
   vote_count: number
   origin_country: string[]
+  release_date: string
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -69,7 +70,8 @@ export async function searchGeneral(query) {
           title: item.name === undefined ? item.title : item.name,
           poster: item.poster_path,
           rate: item.vote_average,
-          type: item.media_type
+          type: item.media_type,
+          date: item.first_air_date != undefined ? item.first_air_date : item.release_date
       }
     })
 

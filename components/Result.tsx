@@ -8,6 +8,7 @@ type ITEM_SEARCH = {
   poster: string;
   rate: number;
   type: string;
+  date: string;
 };
 
 type Loading = boolean;
@@ -18,8 +19,6 @@ type Props = {
 };
 
 const Result: React.FC<Props> = ({ items, loading }) => {
-  console.log("items results", items);
-
   return (
     <div className="container mx-auto result-wrap my-10">
       <h2 className="text-2xl font-bold tracking-tight leading-tight my-2 text-white">
@@ -41,6 +40,7 @@ const Result: React.FC<Props> = ({ items, loading }) => {
               }
               rate={item.rate}
               type={item.type}
+              date={item.date}
             />
           ))
         )}

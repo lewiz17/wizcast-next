@@ -11,12 +11,18 @@ type ITEM = {
   poster: string;
   rate: number;
   type?: string;
+  date: string;
 };
 
-const Card: React.FC<ITEM> = ({ id, title, poster, rate, type }: ITEM) => {
+const Card: React.FC<ITEM> = ({
+  id,
+  title,
+  poster,
+  rate,
+  type,
+  date,
+}: ITEM) => {
   const router = useRouter();
-
-  console.log("tipo", type, title);
 
   const handleGoPage = (id, title, type) => {
     if (type == "movie") {
@@ -61,7 +67,9 @@ const Card: React.FC<ITEM> = ({ id, title, poster, rate, type }: ITEM) => {
         </Link>
       </div>
 
-      <span className="text-white text-[12px]">{title}</span>
+      <span className="text-white text-[12px]">
+        {title} - {date.split("-")[0]}
+      </span>
       <span
         style={{
           display: "flex",

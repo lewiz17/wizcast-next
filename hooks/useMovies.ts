@@ -25,7 +25,6 @@ export function useMovies ({ search, page, sort }: {
       setError(null)
       previousSearch.current = search
       const newMovies = await searchMovies({ search, page })
-      console.log(newMovies.movies);
       setMovies(prevMovies => [
         ...prevMovies,
         ...newMovies.movies.map(movie => ({ ...movie, key: movie.id }))
