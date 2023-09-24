@@ -58,7 +58,7 @@ export async function getData(id) {
     const genresIDs: number[] = genres && genres.map(g => g.id);
 
 
-    const dataRelates: AxiosResponse = await axios.get(`https://api.themoviedb.org/3/movie/${id}/similar`, {
+    const dataRelates: AxiosResponse = await axios.get(`https://api.themoviedb.org/3/movie/${id}/recommendations`, {
       params: {
         api_key: 'a0a7e40dc8162ed7e37aa2fc97db5654',
         language: 'es-MX'
