@@ -39,6 +39,8 @@ export const getServerSideProps: GetServerSideProps = async (
   const { name } = (await getSourcesEpisode(id, season, episode))
     .episodeData[0];
 
+  console.log(name);
+
   const serieData = {
     id: id,
     season: season,

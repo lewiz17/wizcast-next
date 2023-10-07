@@ -17,13 +17,10 @@ import SliderBox from "../../../components/SliderBox";
 import { getData } from "../../api/movie.json";
 import { StarIcon } from "../../../components/Icons";
 import PlayBox from "../../../components/PlayBox";
+import { SkeletonCard } from "../../../components/SkeletonCard";
 
 const VideoBox = dynamic(() => import("../../../components/StreamBox"), {
-  loading: () => (
-    <p className="flex justify-center items-center text-white h-[400px]">
-      Cargando...
-    </p>
-  ),
+  loading: () => <SkeletonCard />,
 });
 
 interface MovieGenre {
@@ -110,9 +107,7 @@ function Movie({ movie, related }: MovieProps): JSX.Element {
     {
       label: "Servidores 🇲🇽",
       content: isLoading ? (
-        <p className="flex justify-center items-center text-white">
-          Cargando...
-        </p>
+        <SkeletonCard />
       ) : (
         <>
           <VideoBox video={movie.id} />
@@ -239,9 +234,7 @@ function Movie({ movie, related }: MovieProps): JSX.Element {
               title={`Porque viste ${movie.title}`}
             />
           ) : (
-            <p className="flex justify-center items-center text-2xl">
-              Cargando...
-            </p>
+            <SkeletonCard />
           )}
         </div>
       </Container>

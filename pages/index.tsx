@@ -8,13 +8,15 @@ import { StarIcon } from "../components/Icons";
 import Link from "next/link";
 import { ModalProvider } from "../components/ModalContext";
 import Paginator from "../components/Paginator";
+import { SkeletonCard } from "../components/SkeletonCard";
+import Tabber from "../components/Tabber";
 
 const Layout = dynamic(() => import("../components/Layout"), {
-  loading: () => <p>Cargando...</p>,
+  loading: () => <SkeletonCard />,
 });
 
 const SliderBox = dynamic(() => import("../components/SliderBox"), {
-  loading: () => <p>Cargando...</p>,
+  loading: () => <SkeletonCard />,
 });
 
 type Movie = {
@@ -39,6 +41,45 @@ type Props = {
 };
 
 export default function ListItems({ movies }: Props) {
+  const tabsPlatform = [
+    {
+      label: "Netflix",
+      content:
+        movies.netflix.length > 0 ? (
+          <SliderBox movies={movies.netflix} />
+        ) : (
+          <SkeletonCard />
+        ),
+    },
+    {
+      label: "HBO Max",
+      content:
+        movies.hbo.length > 0 ? (
+          <SliderBox movies={movies.hbo} />
+        ) : (
+          <SkeletonCard />
+        ),
+    },
+    {
+      label: "Prime",
+      content:
+        movies.prime.length > 6 ? (
+          <SliderBox movies={movies.prime} />
+        ) : (
+          <SkeletonCard />
+        ),
+    },
+    {
+      label: "Disney +",
+      content:
+        movies.disney.length > 0 ? (
+          <SliderBox movies={movies.disney} />
+        ) : (
+          <SkeletonCard />
+        ),
+    },
+  ];
+
   return (
     <>
       <Layout>
@@ -55,45 +96,16 @@ export default function ListItems({ movies }: Props) {
               </Link>
             </span>
           </h4>
-          <Paginator />
 
           {movies.top.length > 0 ? (
             <SliderBox movies={movies.top} title={"Top Estrenos"} />
           ) : (
-            <p className="flex justify-center items-center text-2xl h-[200px]">
-              Cargando...
-            </p>
+            <SkeletonCard />
           )}
-          {movies.netflix.length > 0 ? (
-            <SliderBox movies={movies.netflix} title={"Netflix Peliculas"} />
-          ) : (
-            <p className="flex justify-center items-center text-2xl">
-              Cargando...
-            </p>
-          )}
-          {movies.hbo.length > 0 ? (
-            <SliderBox movies={movies.hbo} title={"HBO Max Peliculas"} />
-          ) : (
-            <p className="flex justify-center items-center text-2xl">
-              Cargando...
-            </p>
-          )}
-          {movies.disney.length > 0 ? (
-            <SliderBox movies={movies.disney} title={"Disney Peliculas"} />
-          ) : (
-            <p className="flex justify-center items-center text-2xl">
-              Cargando...
-            </p>
-          )}
-          {movies.prime.length > 6 ? (
-            <SliderBox movies={movies.prime} title={"Amazon Prime Peliculas"} />
-          ) : (
-            <p className="flex justify-center items-center text-2xl">
-              Cargando...
-            </p>
-          )}
+          <Paginator />
+
+          <Tabber tabs={tabsPlatform} page={"index"} />
         </Container>
-        <Paginator />
       </Layout>
     </>
   );

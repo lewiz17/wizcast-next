@@ -20,13 +20,10 @@ import { StarIcon } from "../../../components/Icons";
 import PlayBox from "../../../components/PlayBox";
 import { getSerie } from "../../api/series.json";
 import SeasonBox from "../../../components/SeasonBox";
+import { SkeletonCard } from "../../../components/SkeletonCard";
 
 const VideoBox = dynamic(() => import("../../../components/StreamBox"), {
-  loading: () => (
-    <p className="flex justify-center items-center text-white h-[400px]">
-      Cargando...
-    </p>
-  ),
+  loading: () => <SkeletonCard />,
 });
 
 interface SerieGenre {

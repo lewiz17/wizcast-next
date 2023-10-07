@@ -5,13 +5,14 @@ import dynamic from "next/dynamic";
 import Container from "../../components/Container";
 import Head from "next/head";
 import { StarIcon } from "../../components/Icons";
+import { SkeletonCard } from "../../components/SkeletonCard";
 
 const Layout = dynamic(() => import("../../components/Layout"), {
-  loading: () => <p>Cargando...</p>,
+  loading: () => <SkeletonCard />,
 });
 
 const SliderBox = dynamic(() => import("../../components/SliderBox"), {
-  loading: () => <p>Cargando...</p>,
+  loading: () => <SkeletonCard />,
 });
 
 type Serie = {
@@ -54,37 +55,27 @@ export default function ListItems({ series }: Props) {
           {series.anime.length > 0 ? (
             <SliderBox series={series.anime} title={"Anime"} />
           ) : (
-            <p className="flex justify-center items-center text-2xl h-[200px]">
-              Cargando...
-            </p>
+            <SkeletonCard />
           )}
           {series.top.length > 0 ? (
             <SliderBox series={series.top} title={"Top Series"} />
           ) : (
-            <p className="flex justify-center items-center text-2xl h-[200px]">
-              Cargando...
-            </p>
+            <SkeletonCard />
           )}
           {series.netflix.length > 0 ? (
             <SliderBox series={series.netflix} title={"Netflix Series"} />
           ) : (
-            <p className="flex justify-center items-center text-2xl h-[200px]">
-              Cargando...
-            </p>
+            <SkeletonCard />
           )}
           {series.disney.length > 0 ? (
             <SliderBox series={series.disney} title={"Disney Series"} />
           ) : (
-            <p className="flex justify-center items-center text-2xl h-[200px]">
-              Cargando...
-            </p>
+            <SkeletonCard />
           )}
           {series.prime.length > 0 ? (
             <SliderBox series={series.prime} title={"Prime video Series"} />
           ) : (
-            <p className="flex justify-center items-center text-2xl h-[200px]">
-              Cargando...
-            </p>
+            <SkeletonCard />
           )}
         </Container>
       </Layout>

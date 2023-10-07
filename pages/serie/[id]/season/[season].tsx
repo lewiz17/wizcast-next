@@ -3,19 +3,17 @@ import {
   GetServerSidePropsContext,
   InferGetServerSidePropsType,
 } from "next";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import Error from "next/error";
 import { getSeasonSerie, getSerie } from "../../../../pages/api/series.json";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { SkeletonCard } from "../../../../components/SkeletonCard";
+import { DownIcon, UpIcon } from "../../../../components/Icons";
 
 const VideoBox = dynamic(() => import("../../../../components/StreamBox"), {
-  loading: () => (
-    <p className="flex justify-center items-center text-white h-[400px]">
-      Cargando...
-    </p>
-  ),
+  loading: () => <SkeletonCard />,
 });
 
 type episode = {
@@ -70,14 +68,27 @@ export const getServerSideProps: GetServerSideProps = async (
 
 function SeasonSerie({ season }: SeasonProps): JSX.Element {
   const [isLoading, setLoading] = useState(true);
+  const [stateBox, setStateBox] = useState("top");
 
   const router = useRouter();
+  const ref = useRef(null);
 
   useEffect(() => {
     season.seasonData.episodes.length > 0
       ? setLoading(false)
       : setLoading(true);
   }, [season.seasonData.id]);
+
+  const handleScrollDown = () => {
+    const lastChildElement = ref.current?.lastElementChild;
+    lastChildElement?.scrollIntoView({ behavior: "smooth" });
+    setStateBox("bottom");
+  };
+  const handleScrollTop = () => {
+    const firstElement = ref.current?.firstElementChild;
+    firstElement?.scrollIntoView({ behavior: "smooth" });
+    setStateBox("top");
+  };
 
   const handleEpisode = (num) => {
     window.parent.location.replace(`${router.asPath}/episode/${num}`);
@@ -86,11 +97,12 @@ function SeasonSerie({ season }: SeasonProps): JSX.Element {
   return (
     <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-y-[10px] my-5">
       <div
+        ref={ref}
         className={`flex flex-wrap ${
           router.asPath.includes("season") ? "gap-x-[3.5%]" : "gap-x-[1.8rem]"
         } gap-y-4 justify-start`}
       >
-        {isLoading && <p className="text-white">Cargando...</p>}
+        {isLoading && <SkeletonCard />}
         {!isLoading &&
           season.seasonData.episodes.map((ep, i) => {
             return (
@@ -123,6 +135,22 @@ function SeasonSerie({ season }: SeasonProps): JSX.Element {
             );
           })}
       </div>
+      <button className="fixed bg-black w-full top-[auto] bottom-[0px] py-2 flex justify-center gap-x-5">
+        <>
+          <DownIcon
+            onClick={handleScrollDown}
+            className={`arrow-down ${
+              stateBox === "bottom" ? "opacity-[0.3] pointer-events-none" : ""
+            }`}
+          />
+          <UpIcon
+            onClick={handleScrollTop}
+            className={`arrow-up ${
+              stateBox === "top" ? "opacity-[0.3] pointer-events-none" : ""
+            }`}
+          />
+        </>
+      </button>
     </div>
   );
 }

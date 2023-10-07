@@ -27,6 +27,9 @@ export const getServerSideProps: GetServerSideProps<MovieData> = async (
 
   const resItems = await getSourcesEpisode(id, season, idepisode);
   const itemsSources: ItemVideoProps = resItems.sources;
+
+  console.log("sources", itemsSources);
+
   const lengthSources =
     itemsSources.vip == undefined ? 0 : Object.keys(itemsSources).length;
 

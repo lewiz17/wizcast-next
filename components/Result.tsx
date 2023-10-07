@@ -1,6 +1,7 @@
 import { Ref, useEffect } from "react";
 import Card from "./CardItem";
 import { useRouter } from "next/router";
+import { SkeletonCard } from "./SkeletonCard";
 
 type ITEM_SEARCH = {
   id: string | number;
@@ -26,7 +27,7 @@ const Result: React.FC<Props> = ({ items, loading }) => {
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-5 mb-8">
         {loading ? (
-          <p>Cargando...</p>
+          <SkeletonCard />
         ) : (
           items.flatMap((item, i) => (
             <Card

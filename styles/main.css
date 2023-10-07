@@ -281,11 +281,67 @@ span.orange1-gradient {
 .arrow-next:hover {
     opacity: 0.6;
 }
+.arrow-down {
+    border: 1px solid;
+    padding: 6px;
+    border-radius: 100px;
+    transform: rotate(270deg);
+}
+.arrow-down:hover {
+    opacity: 0.6;
+}
+.arrow-up {
+    border: 1px solid;
+    padding: 6px;
+    border-radius: 100px;
+    transform: rotate(90deg);
+}
+.arrow-up:hover {
+    opacity: 0.6;
+}
 .block-unit {
     display: flex;
     justify-content: center;
     overflow: hidden;
     gap: 10px;
+}
+.index .tab-buttons {
+    justify-content: center;
+    column-gap: 5em;
+    border-bottom: 1px solid #fff6;
+}
+.index .tab-buttons button {
+    width: 140px;
+}
+.item-tab {
+    border: 1px solid #fff6;
+    border-bottom: 0px;
+    border-radius: 0px;
+    background: #000;
+    z-index: 2;
+    margin-bottom: -1px;
+    font-weight: bold;
+}
+
+.item-tab:nth-child(1) {
+    border-top: 0px;
+    box-shadow: 0px -4px 0px #e61c20;
+    color: #e61c20;
+}
+.item-tab:nth-child(2) {
+    border-top: 0px;
+    box-shadow: 0px -4px 0px #5b30c4;
+    color: #5b30c4;
+}
+.item-tab:nth-child(3) {
+    border-top: 0px;
+    box-shadow: 0px -4px 0px #289bfe;
+    color: #289bfe;
+}
+.item-tab:nth-child(4) {
+    border-top: 0px;
+    box-shadow: 0px -4px 0px #1411ca;
+    color: #1411ca;
 }
 
 @keyframes gradientAnimation {

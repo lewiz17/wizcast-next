@@ -6,9 +6,10 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { searchGeneral } from "../pages/api/search.json";
+import { SkeletonCard } from "./SkeletonCard";
 
 const Result = dynamic(() => import("./Result"), {
-  loading: () => <p>Cargando...</p>,
+  loading: () => <SkeletonCard />,
 });
 
 type ITEM_SEARCH = {

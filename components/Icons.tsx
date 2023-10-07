@@ -160,3 +160,60 @@ export const PrevIcon = (props) => {
     </svg>
   );
 };
+
+export const DownIcon = (props) => {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="#000000"
+      {...props}
+      width={32}
+      height={32}
+    >
+      <g id="SVGRepo_bgCarrier" strokeWidth={0} />
+      <g
+        id="SVGRepo_tracerCarrier"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <g id="SVGRepo_iconCarrier">
+        <polyline
+          fill="none"
+          stroke="#ffffff"
+          strokeWidth={2}
+          points="7 2 17 12 7 22"
+          transform="matrix(-1 0 0 1 24 0)"
+        />
+      </g>
+    </svg>
+  );
+};
+export const UpIcon = (props) => {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="#000000"
+      {...props}
+      width={32}
+      height={32}
+    >
+      <g id="SVGRepo_bgCarrier" strokeWidth={0} />
+      <g
+        id="SVGRepo_tracerCarrier"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <g id="SVGRepo_iconCarrier">
+        <polyline
+          fill="none"
+          stroke="#ffffff"
+          strokeWidth={2}
+          points="7 2 17 12 7 22"
+          transform="matrix(-1 0 0 1 24 0)"
+        />
+      </g>
+    </svg>
+  );
+};

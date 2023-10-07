@@ -48,7 +48,7 @@ type Relates = {
 
 type Props = {
   movies?: Movie[];
-  title: string;
+  title?: string;
   relates?: Relates;
   series?: Serie[];
 };

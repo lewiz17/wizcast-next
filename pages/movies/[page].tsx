@@ -7,13 +7,14 @@ import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Paginator from "../../components/Paginator";
+import { SkeletonCard } from "../../components/SkeletonCard";
 
 const Layout = dynamic(() => import("../../components/Layout"), {
-  loading: () => <p>Cargando...</p>,
+  loading: () => <SkeletonCard />,
 });
 
 const SliderBox = dynamic(() => import("../../components/SliderBox"), {
-  loading: () => <p>Cargando...</p>,
+  loading: () => <SkeletonCard />,
 });
 
 type Movie = {
