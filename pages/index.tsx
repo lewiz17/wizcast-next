@@ -10,6 +10,8 @@ import { ModalProvider } from "../components/ModalContext";
 import Paginator from "../components/Paginator";
 import { SkeletonCard } from "../components/SkeletonCard";
 import Tabber from "../components/Tabber";
+import { getGames } from "./api/games.json";
+import GamesHub from "../components/Games";
 
 const Layout = dynamic(() => import("../components/Layout"), {
   loading: () => <SkeletonCard />,
@@ -89,10 +91,11 @@ export default function ListItems({ movies }: Props) {
 
         <Container>
           <h4 className="mt-[4rem] flex gap-[10px] justify-center items-center">
-            Ampliamos nuestro catálogo de Series disfrutalo ahora en:
-            <span className="orange1-gradient font-bold block">
-              <Link href="/series" legacyBehavior>
-                WizSeries
+            Echale un vistazo a las mejores ofertas de videojuegos para XBOX ONE
+            / PS4 / PS5 / STEAM / PC:
+            <span className="text-2xl green-gradient font-bold block">
+              <Link href="/games" legacyBehavior>
+                Juegos
               </Link>
             </span>
           </h4>
@@ -105,6 +108,7 @@ export default function ListItems({ movies }: Props) {
           <Paginator />
 
           <Tabber tabs={tabsPlatform} page={"index"} />
+          <GamesHub />
         </Container>
       </Layout>
     </>

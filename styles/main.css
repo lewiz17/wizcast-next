@@ -312,6 +312,7 @@ span.orange1-gradient {
 }
 .index .tab-buttons button {
     width: 140px;
+    padding: 10px 0;
 }
 .item-tab {
     border: 1px solid #fff6;
@@ -342,6 +343,116 @@ span.orange1-gradient {
     border-top: 0px;
     box-shadow: 0px -4px 0px #1411ca;
     color: #1411ca;
+}
+
+/** Gamehub styles **/
+.games-hub {
+    width: 100%;
+    overflow: hidden;
+    max-width: 1240px;
+}
+.gameList {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+}
+.item-game {
+    width: 195px;
+    height: 100%;
+    position: relative;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+.item-game:hover {
+    opacity: 0.8;
+}
+.item-game img {
+    width: 100%;
+    object-fit: cover;
+    height: 275px;
+    border: 1px solid #fff6;
+}
+.item-game .info {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.item-game .info > span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+}
+.item-game .info .prices {
+    align-items: center;
+}
+.item-game .info .prices strong {
+    color: #ffffff;
+    font-size: 20px;
+    background-color: #db0000;
+    padding: 0px 8px;
+}
+.item-game .info .prices .current {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-size: 14px;
+}
+.item-game a:hover button {
+    display: flex;
+}
+.item-game a button {
+    position: absolute;
+    top: auto;
+    bottom: 5em;
+    justify-content: center;
+    left: calc(100% - 140px);
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.green-gradient {
+    background: linear-gradient(90deg, oklch(0.78 0.32 143.11), oklch(0.78 0.24 129.72));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientAnimation 5s ease infinite;
+}
+.btn-offer {
+    background: linear-gradient(90deg, oklch(0.22 0 0), oklch(0.32 0 0));
+    color: #fff;
+    animation: gradientAnimation 5s ease infinite;
+    border: 1px solid #fff6;
+}
+
+.rib-discount {
+    position: absolute;
+    background: #db0000;
+    font-weight: bold;
+    top: 10px;
+    font-size: 20px;
+    padding: 0px 10px 0px 16px;
+    box-shadow: 3px 3px 0px #fff;
+    border: 0.5px solid;
+    border-left: 0;
+}
+.animate-custom-pulse {
+    animation: custom-pulse 1s infinite;
+}
+@keyframes custom-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 @keyframes gradientAnimation {

@@ -147,10 +147,10 @@ const Header: React.FC<Props> = ({
           )}
         </div>
         <div className="top-menu md:flex xs:hidden sm:hidden md:gap-5 lg:md:gap-4">
+          <Navbar position="header" hideItems={hideItems} />
           <div className="relative flex items-center w-full h-10 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
             <SearchBar onSearch={handleSearch} />
           </div>
-          <Navbar position="header" hideItems={hideItems} />
         </div>
       </div>
     </header>
