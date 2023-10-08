@@ -15,7 +15,7 @@ const Navbar: React.FC<NavProps> = ({ position, hideItems }: NavProps) => {
   const isMovie = router.asPath.includes("serie") ? false : true;
 
   return (
-    <nav className="flex items-center justify-end space-x-4">
+    <nav className="flex items-center gap-x-[2em] font-bold">
       {isMovie ? (
         <Link href={"/"} legacyBehavior>
           <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
@@ -74,14 +74,14 @@ const Navbar: React.FC<NavProps> = ({ position, hideItems }: NavProps) => {
         </div>
       )}
 
-      <Link href="/about" legacyBehavior>
-        <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
-          Acerca
-        </a>
-      </Link>
       <Link href="/games" legacyBehavior>
         <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
           Juegos
+        </a>
+      </Link>
+      <Link href="/about" legacyBehavior>
+        <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
+          Acerca
         </a>
       </Link>
     </nav>
