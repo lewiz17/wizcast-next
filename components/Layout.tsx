@@ -78,7 +78,7 @@ const Layout = ({ children }: Props) => {
         hideItems={hideMenuItems}
         handleSearch={handleSearch}
       />
-      <main className="mx-auto my-[4rem] flex-grow">
+      <main className="container mx-auto my-[4rem] flex-grow px-4">
         {movieData?.length > 0 && isResult ? (
           <>
             <Result items={movieData} loading={loading} />

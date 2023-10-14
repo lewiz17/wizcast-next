@@ -307,7 +307,6 @@ span.orange1-gradient {
 }
 .index .tab-buttons {
     justify-content: center;
-    column-gap: 5em;
     border-bottom: 1px solid #fff6;
 }
 .index .tab-buttons button {
@@ -480,7 +479,7 @@ span.orange1-gradient {
     }
     .mob-menu nav {
         flex-direction: column;
-        margin-top: 20px;
+        margin: 20px auto;
         gap: 20px;
     }
 }

@@ -9,7 +9,7 @@ const Tabber = ({ tabs, page = "" }) => {
 
   return (
     <div className={`tab ${page === "index" ? "index mt-10" : "mt-5"}`}>
-      <div className="tab-buttons flex gap-2">
+      <div className="tab-buttons flex md:gap-x-4 xs:gap-x-2">
         {page !== "index"
           ? tabs.map((tab, index) => (
               <button

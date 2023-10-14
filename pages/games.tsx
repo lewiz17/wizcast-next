@@ -11,8 +11,8 @@ const About: React.FC = () => {
         <title>{`Site ${CMS_NAME}`}</title>
       </Head>
       <Container>
-        <div className="container mx-auto w-full my-10 rounded overflow-hidden shadow ">
-          <h4 className="mt-[4rem] flex gap-[10px] justify-center items-center">
+        <div className="mx-auto w-full my-10 rounded overflow-hidden shadow ">
+          <h4 className="lg:mt-[4rem] flex gap-[10px] justify-center items-center">
             Bienvenid(@) a nuestro catalogo de ofertas, se irán agregando más
             y/o actualizando semanalmente!
           </h4>
