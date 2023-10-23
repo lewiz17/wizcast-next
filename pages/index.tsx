@@ -39,6 +39,7 @@ type Props = {
     hbo: Movie[];
     disney: Movie[];
     prime: Movie[];
+    paramount: Movie[];
   };
 };
 
@@ -80,6 +81,15 @@ export default function ListItems({ movies }: Props) {
           <SkeletonCard />
         ),
     },
+    {
+      label: "Paramount +",
+      content:
+        movies.paramount.length > 0 ? (
+          <SliderBox movies={movies.paramount} />
+        ) : (
+          <SkeletonCard />
+        ),
+    },
   ];
 
   return (
@@ -111,30 +121,40 @@ export default function ListItems({ movies }: Props) {
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const currentDate = new Date().toISOString().split("T")[0];
-  const [nowPlayingRes, netflixMovies, hboMovies, disneyMovies, primeMovies] =
-    await Promise.all([
-      fetch(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX&sort_by=popularity.desc&release_date.gte=2000-01-01&release_date.lte=${currentDate}`
-      ),
-      fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX&sort_by=popularity.desc&with_watch_providers=8&watch_region=CO&vote_average.lte=100&year=${new Date().getFullYear()}`
-      ),
-      fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX&sort_by=primary_release_date.desc&with_watch_providers=384&watch_region=CO&vote_count.gte=300&year=${new Date().getFullYear()}`
-      ),
-      fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX&sort_by=primary_release_date.desc&with_watch_providers=337&watch_region=CO&vote_count.gte=300&year=${new Date().getFullYear()}`
-      ),
-      fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX&sort_by=primary_release_date.desc&with_watch_providers=119&watch_region=CO&vote_count.gte=300&year=${new Date().getFullYear()}`
-      ),
-    ]);
+  const [
+    nowPlayingRes,
+    netflixMovies,
+    hboMovies,
+    disneyMovies,
+    primeMovies,
+    paramountMovies,
+  ] = await Promise.all([
+    fetch(
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX&sort_by=popularity.desc&release_date.gte=2000-01-01&release_date.lte=${currentDate}`
+    ),
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX&sort_by=popularity.desc&with_watch_providers=8&watch_region=CO&vote_average.lte=100&year=${new Date().getFullYear()}`
+    ),
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX&sort_by=primary_release_date.desc&with_watch_providers=384&watch_region=CO&vote_count.gte=300&year=${new Date().getFullYear()}`
+    ),
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX&sort_by=primary_release_date.desc&with_watch_providers=337&watch_region=CO&vote_count.gte=300&year=${new Date().getFullYear()}`
+    ),
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX&sort_by=primary_release_date.desc&with_watch_providers=119&watch_region=CO&vote_count.gte=300&year=${new Date().getFullYear()}`
+    ),
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=a0a7e40dc8162ed7e37aa2fc97db5654&language=es-MX&sort_by=primary_release_date.desc&with_watch_providers=531&watch_region=CO&vote_count.gte=300&year=${new Date().getFullYear()}`
+    ),
+  ]);
 
   const nowPlayingData = await nowPlayingRes.json();
   const disneyData = await disneyMovies.json();
   const netflixData = await netflixMovies.json();
   const hboData = await hboMovies.json();
   const primeData = await primeMovies.json();
+  const paramountData = await paramountMovies.json();
 
   const nowPlayingMovies: Movie[] = nowPlayingData.results.map(
     (movie: Movie) => ({
@@ -180,6 +200,16 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
     rate: movie.vote_average,
   }));
 
+  const paramountMoviesData: Movie[] = paramountData.results.map(
+    (movie: any) => ({
+      id: movie.id,
+      title: movie.title,
+      poster: movie.poster_path,
+      release: movie.release_date,
+      rate: movie.vote_average,
+    })
+  );
+
   return {
     props: {
       movies: {
@@ -188,6 +218,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
         hbo: [...hboMoviesData],
         disney: [...disneyMoviesData],
         prime: [...primeMoviesData],
+        paramount: [...paramountMoviesData],
       },
     },
   };
