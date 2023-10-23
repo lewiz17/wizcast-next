@@ -91,13 +91,8 @@ export default function ListItems({ movies }: Props) {
 
         <Container>
           <h4 className="mt-[4rem] flex gap-[10px] justify-center items-center">
-            Echale un vistazo a las mejores ofertas de videojuegos para XBOX ONE
-            / PS4 / PS5 / STEAM / PC:
-            <span className="text-2xl green-gradient font-bold block">
-              <Link href="/games" legacyBehavior>
-                Juegos
-              </Link>
-            </span>
+            Tenemos una alta demanda en nuestros servicios, es posible que los
+            enlaces fallen, estamos trabajando en ello, disculpen las molestias!
           </h4>
 
           {movies.top.length > 0 ? (
@@ -108,7 +103,6 @@ export default function ListItems({ movies }: Props) {
           <Paginator />
 
           <Tabber tabs={tabsPlatform} page={"index"} />
-          <GamesHub />
         </Container>
       </Layout>
     </>
