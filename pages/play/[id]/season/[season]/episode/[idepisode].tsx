@@ -5,19 +5,13 @@ import PlayBox from "../../../../../../components/PlayBox";
 import { getSourcesEpisode } from "../../../../../api/series.json";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { handleNameServer } from "../../../../../../utils/helpers";
 
 // Resto del código
 
 type MovieData = {
-  items: ItemVideoProps;
+  itemsSources: {};
   lengthSources: number;
-};
-
-type ItemVideoProps = {
-  vip?: string;
-  fast?: string;
-  normal?: string;
-  slow?: string;
 };
 
 export const getServerSideProps: GetServerSideProps<MovieData> = async (
@@ -26,45 +20,31 @@ export const getServerSideProps: GetServerSideProps<MovieData> = async (
   const { id, season, idepisode } = context.params!;
 
   const resItems = await getSourcesEpisode(id, season, idepisode);
-  const itemsSources: ItemVideoProps = resItems.sources;
+  const itemsSources = resItems.sources;
 
   console.log("sources", itemsSources);
 
-  const lengthSources =
-    itemsSources.vip == undefined ? 0 : Object.keys(itemsSources).length;
-
-  const items: ItemVideoProps = {
-    vip: itemsSources.vip || null,
-    fast: itemsSources.fast || null,
-    normal: itemsSources.normal || null,
-    slow: itemsSources.slow || null,
-  };
+  const lengthSources = Object.keys(itemsSources).length;
 
   return {
     props: {
-      items,
+      itemsSources,
       lengthSources,
     },
   };
 };
 
 function VideoEpisode({
-  items,
+  itemsSources,
   lengthSources,
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element {
-  const [options, setOptions] = useState<ItemVideoProps>({
-    vip: "",
-    fast: "",
-    normal: "",
-    slow: "",
-  });
+  const [options, setOptions] = useState({});
   const [currentSource, setSource] = useState("");
   const [hasSource, setHasSource] = useState(false);
-  const [showPlay, setShowPlay] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
-    setOptions(items);
+    setOptions(itemsSources);
   }, []);
 
   const handleOption = (pos) => {
@@ -83,8 +63,7 @@ function VideoEpisode({
         Object.keys(options).length > 0 &&
         lengthSources > 0 && (
           <>
-            {showPlay && <PlayBox onClick={() => setShowPlay(false)} />}
-            {!showPlay && (
+            {
               <ul
                 className={`${
                   router.asPath.includes("episode")
@@ -93,33 +72,22 @@ function VideoEpisode({
                 }   py-5`}
               >
                 {Object.keys(options).map((v, i) => {
-                  return i == 0 ? (
+                  return (
                     <li
                       onClick={() => handleOption(v)}
                       key={i}
                       data-server={v}
-                      className="flex gap-x-2 text-white item-view rounded-full py-2 px-3 hover:opacity-[0.8] cursor-pointer justify-center"
+                      className="cursor-pointer text-white flex item-view gap-x-1 rounded-full px-3 py-2 min-w-[80%] hover:opacity-[0.8] hover:bg-white hover:text-black"
                     >
-                      <img
-                        className="w-[24px] object-cover"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACDUlEQVR4nO1YMUscQRj9Iuz3aZB0AbGQC9inSJcqTULEXxCrraySOpBK/AsJeFsFUiT/wWa+yYlYWKSwFAUVCSm1MiE+8bjb827Xvdvd2b0smQev2/nmvZn3plgiDw8PD49/EYhoFW06wxadIqIVahpwK7xN6PGEmgY03kBEKz0TJ2jTa2oiYOUVVF42snwAPYDKPlR+ADRTmx44yi40WIMVdGmCN4XnbOXU48IA9imA5cPYgPIRDojrMRCVLx+MvIvFD/i20KyohB6obGKX5nKtMTQPyz8TBpR/YY8e5Zp1QAzlD7lEDw1Q/twtYmd2aeI1VjZSTr/PjYnn7MwtwvLurYbiBqyE8ekZeTH2++/zj6FykWHgEubhwvh9Z59D+by3JixuwEjrzuZ/oPw+83vlTxni+1H6mD1D1qFyNXjBpFXYQHeg5eNhEfwlrRew8mRo43sNyG8YWU7Nu+VoZK/jUuLjHiRFJHoBlW9jxQ/4NTXvNnFbxfOf6EHaq9LrBTrBU6j8ndiAyjU6wbOUvI8yLG9guAejQq66mbW8neP0+/HYTuR9lGXzf38P6iCXz39mD6qmOsj/2B5Uy9CdgaweVEXjKP/T6QG7y/9UeqAO8z+lHoTuDdTZA+M4//X2gN3nv9YeaAX5r7kHYXUG6uiBqSj/sYnBH4JKSFXDG2j7G/jPI+Th4eHhQXdwA668OoF3W4hAAAAAAElFTkSuQmCC"
-                      />{" "}
-                      Servidor VIP
-                    </li>
-                  ) : (
-                    <li
-                      onClick={() => handleOption(v)}
-                      key={i}
-                      className="flex gap-x-2 text-black bg-white rounded-full py-2 px-3 hover:opacity-[0.8] cursor-pointer justify-center"
-                      data-server={v}
-                    >
-                      <VideoIcon />
-                      Servidor HD {i}
+                      <span className="text-sm font-bold">
+                        {handleNameServer(options[v])}
+                      </span>
+                      <span className="text-sm text-gray">- Stream HD</span>
                     </li>
                   );
                 })}
               </ul>
-            )}
+            }
           </>
         )}
       {hasSource && lengthSources > 0 && (

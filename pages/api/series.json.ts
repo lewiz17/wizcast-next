@@ -169,12 +169,7 @@ export async function getSourcesEpisode(id, season, episode) {
   
   const servers: object[] = dataServersFallback7.data;
 
-  const links: object = servers.length > 0 ? {
-    vip: servers[0],
-    fast: servers[1],
-    normal: servers[2],
-    slow: servers[3]
-  }: [];
+  const links: object = servers.length > 0 ? servers : [];
 
   const videosSources = {
     id,

@@ -10,6 +10,29 @@ export const removeAccents = (str) => {
         })
         .join("");
 };
+
+export const handleNameServer = (url) => {
+  let localServer = "";
+  url.includes("streamwish")
+    ? (localServer = "Streamwish")
+    : url.includes("filelions")
+    ? (localServer = "Filelions")
+    : url.includes("plus")
+    ? (localServer = "Plusstream")
+    : url.includes("dood")
+    ? (localServer = "Doodstream")
+    : url.includes("streamtape")
+    ? (localServer = "Streamtape")
+    : url.includes("waaw")
+    ? (localServer = "Netu")
+    : url.includes("voe")
+    ? (localServer = "Voex")
+    : url.includes("filemoon")
+    ? (localServer = "Filemoon")
+    : (localServer = "Server");
+  return localServer;
+};
+
   
 export const formatTitle = (title) => {
     const normalizedTitle = removeAccents(String(title).toLowerCase());
