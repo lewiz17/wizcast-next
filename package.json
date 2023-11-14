@@ -27,6 +27,7 @@
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-slick": "^0.29.0",
+    "rss": "^1.2.2",
     "slick-carousel": "^1.8.1",
     "typescript": "5.0.4"
   },

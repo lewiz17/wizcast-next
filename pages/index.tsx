@@ -12,6 +12,7 @@ import { SkeletonCard } from "../components/SkeletonCard";
 import Tabber from "../components/Tabber";
 import { getGames } from "./api/games.json";
 import GamesHub from "../components/Games";
+import generateRssFeed from "../utils/feed";
 
 const Layout = dynamic(() => import("../components/Layout"), {
   loading: () => <SkeletonCard />,
@@ -209,6 +210,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
       rate: movie.vote_average,
     })
   );
+
+  generateRssFeed();
 
   return {
     props: {
