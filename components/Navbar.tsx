@@ -73,12 +73,6 @@ const Navbar: React.FC<NavProps> = ({ position, hideItems }: NavProps) => {
           )}
         </div>
       )}
-
-      <Link href="/games" legacyBehavior>
-        <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
-          Juegos
-        </a>
-      </Link>
       <Link href="/about" legacyBehavior>
         <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
           Acerca

@@ -4,52 +4,38 @@
         <description><![CDATA[Wizpelis, Estrenos en Peliculas y Series]]></description>
         <link>https://wizpelis.site</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 14 Nov 2023 18:41:56 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 17 Feb 2024 21:32:24 GMT</lastBuildDate>
         <atom:link href="https://wizpelis.site/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 14 Nov 2023 18:41:56 GMT</pubDate>
-        <copyright><![CDATA[2023 Wizpelis 2023]]></copyright>
+        <pubDate>Sat, 17 Feb 2024 21:32:24 GMT</pubDate>
+        <copyright><![CDATA[2024 Wizpelis 2023]]></copyright>
         <language><![CDATA[es-MX]]></language>
         <item>
-            <title><![CDATA[Mission: Impossible - Dead Reckoning Part One]]></title>
-            <description><![CDATA[Ethan Hunt y su equipo del FMI, se embarcan en su misión más peligrosa hasta la fecha: localizar, antes de que caiga en las manos equivocadas, una nueva y terrorífica arma que amenaza a toda la humanidad. En esta tesitura, y con unas fuerzas oscuras del pasado de Ethan acechando, comienza una carrera mortal alrededor del mundo en la que está en juego el control del futuro y el destino del planeta. Enfrentado a un enemigo misterioso y todopoderoso, Ethan se ve obligado a considerar que nada puede anteponerse a su misión, ni siquiera las vidas de aquellos que más le importan.]]></description>
-            <link>https://wizpelis.site/movie/575264/mision:-imposible---sentencia-mortal-parte-uno</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/575264/mision:-imposible---sentencia-mortal-parte-uno</guid>
-            <pubDate>Sat, 08 Jul 2023 00:00:00 GMT</pubDate>
+            <title><![CDATA[황야]]></title>
+            <description><![CDATA[Después de un terremoto que convierte Seúl en una tierra inhóspita y sin ley, un cazador entra en acción para rescatar a una chica en manos de un médico trastornado. Secuela del film de 2023 “Concrete Utopia”]]></description>
+            <link>https://wizpelis.site/movie/933131/cazadores-en-tierra-inhospita</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/933131/cazadores-en-tierra-inhospita</guid>
+            <pubDate>Fri, 26 Jan 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Five Nights at Freddy's]]></title>
-            <description><![CDATA[Un guardia de seguridad con problemas comienza a trabajar en Freddy Fazbear's Pizza. Mientras pasa su primera noche en el trabajo, se da cuenta de que el turno de noche en Freddy's no será tan fácil de superar.]]></description>
-            <link>https://wizpelis.site/movie/507089/five-nights-at-freddy&apos;s</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/507089/five-nights-at-freddy&apos;s</guid>
-            <pubDate>Wed, 25 Oct 2023 00:00:00 GMT</pubDate>
+            <title><![CDATA[60 Minuten]]></title>
+            <description><![CDATA[Desesperado por mantener la custodia de su hija, un luchador de artes marciales mixtas abandona un combate y atraviesa Berlín a toda velocidad para llegar al cumpleaños de la niña.]]></description>
+            <link>https://wizpelis.site/movie/1212073/60-minutos</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/1212073/60-minutos</guid>
+            <pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Oppenheimer]]></title>
-            <description><![CDATA[Película sobre el físico J. Robert Oppenheimer y su papel como desarrollador de la bomba atómica. Basada en el libro 'American Prometheus: The Triumph and Tragedy of J. Robert Oppenheimer' de Kai Bird y Martin J. Sherwin.]]></description>
-            <link>https://wizpelis.site/movie/872585/oppenheimer</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/872585/oppenheimer</guid>
-            <pubDate>Wed, 19 Jul 2023 00:00:00 GMT</pubDate>
+            <title><![CDATA[Wonka]]></title>
+            <description><![CDATA[Willy Wonka, repleto de ideas y decidido a cambiar el mundo con un delicioso bocado a la vez, es una prueba de que las mejores cosas de la vida comienzan con un sueño y, si tienes la suerte de conocer a Willy Wonka, todo es posible.]]></description>
+            <link>https://wizpelis.site/movie/787699/wonka</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/787699/wonka</guid>
+            <pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Expend4bles]]></title>
-            <description><![CDATA[Armados con todas las armas que pueden conseguir y las habilidades para usarlas, Los Mercenarios son la última línea de defensa del mundo y el equipo al que se llama cuando todas las demás opciones están descartadas. Pero los nuevos miembros del equipo con nuevos estilos y tácticas le darán a “sangre nueva” un significado completamente nuevo.]]></description>
-            <link>https://wizpelis.site/movie/299054/los-indestructibles-4</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/299054/los-indestructibles-4</guid>
-            <pubDate>Fri, 15 Sep 2023 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Sound of Freedom]]></title>
-            <description><![CDATA[La historia de Tim Ballard, un ex agente del gobierno de EE. UU., que deja su trabajo para dedicar su vida a rescatar a niños de los traficantes sexuales mundiales.]]></description>
-            <link>https://wizpelis.site/movie/678512/sonido-de-libertad</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/678512/sonido-de-libertad</guid>
-            <pubDate>Mon, 03 Jul 2023 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Fast X]]></title>
-            <description><![CDATA[A través de varias misiones y contra lo imposible, Dom Toretto y su familia han sido más astutos y más rápidos que todos los enemigos se le han cruzado en su camino. Ahora se enfrentan a su enemigo más letal: una amenaza aterradora que surge de las sombras del pasado que está alimentado de una venganza sangrienta, y está decidido a destruir a su familia y destruir todo, y a cualquier persona, a los que Dom ama.]]></description>
-            <link>https://wizpelis.site/movie/385687/rapidos-y-furiosos-x</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/385687/rapidos-y-furiosos-x</guid>
-            <pubDate>Wed, 17 May 2023 00:00:00 GMT</pubDate>
+            <title><![CDATA[Madame Web]]></title>
+            <description><![CDATA[Después de sobrevivir a un accidente, la paramédica Cassandra Webb comienza a desenvolver sus habilidades clarividentes. Obligada a enfrentar revelaciones sobre su pasado, forja una relación con tres mujeres jóvenes destinadas a futuros poderosos... si todas pueden sobrevivir a un presente mortal.]]></description>
+            <link>https://wizpelis.site/movie/634492/madame-web</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/634492/madame-web</guid>
+            <pubDate>Wed, 14 Feb 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[The Marvels]]></title>
@@ -59,24 +45,38 @@
             <pubDate>Wed, 08 Nov 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Boudica]]></title>
-            <description><![CDATA[La guerrera celta del mismo nombre gobierna al pueblo Iceni junto a su esposo Prasutagus. El rey muere a manos de los soldados romanos, dejando el reino de Boudica sin heredero varón y los romanos se apoderan de sus tierras y propiedades.]]></description>
-            <link>https://wizpelis.site/movie/975902/boudica</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/975902/boudica</guid>
-            <pubDate>Thu, 26 Oct 2023 00:00:00 GMT</pubDate>
+            <title><![CDATA[The Family Plan]]></title>
+            <description><![CDATA[Dan Morgan es un hombre con muchas identidades: es un esposo devoto, un padre amoroso y un reconocido vendedor de autos. También es un asesino retirado. Cuando su pasado pone en riesgo a su presente, se ve forzado a llevar a su ingenua familia en un viaje como ningún otro.]]></description>
+            <link>https://wizpelis.site/movie/1029575/plan-familiar</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/1029575/plan-familiar</guid>
+            <pubDate>Thu, 14 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[The Equalizer 3]]></title>
-            <description><![CDATA[Tercera parte de la saga que gira en torno al personaje del misterioso Robert McCall (Denzel Washington), un antiguo marine y ex agente de la Agencia de Inteligencia de Defensa que fingió su muerte para intentar comenzar de nuevo lejos de la acción, pero que termina recurriendo a sus habilidades para proteger a ciertas personas durante su retiro.]]></description>
-            <link>https://wizpelis.site/movie/926393/el-justiciero:-capitulo-final</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/926393/el-justiciero:-capitulo-final</guid>
-            <pubDate>Wed, 30 Aug 2023 00:00:00 GMT</pubDate>
+            <title><![CDATA[Skal - Fight for Survival]]></title>
+            <link>https://wizpelis.site/movie/1211483/skal---fight-for-survival</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/1211483/skal---fight-for-survival</guid>
+            <pubDate>Fri, 24 Nov 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Muzzle]]></title>
-            <link>https://wizpelis.site/movie/939335/muzzle</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/939335/muzzle</guid>
-            <pubDate>Fri, 29 Sep 2023 00:00:00 GMT</pubDate>
+            <title><![CDATA[One More Shot]]></title>
+            <description><![CDATA[Tras el atentado contra el centro clandestino de Polonia, el Navy SEAL Jake Harris recibe la orden de escoltar al sospechoso de terrorismo Amin Mansur hasta Washington D.C. para ser interrogado.]]></description>
+            <link>https://wizpelis.site/movie/1214314/otra-bala-mas</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/1214314/otra-bala-mas</guid>
+            <pubDate>Fri, 12 Jan 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Lift]]></title>
+            <description><![CDATA[Un equipo internacional de atracos, liderado por Cyrus Whitaker, se apresura a levantar 500 millones de dólares en oro desde un avión de pasajeros a 40.000 metros.]]></description>
+            <link>https://wizpelis.site/movie/955916/lift:-un-robo-de-primera-clase</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/955916/lift:-un-robo-de-primera-clase</guid>
+            <pubDate>Wed, 10 Jan 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Migration]]></title>
+            <description><![CDATA[Después de que una familia de patos migratorios aterriza en su estanque con emocionantes historias de lugares remotos, la familia Mallard embarca en un viaje familiar, atravezando la ciudad de Nueva York, con destino a la tropical Jamaica.]]></description>
+            <link>https://wizpelis.site/movie/940551/¡patos!</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/940551/¡patos!</guid>
+            <pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>

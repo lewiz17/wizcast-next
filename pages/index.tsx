@@ -14,6 +14,8 @@ import { getGames } from "./api/games.json";
 import GamesHub from "../components/Games";
 import generateRssFeed from "../utils/feed";
 
+import { useRouter } from "next/router";
+
 const Layout = dynamic(() => import("../components/Layout"), {
   loading: () => <SkeletonCard />,
 });
@@ -45,6 +47,8 @@ type Props = {
 };
 
 export default function ListItems({ movies }: Props) {
+  const router = useRouter();
+
   const tabsPlatform = [
     {
       label: "Netflix",
@@ -101,7 +105,7 @@ export default function ListItems({ movies }: Props) {
         </Head>
 
         <Container>
-          <h4 className="mt-[4rem] flex gap-[10px] justify-center items-center">
+          {/* <h4 className="mt-[4rem] flex gap-[10px] justify-center items-center">
             Ahora wizpelis tiene MAS peliculas MAS series y MAS servidores
             disponibles completamente gratis!
           </h4>
@@ -114,6 +118,11 @@ export default function ListItems({ movies }: Props) {
           <Paginator />
 
           <Tabber tabs={tabsPlatform} page={"index"} />
+          */}
+          <div className="wrap-center">
+            <p>Servidores Saturados</p>
+            <span>Volveremos pronto!</span>
+          </div>
         </Container>
       </Layout>
     </>

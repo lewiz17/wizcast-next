@@ -442,6 +442,23 @@ span.orange1-gradient {
 .animate-custom-pulse {
     animation: custom-pulse 1s infinite;
 }
+
+/** New message home **/
+.wrap-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+.wrap-center p {
+    color: #f00;
+    font-size: 3rem;
+    margin-top: 3rem;
+}
+.wrap-center span {
+    font-size: 2rem;
+}
+
 @keyframes custom-pulse {
     0% {
         transform: scale(1);
