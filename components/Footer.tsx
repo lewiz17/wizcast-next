@@ -20,8 +20,8 @@ const Footer: React.FC = () => {
           WIZPELIS © {currentDate} - Ningún vídeo está alojado en nuestros
           servidores.
         </span>
-        {/* 
-         <div className="bottom-menu md:flex xs:hidden sm:hidden">
+
+        <div className="bottom-menu md:flex xs:hidden sm:hidden">
           <Navbar position="" hideItems={true} />
           <a
             className="open-modal ml-2 cursor-pointer w-[24px] hover:opacity-[0.8]"
@@ -33,8 +33,6 @@ const Footer: React.FC = () => {
             />
           </a>
         </div>
-        
-        */}
       </div>
     </footer>
   );

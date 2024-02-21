@@ -105,7 +105,7 @@ export default function ListItems({ movies }: Props) {
         </Head>
 
         <Container>
-          {/* <h4 className="mt-[4rem] flex gap-[10px] justify-center items-center">
+          <h4 className="mt-[4rem] flex gap-[10px] justify-center items-center">
             Ahora wizpelis tiene MAS peliculas MAS series y MAS servidores
             disponibles completamente gratis!
           </h4>
@@ -118,11 +118,6 @@ export default function ListItems({ movies }: Props) {
           <Paginator />
 
           <Tabber tabs={tabsPlatform} page={"index"} />
-          */}
-          <div className="wrap-center">
-            <p>Servidores Saturados</p>
-            <span>Volveremos pronto!</span>
-          </div>
         </Container>
       </Layout>
     </>
