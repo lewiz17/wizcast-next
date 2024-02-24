@@ -502,6 +502,41 @@ span.orange1-gradient {
 }
 
 /** channels style **/
+
+.welcome-chwrapper {
+    width: 600px;
+    display: flex;
+    flex-flow: column;
+    margin: 0px auto;
+    gap: 20px;
+}
+.welcome-chwrapper h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.welcome-chwrapper form {
+    width: 250px;
+    display: flex;
+    flex-flow: column;
+    margin: 20px auto;
+}
+.welcome-chwrapper form input {
+    color: #000;
+    width: 100%;
+}
+.welcome-chwrapper form button {
+    background: #03111c;
+    color: #fff;
+    border: 1px solid;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 20px 10px;
+}
+.welcome-chwrapper form button:hover {
+    opacity: 0.6;
+}
 .channels-wrapper ul {
     display: grid;
     grid-template-columns: repeat(6, 1fr);

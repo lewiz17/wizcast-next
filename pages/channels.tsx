@@ -51,7 +51,12 @@ const ChannelPage: React.FC = () => {
           {authenticated ? (
             <ChannelList />
           ) : (
-            <PinForm onSubmit={handlePinSubmit} />
+            <>
+              <div className="welcome-chwrapper">
+                <h2>Bienvenido a WIZTV - Canales IPTV</h2>
+                <PinForm onSubmit={handlePinSubmit} />
+              </div>
+            </>
           )}
         </div>
       </Container>

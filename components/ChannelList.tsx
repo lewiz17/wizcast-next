@@ -37,6 +37,7 @@ const ChannelList = () => {
           <b>Expiracion: </b>
           {formatDate(currentExp)}
         </p>
+
         <h3>Nuestros Canales</h3>
         <ul>
           {channelList.map((v, i) => {
@@ -51,6 +52,7 @@ const ChannelList = () => {
             );
           })}
         </ul>
+        <p>Version Beta* Pronto más canales!</p>
       </div>
     </>
   );

@@ -11,15 +11,14 @@ const PinForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label>
-        PIN de 4 dígitos:
-        <input
-          type="password"
-          maxLength={4}
-          value={pin}
-          onChange={(e) => setPin(e.target.value)}
-        />
-      </label>
+      <span>PIN de 4 Digitos</span>
+      <input
+        type="password"
+        maxLength={4}
+        value={pin}
+        placeholder="Introduce el PIN"
+        onChange={(e) => setPin(e.target.value)}
+      />
       <button type="submit">Ingresar</button>
     </form>
   );
