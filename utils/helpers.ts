@@ -1,3 +1,5 @@
+import pinsData from "../data/pins.json";
+
 export const removeAccents = (str) => {
     const accents = "ÀÁÂÃÄÅàáâãäåÇçÐðÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøÙÚÛÜùúûüÝý";
     const accentsOut = "AAAAAAaaaaaaCcDdEEEEeeeeIIIIiiiiNnOOOOOOooooooUUUUuuuuYY";
@@ -51,6 +53,15 @@ export const formatDuration = (number) => {
     return formattedTime;
 }
 
+export const formatDate = (date) => {
+  const options:Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  };;
+  return new Date(date).toLocaleString('es-MX', options);
+};
+
 
 export const formatNames = (string) => {
     return string
@@ -58,3 +69,19 @@ export const formatNames = (string) => {
         .replace(/([^n\u0300-\u036f]|n(?!\u0303(?![\u0300-\u036f])))[\u0300-\u036f]+/gi,"$1")
         .normalize().toLocaleLowerCase();
 }
+
+export const isValidPin = (pin) => {
+  const pinInfo = pinsData.find(item => item.pin === pin);
+
+  if (!pinInfo) {
+    return { isValid: false, expirationDate: null }; // El pin no existe en la lista
+  }
+
+  const expirationDate = new Date(pinInfo.expiration);
+  const currentDate = new Date();
+
+  return {
+    isValid: currentDate < expirationDate, // El pin no ha expirado
+    expirationDate: expirationDate,
+  };
+};

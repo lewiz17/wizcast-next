@@ -500,3 +500,33 @@ span.orange1-gradient {
         gap: 20px;
     }
 }
+
+/** channels style **/
+.channels-wrapper ul {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+.channels-wrapper p.exp {
+    margin: 1rem auto;
+    font-size: 16px;
+}
+
+.channels-wrapper h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    margin: 1rem auto;
+    font-size: 20px;
+}
+.channels-wrapper ul li {
+    background: #fff;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+}
+.channels-wrapper ul li img {
+    max-width: 120px;
+}

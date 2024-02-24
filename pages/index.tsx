@@ -15,6 +15,7 @@ import GamesHub from "../components/Games";
 import generateRssFeed from "../utils/feed";
 
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const Layout = dynamic(() => import("../components/Layout"), {
   loading: () => <SkeletonCard />,

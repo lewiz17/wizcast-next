@@ -1,0 +1,32 @@
+[
+  {
+    "channel_id": "RVNQTjJIRA",
+    "channel_name": "ESPN",
+    "channel_cover": "https://www.apretontv.com/img/espn.png"
+  },
+  {
+    "channel_id": "Q2luZW1heA==",
+    "channel_name": "CINEMAX",
+    "channel_cover": "https://upload.wikimedia.org/wikipedia/commons/1/15/Cinemax_new.png"
+  },
+  {
+    "channel_id": "SEJPX1BsdXM=",
+    "channel_name": "HBO +",
+    "channel_cover": "https://upload.wikimedia.org/wikipedia/commons/3/3d/HBO_Plus.png"
+  },
+  {
+    "channel_id": "SEJPX0ZhbWlseQ==",
+    "channel_name": "HBO Family",
+    "channel_cover": "https://s3.us-east-1.amazonaws.com/forofms.na/gallery/album_2/large.gallery_1155_2_16481.png.770575d906f2d3e5fbd420f12d758de0.png"
+  },
+  {
+    "channel_id": "U3BhY2U=",
+    "channel_name": "SPACE",
+    "channel_cover": "https://seeklogo.com/images/S/space-channel-logo-4AD3528E2F-seeklogo.com.png"
+  },
+  {
+    "channel_id": "RGlzY292ZXJ5SEQ=",
+    "channel_name": "Discovery Channel",
+    "channel_cover": "https://logodownload.org/wp-content/uploads/2017/04/discovery-channel-logo-0.png"
+  }
+]

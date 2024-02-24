@@ -10,6 +10,7 @@
     "postcss": "postcss styles/main.css -o .next/static/css/main.css"
   },
   "dependencies": {
+    "react-jw-player": "1.19.1",
     "@types/axios": "^0.14.0",
     "@types/lodash": "^4.14.195",
     "@types/node": "20.0.0",

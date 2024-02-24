@@ -9,4 +9,12 @@ module.exports = {
       },
     ],
   },
+  rewrites: async () => {
+    return [
+      {
+        source: "/dashplayer",
+        destination: "/channel.html",
+      },
+    ];
+  },
 };

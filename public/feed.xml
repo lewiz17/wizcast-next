@@ -4,38 +4,17 @@
         <description><![CDATA[Wizpelis, Estrenos en Peliculas y Series]]></description>
         <link>https://wizpelis.site</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 17 Feb 2024 21:44:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 24 Feb 2024 01:40:51 GMT</lastBuildDate>
         <atom:link href="https://wizpelis.site/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 17 Feb 2024 21:44:00 GMT</pubDate>
+        <pubDate>Sat, 24 Feb 2024 01:40:51 GMT</pubDate>
         <copyright><![CDATA[2024 Wizpelis 2023]]></copyright>
         <language><![CDATA[es-MX]]></language>
         <item>
-            <title><![CDATA[황야]]></title>
-            <description><![CDATA[Después de un terremoto que convierte Seúl en una tierra inhóspita y sin ley, un cazador entra en acción para rescatar a una chica en manos de un médico trastornado. Secuela del film de 2023 “Concrete Utopia”]]></description>
-            <link>https://wizpelis.site/movie/933131/cazadores-en-tierra-inhospita</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/933131/cazadores-en-tierra-inhospita</guid>
-            <pubDate>Fri, 26 Jan 2024 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[60 Minuten]]></title>
-            <description><![CDATA[Desesperado por mantener la custodia de su hija, un luchador de artes marciales mixtas abandona un combate y atraviesa Berlín a toda velocidad para llegar al cumpleaños de la niña.]]></description>
-            <link>https://wizpelis.site/movie/1212073/60-minutos</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/1212073/60-minutos</guid>
-            <pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Wonka]]></title>
-            <description><![CDATA[Willy Wonka, repleto de ideas y decidido a cambiar el mundo con un delicioso bocado a la vez, es una prueba de que las mejores cosas de la vida comienzan con un sueño y, si tienes la suerte de conocer a Willy Wonka, todo es posible.]]></description>
-            <link>https://wizpelis.site/movie/787699/wonka</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/787699/wonka</guid>
-            <pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Madame Web]]></title>
-            <description><![CDATA[Después de sobrevivir a un accidente, la paramédica Cassandra Webb comienza a desenvolver sus habilidades clarividentes. Obligada a enfrentar revelaciones sobre su pasado, forja una relación con tres mujeres jóvenes destinadas a futuros poderosos... si todas pueden sobrevivir a un presente mortal.]]></description>
-            <link>https://wizpelis.site/movie/634492/madame-web</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/634492/madame-web</guid>
-            <pubDate>Wed, 14 Feb 2024 00:00:00 GMT</pubDate>
+            <title><![CDATA[Anyone But You]]></title>
+            <description><![CDATA[Después de una primera cita increíble, la ardiente atracción de Bea y Ben se vuelve helada, hasta que se reencuentran inesperadamente en una boda en Australia. Entonces hacen lo que harían dos adultos maduros cualesquiera: pretender ser una pareja.]]></description>
+            <link>https://wizpelis.site/movie/1072790/con-todos-menos-contigo</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/1072790/con-todos-menos-contigo</guid>
+            <pubDate>Thu, 21 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[The Marvels]]></title>
@@ -45,11 +24,39 @@
             <pubDate>Wed, 08 Nov 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[The Family Plan]]></title>
-            <description><![CDATA[Dan Morgan es un hombre con muchas identidades: es un esposo devoto, un padre amoroso y un reconocido vendedor de autos. También es un asesino retirado. Cuando su pasado pone en riesgo a su presente, se ve forzado a llevar a su ingenua familia en un viaje como ningún otro.]]></description>
-            <link>https://wizpelis.site/movie/1029575/plan-familiar</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/1029575/plan-familiar</guid>
-            <pubDate>Thu, 14 Dec 2023 00:00:00 GMT</pubDate>
+            <title><![CDATA[Migration]]></title>
+            <description><![CDATA[Después de que una familia de patos migratorios aterriza en su estanque con emocionantes historias de lugares remotos, la familia Mallard embarca en un viaje familiar, atravezando la ciudad de Nueva York, con destino a la tropical Jamaica.]]></description>
+            <link>https://wizpelis.site/movie/940551/¡patos!</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/940551/¡patos!</guid>
+            <pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[황야]]></title>
+            <description><![CDATA[Cuando Seúl se vuelve un lugar yermo y sin ley tras un terremoto, un cazador entra en acción para rescatar a una adolescente que fue secuestrada por un médico trastornado.]]></description>
+            <link>https://wizpelis.site/movie/933131/cazadores-en-tierra-inhospita</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/933131/cazadores-en-tierra-inhospita</guid>
+            <pubDate>Thu, 25 Jan 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Land of Bad]]></title>
+            <description><![CDATA[El novato controlador de apoyo aéreo Kinney está integrado con un equipo de Delta Force en una misión en Filipinas. Cuando el equipo queda atrapado sin armas, las habilidades de Reaper, un piloto de aviones no tripulados de la Fuerza Aérea, se convierten en su única posibilidad de supervivencia.]]></description>
+            <link>https://wizpelis.site/movie/969492/rescate-imposible</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/969492/rescate-imposible</guid>
+            <pubDate>Thu, 25 Jan 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Wonka]]></title>
+            <description><![CDATA[Willy Wonka, repleto de ideas y decidido a cambiar el mundo con un delicioso bocado a la vez, es una prueba de que las mejores cosas de la vida comienzan con un sueño y, si tienes la suerte de conocer a Willy Wonka, todo es posible.]]></description>
+            <link>https://wizpelis.site/movie/787699/wonka</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/787699/wonka</guid>
+            <pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[60 Minuten]]></title>
+            <description><![CDATA[Desesperado por mantener la custodia de su hija, un luchador de artes marciales mixtas abandona un combate y atraviesa Berlín a toda velocidad para llegar al cumpleaños de la niña.]]></description>
+            <link>https://wizpelis.site/movie/1212073/60-minutos</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/1212073/60-minutos</guid>
+            <pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Skal - Fight for Survival]]></title>
@@ -58,25 +65,18 @@
             <pubDate>Fri, 24 Nov 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[The Family Plan]]></title>
+            <description><![CDATA[Dan Morgan es un hombre con muchas identidades: es un esposo devoto, un padre amoroso y un reconocido vendedor de autos. También es un asesino retirado. Cuando su pasado pone en riesgo a su presente, se ve forzado a llevar a su ingenua familia en un viaje como ningún otro.]]></description>
+            <link>https://wizpelis.site/movie/1029575/plan-familiar</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/1029575/plan-familiar</guid>
+            <pubDate>Thu, 14 Dec 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[One More Shot]]></title>
             <description><![CDATA[Tras el atentado contra el centro clandestino de Polonia, el Navy SEAL Jake Harris recibe la orden de escoltar al sospechoso de terrorismo Amin Mansur hasta Washington D.C. para ser interrogado.]]></description>
             <link>https://wizpelis.site/movie/1214314/otra-bala-mas</link>
             <guid isPermaLink="false">https://wizpelis.site/movie/1214314/otra-bala-mas</guid>
             <pubDate>Fri, 12 Jan 2024 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Lift]]></title>
-            <description><![CDATA[Un equipo internacional de atracos, liderado por Cyrus Whitaker, se apresura a levantar 500 millones de dólares en oro desde un avión de pasajeros a 40.000 metros.]]></description>
-            <link>https://wizpelis.site/movie/955916/lift:-un-robo-de-primera-clase</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/955916/lift:-un-robo-de-primera-clase</guid>
-            <pubDate>Wed, 10 Jan 2024 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Migration]]></title>
-            <description><![CDATA[Después de que una familia de patos migratorios aterriza en su estanque con emocionantes historias de lugares remotos, la familia Mallard embarca en un viaje familiar, atravezando la ciudad de Nueva York, con destino a la tropical Jamaica.]]></description>
-            <link>https://wizpelis.site/movie/940551/¡patos!</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/940551/¡patos!</guid>
-            <pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
