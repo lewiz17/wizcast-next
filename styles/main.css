@@ -556,11 +556,11 @@ span.orange1-gradient {
 }
 .channels-wrapper ul li {
     background: #fff;
-    padding: 20px;
     justify-content: center;
     align-items: center;
     display: flex;
     cursor: pointer;
+    height: 150px;
 }
 .channels-wrapper ul li img {
     max-width: 120px;

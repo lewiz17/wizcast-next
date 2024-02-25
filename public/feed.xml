@@ -4,9 +4,9 @@
         <description><![CDATA[Wizpelis, Estrenos en Peliculas y Series]]></description>
         <link>https://wizpelis.site</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 24 Feb 2024 02:22:39 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 25 Feb 2024 01:48:29 GMT</lastBuildDate>
         <atom:link href="https://wizpelis.site/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 24 Feb 2024 02:22:39 GMT</pubDate>
+        <pubDate>Sun, 25 Feb 2024 01:48:29 GMT</pubDate>
         <copyright><![CDATA[2024 Wizpelis 2023]]></copyright>
         <language><![CDATA[es-MX]]></language>
         <item>
@@ -17,11 +17,11 @@
             <pubDate>Thu, 21 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[The Marvels]]></title>
-            <description><![CDATA[Cuando sus deberes llevan a Carol Danvers, alias Capitana Marvel, a un agujero de gusano anómalo vinculado a un revolucionario Kree, sus poderes se enredan con los de Ms. Marvel y con los de Monica Rambeau, la distanciada sobrina de Carol y astronauta de S.A.B.E.R. Juntas, deberán trabajar en sincronía para salvar al universo como "The Marvels".]]></description>
-            <link>https://wizpelis.site/movie/609681/the-marvels</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/609681/the-marvels</guid>
-            <pubDate>Wed, 08 Nov 2023 00:00:00 GMT</pubDate>
+            <title><![CDATA[Land of Bad]]></title>
+            <description><![CDATA[El novato controlador de apoyo aéreo Kinney está integrado con un equipo de Delta Force en una misión en Filipinas. Cuando el equipo queda atrapado sin armas, las habilidades de Reaper, un piloto de aviones no tripulados de la Fuerza Aérea, se convierten en su única posibilidad de supervivencia.]]></description>
+            <link>https://wizpelis.site/movie/969492/rescate-imposible</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/969492/rescate-imposible</guid>
+            <pubDate>Thu, 25 Jan 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Migration]]></title>
@@ -31,17 +31,17 @@
             <pubDate>Wed, 06 Dec 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[The Marvels]]></title>
+            <description><![CDATA[Cuando sus deberes llevan a Carol Danvers, alias Capitana Marvel, a un agujero de gusano anómalo vinculado a un revolucionario Kree, sus poderes se enredan con los de Ms. Marvel y con los de Monica Rambeau, la distanciada sobrina de Carol y astronauta de S.A.B.E.R. Juntas, deberán trabajar en sincronía para salvar al universo como "The Marvels".]]></description>
+            <link>https://wizpelis.site/movie/609681/the-marvels</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/609681/the-marvels</guid>
+            <pubDate>Wed, 08 Nov 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[황야]]></title>
             <description><![CDATA[Cuando Seúl se vuelve un lugar yermo y sin ley tras un terremoto, un cazador entra en acción para rescatar a una adolescente que fue secuestrada por un médico trastornado.]]></description>
             <link>https://wizpelis.site/movie/933131/cazadores-en-tierra-inhospita</link>
             <guid isPermaLink="false">https://wizpelis.site/movie/933131/cazadores-en-tierra-inhospita</guid>
-            <pubDate>Thu, 25 Jan 2024 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Land of Bad]]></title>
-            <description><![CDATA[El novato controlador de apoyo aéreo Kinney está integrado con un equipo de Delta Force en una misión en Filipinas. Cuando el equipo queda atrapado sin armas, las habilidades de Reaper, un piloto de aviones no tripulados de la Fuerza Aérea, se convierten en su única posibilidad de supervivencia.]]></description>
-            <link>https://wizpelis.site/movie/969492/rescate-imposible</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/969492/rescate-imposible</guid>
             <pubDate>Thu, 25 Jan 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
@@ -59,6 +59,12 @@
             <pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[No Way Up]]></title>
+            <link>https://wizpelis.site/movie/1096197/atrapados-en-lo-profundo</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/1096197/atrapados-en-lo-profundo</guid>
+            <pubDate>Thu, 18 Jan 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Skal - Fight for Survival]]></title>
             <link>https://wizpelis.site/movie/1211483/skal---fight-for-survival</link>
             <guid isPermaLink="false">https://wizpelis.site/movie/1211483/skal---fight-for-survival</guid>
@@ -70,13 +76,6 @@
             <link>https://wizpelis.site/movie/1029575/plan-familiar</link>
             <guid isPermaLink="false">https://wizpelis.site/movie/1029575/plan-familiar</guid>
             <pubDate>Thu, 14 Dec 2023 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[One More Shot]]></title>
-            <description><![CDATA[Tras el atentado contra el centro clandestino de Polonia, el Navy SEAL Jake Harris recibe la orden de escoltar al sospechoso de terrorismo Amin Mansur hasta Washington D.C. para ser interrogado.]]></description>
-            <link>https://wizpelis.site/movie/1214314/otra-bala-mas</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/1214314/otra-bala-mas</guid>
-            <pubDate>Fri, 12 Jan 2024 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>

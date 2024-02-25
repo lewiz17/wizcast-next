@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { formatDate } from "../utils/helpers";
 import channelsData from "../data/channels.json";
 
@@ -6,6 +6,8 @@ const ChannelList = () => {
   const [currentExp, setExpiration] = useState(null);
   const [channelList, setChannelList] = useState([]);
   const [currentChannel, setChannel] = useState("");
+
+  const player = useRef(null);
 
   console.log(currentExp);
 
@@ -16,10 +18,19 @@ const ChannelList = () => {
 
   useEffect(() => {
     setChannelList(channelsData);
+    setChannel("");
   }, []);
 
   const handleChannel = (e) => {
-    setChannel(e.target.closest("li").getAttribute("data-id"));
+    const currentID = e.target.closest("li").getAttribute("data-id");
+    if (currentID === "winsport") {
+      const iframe = player.current;
+      if (iframe) {
+        iframe.src = "//www.capofut.net/play/winsportsplus.php";
+      }
+    } else {
+      setChannel(currentID);
+    }
   };
 
   return (
@@ -30,6 +41,7 @@ const ChannelList = () => {
           width={"100%"}
           style={{ border: "1px solid #fff", overflow: "hidden" }}
           height={600}
+          ref={player}
         ></iframe>
       )}
       <div className="channels-wrapper">
