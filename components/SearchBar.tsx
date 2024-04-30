@@ -30,7 +30,7 @@ export default function SearchBar({ onSearch }) {
           type="search"
           id="default-search"
           className="block w-full p-4 pl-10 text-sm text-black border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder={"Que quieres ver hoy?"}
+          placeholder={"Que pelicula / serie buscas?"}
           value={query}
           onChange={handleChange}
         />
