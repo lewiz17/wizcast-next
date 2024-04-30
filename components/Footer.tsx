@@ -17,8 +17,8 @@ const Footer: React.FC = () => {
     <footer className="bottom-0 w-full bg-global">
       <div className="container mx-auto py-8 px-4 flex flex-wrap justify-between items-center text-white">
         <span>
-          WIZPELIS © {currentDate} - Ningún vídeo está alojado en nuestros
-          servidores.
+          WIZPELIS © {currentDate} - Esta web no aloja videos o contenido de
+          Peliculas y Series.
         </span>
 
         <div className="bottom-menu md:flex xs:hidden sm:hidden">

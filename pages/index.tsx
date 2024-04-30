@@ -107,8 +107,8 @@ export default function ListItems({ movies }: Props) {
 
         <Container>
           <h4 className="mt-[4rem] flex gap-[10px] justify-center items-center">
-            Ahora wizpelis tiene MAS peliculas MAS series y MAS servidores
-            disponibles completamente gratis!
+            Toda la info de las mejores Peliculas y Series, en las diferentes
+            plataformas de streaming.
           </h4>
 
           {movies.top.length > 0 ? (
