@@ -5,7 +5,6 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 import { CMS_NAME } from "../lib/constants";
 
-import ChannelList from "../components/ChannelList";
 import { isValidPin } from "../utils/helpers";
 
 const ChannelPage: React.FC = () => {
@@ -49,7 +48,7 @@ const ChannelPage: React.FC = () => {
       <Container>
         <div className="container mx-auto w-full p-5 my-10 rounded overflow-hidden shadow ">
           {authenticated ? (
-            <ChannelList />
+            <p>Deshabilitado</p>
           ) : (
             <>
               <div className="welcome-chwrapper">

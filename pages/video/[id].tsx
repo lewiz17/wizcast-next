@@ -115,6 +115,8 @@ function Video({
             width="100%"
             height="100%"
             title="Pelicula"
+            sandbox-scrolling="no"
+            sandbox="allow-scripts"
           ></iframe>
         </div>
       )}

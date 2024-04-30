@@ -43,11 +43,6 @@ const Navbar: React.FC<NavProps> = ({ position, hideItems }: NavProps) => {
           </a>
         </Link>
       )}
-      <Link href={"/channels"} legacyBehavior>
-        <a className="text-lg leading-tight hover:opacity-[0.8] text-white">
-          Canales
-        </a>
-      </Link>
       {!hideItems && (
         <div className="select-item group relative cursor-pointer">
           {position === "header" ? (

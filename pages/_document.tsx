@@ -1,5 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
+import { useEffect } from "react";
 
 const GA_TRACKING_ID = "G-GV9HP0EZL0";
 
