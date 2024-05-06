@@ -4,9 +4,9 @@
         <description><![CDATA[Wizpelis, Estrenos en Peliculas y Series]]></description>
         <link>https://wizpelis.site</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 30 Apr 2024 02:09:58 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 30 Apr 2024 15:17:41 GMT</lastBuildDate>
         <atom:link href="https://wizpelis.site/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 30 Apr 2024 02:09:58 GMT</pubDate>
+        <pubDate>Tue, 30 Apr 2024 15:17:41 GMT</pubDate>
         <copyright><![CDATA[2024 Wizpelis 2023]]></copyright>
         <language><![CDATA[es-MX]]></language>
         <item>
@@ -59,24 +59,24 @@
             <pubDate>Fri, 13 May 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Les trois mousquetaires : Milady]]></title>
-            <description><![CDATA[Constance Bonacieux es secuestrada enfrente de D'Artagnan. El joven espadachín une fuerzas con los expertos soldados Athos, Portos y Aramis para, en compañía de la enigmática Milady de Winter, salvar a Constance.]]></description>
-            <link>https://wizpelis.site/movie/845111/los-tres-mosqueteros-2:-milady</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/845111/los-tres-mosqueteros-2:-milady</guid>
-            <pubDate>Wed, 13 Dec 2023 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Arthur the King]]></title>
-            <description><![CDATA[Descubre la fascinante historia de Mikael Lindnord (Mark Wahlberg) un deportista de resistencia sueco que se ganó los corazones de millones de personas cuando él y su equipo adoptaron a Arthur, un perro callejero mal herido de gran corazón que les acompañó durante una épica carrera de resistencia en la selva ecuatoriana.]]></description>
-            <link>https://wizpelis.site/movie/618588/arthur</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/618588/arthur</guid>
-            <pubDate>Fri, 15 Mar 2024 00:00:00 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[Damaged]]></title>
             <link>https://wizpelis.site/movie/1105407/damaged</link>
             <guid isPermaLink="false">https://wizpelis.site/movie/1105407/damaged</guid>
             <pubDate>Fri, 12 Apr 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[फाइटर]]></title>
+            <description><![CDATA[Los mejores aviadores de la IAF se reúnen ante un peligro inminente para formar Air Dragons. Aquí se despliegan la camaradería, la hermandad y las batallas, internas y externas.]]></description>
+            <link>https://wizpelis.site/movie/784651/dragones-del-aire</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/784651/dragones-del-aire</guid>
+            <pubDate>Wed, 24 Jan 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[외계+인 1부]]></title>
+            <description><![CDATA[La puerta del tiempo se abre entre los espadachines que quieren apoderarse de la legendaria espada divina al final de la Dinastía Goryeo y los que persiguen a un alienígena prisionero encarcelado en un cuerpo humano en 2022.]]></description>
+            <link>https://wizpelis.site/movie/601796/alienoid-parte-1</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/601796/alienoid-parte-1</guid>
+            <pubDate>Wed, 20 Jul 2022 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>

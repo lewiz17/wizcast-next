@@ -104,7 +104,7 @@ function Movie({ movie, related }: MovieProps): JSX.Element {
   }, [movie?.id]);
 
   const tabs = [
-    /* {
+    {
       label: "Servidores 🇲🇽",
       content: isLoading ? (
         <SkeletonCard />
@@ -113,7 +113,7 @@ function Movie({ movie, related }: MovieProps): JSX.Element {
           <VideoBox video={movie.id} />
         </>
       ),
-    },*/
+    },
     {
       label: "Trailer",
       content:

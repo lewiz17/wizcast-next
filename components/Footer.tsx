@@ -14,27 +14,29 @@ const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer className="bottom-0 w-full bg-global">
-      <div className="container mx-auto py-8 px-4 flex flex-wrap justify-between items-center text-white">
-        <span>
-          WIZPELIS © {currentDate} - Esta web no aloja videos o contenido de
-          Peliculas y Series.
-        </span>
+    <>
+      <footer className="bottom-0 w-full bg-global">
+        <div className="container mx-auto py-8 px-4 flex flex-wrap justify-between items-center text-white">
+          <span>
+            WIZPELIS © {currentDate} - Esta web no aloja videos o contenido de
+            Peliculas y Series.
+          </span>
 
-        <div className="bottom-menu md:flex xs:hidden sm:hidden">
-          <Navbar position="" hideItems={true} />
-          <a
-            className="open-modal ml-2 cursor-pointer w-[24px] hover:opacity-[0.8]"
-            onClick={() => openModal()}
-          >
-            <img
-              src="/ouch.png"
-              title="Reportar enlace caido o notificar error"
-            />
-          </a>
+          <div className="bottom-menu md:flex xs:hidden sm:hidden">
+            <Navbar position="" hideItems={true} />
+            <a
+              className="open-modal ml-2 cursor-pointer w-[24px] hover:opacity-[0.8]"
+              onClick={() => openModal()}
+            >
+              <img
+                src="/ouch.png"
+                title="Reportar enlace caido o notificar error"
+              />
+            </a>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 
