@@ -117,7 +117,6 @@ export default function ListItems({ movies }: Props) {
             <SkeletonCard />
           )}
           <Paginator />
-
           <Tabber tabs={tabsPlatform} page={"index"} />
         </Container>
       </Layout>

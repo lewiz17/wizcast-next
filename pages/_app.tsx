@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import NProgress from "nprogress";
 import { ModalProvider } from "../components/ModalContext";
 import Modal from "../components/Modal";
+import Script from "next/script";
 
 export default function MyApp({ Component, pageProps, router }: AppProps) {
   useEffect(() => {
@@ -27,6 +28,15 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <ModalProvider>
+        <Script
+          strategy="lazyOnload"
+          id="script-component-ad"
+          src="https://jsc.adskeeper.co.uk/site/957038.js"
+          async
+        />
+        <Script id="define-slot" strategy="lazyOnload">{`
+          (function(w,q){w[q]=w[q]||[];w[q].push(["_mgc.load"])})(window,"_mgq"); 
+      `}</Script>
         <Component {...pageProps} />
         <Modal />
       </ModalProvider>

@@ -4,25 +4,11 @@
         <description><![CDATA[Wizpelis, Estrenos en Peliculas y Series]]></description>
         <link>https://wizpelis.site</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 30 Apr 2024 15:17:41 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 07 May 2024 05:15:01 GMT</lastBuildDate>
         <atom:link href="https://wizpelis.site/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 30 Apr 2024 15:17:41 GMT</pubDate>
+        <pubDate>Tue, 07 May 2024 05:15:01 GMT</pubDate>
         <copyright><![CDATA[2024 Wizpelis 2023]]></copyright>
         <language><![CDATA[es-MX]]></language>
-        <item>
-            <title><![CDATA[No Way Up]]></title>
-            <description><![CDATA[Un grupo de vacacionistas se ve unido por el destino cuando el avión en el que viajan se desploma en el mar a causa de la explosión de una turbina al impactar en el aire contra una parvada. La tragedia se torna aún más aterradora cuando, el avion queda suspendido en un peligroso risco submarino. Con el oxígeno disminuyendo rápidamente, los sobrevivientes se ven atrapados en una carrera contrarreloj por la vida, enfrentándose a peligros mortales mientras luchan por mantenerse a flote dentro de una reducida burbuja de aire. La amenaza más aterradora aún está por llegar: hambrientos tiburones rodean el avión, convirtiendo la lucha por sobrevivir en una pesadilla en lo profundo del mar. Cada decisión que tomen determinará quién vive y quién muere.]]></description>
-            <link>https://wizpelis.site/movie/1096197/atrapados-en-lo-profundo</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/1096197/atrapados-en-lo-profundo</guid>
-            <pubDate>Thu, 18 Jan 2024 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Rebel Moon — Part Two: The Scargiver]]></title>
-            <description><![CDATA[Mientras los rebeldes se preparan para combatir las despiadadas fuerzas del Mundo Madre, se forjan lazos inquebrantables, emergen héroes... y nacen leyendas.]]></description>
-            <link>https://wizpelis.site/movie/934632/rebel-moon-(parte-dos):-la-guerrera-que-deja-marcas</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/934632/rebel-moon-(parte-dos):-la-guerrera-que-deja-marcas</guid>
-            <pubDate>Fri, 19 Apr 2024 00:00:00 GMT</pubDate>
-        </item>
         <item>
             <title><![CDATA[Godzilla x Kong: The New Empire]]></title>
             <description><![CDATA[Una aventura cinematográfica completamente nueva, que enfrentará al todopoderoso Kong y al temible Godzilla contra una colosal amenaza desconocida escondida dentro de nuestro mundo. La nueva y épica película profundizará en las historias de estos titanes, sus orígenes y los misterios de Isla Calavera y más allá, mientras descubre la batalla mítica que ayudó a forjar a estos seres extraordinarios y los unió a la humanidad para siempre.]]></description>
@@ -31,11 +17,18 @@
             <pubDate>Wed, 27 Mar 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Kung Fu Panda 4]]></title>
-            <description><![CDATA[Po se está preparando para convertirse en el líder espiritual de su Valle de la Paz, pero también necesita a alguien que ocupe su lugar como Guerrero Dragón. Como tal, entrenará a un nuevo practicante de kung fu para el lugar y se encontrará con un villano llamado Camaleón que evoca villanos del pasado.]]></description>
-            <link>https://wizpelis.site/movie/1011985/kung-fu-panda-4</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/1011985/kung-fu-panda-4</guid>
-            <pubDate>Sat, 02 Mar 2024 00:00:00 GMT</pubDate>
+            <title><![CDATA[Ape vs. Mecha Ape]]></title>
+            <description><![CDATA[Tras reconocer el poder del simio que tienen cautivo, el ejército diseña un robot, Mecha Ape. Cuando su primera prueba sale terriblemente mal, los militares deben liberar al simio encarcelado para detener la colosal máquina de guerra.]]></description>
+            <link>https://wizpelis.site/movie/1094844/la-batalla-de-los-super-simios</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/1094844/la-batalla-de-los-super-simios</guid>
+            <pubDate>Fri, 24 Mar 2023 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[ゴジラ-1.0]]></title>
+            <description><![CDATA[En el Japón de la posguerra surge un nuevo terror. ¿Podrán sobrevivir las personas devastadas... y mucho menos defenderse?]]></description>
+            <link>https://wizpelis.site/movie/940721/godzilla:-minus-one</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/940721/godzilla:-minus-one</guid>
+            <pubDate>Fri, 03 Nov 2023 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Dune: Part Two]]></title>
@@ -45,6 +38,27 @@
             <pubDate>Tue, 27 Feb 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
+            <title><![CDATA[No Way Up]]></title>
+            <description><![CDATA[Un grupo de vacacionistas se ve unido por el destino cuando el avión en el que viajan se desploma en el mar a causa de la explosión de una turbina al impactar en el aire contra una parvada. La tragedia se torna aún más aterradora cuando, el avion queda suspendido en un peligroso risco submarino. Con el oxígeno disminuyendo rápidamente, los sobrevivientes se ven atrapados en una carrera contrarreloj por la vida, enfrentándose a peligros mortales mientras luchan por mantenerse a flote dentro de una reducida burbuja de aire. La amenaza más aterradora aún está por llegar: hambrientos tiburones rodean el avión, convirtiendo la lucha por sobrevivir en una pesadilla en lo profundo del mar. Cada decisión que tomen determinará quién vive y quién muere.]]></description>
+            <link>https://wizpelis.site/movie/1096197/atrapados-en-lo-profundo</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/1096197/atrapados-en-lo-profundo</guid>
+            <pubDate>Thu, 18 Jan 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Kung Fu Panda 4]]></title>
+            <description><![CDATA[Po se está preparando para convertirse en el líder espiritual de su Valle de la Paz, pero también necesita a alguien que ocupe su lugar como Guerrero Dragón. Como tal, entrenará a un nuevo practicante de kung fu para el lugar y se encontrará con un villano llamado Camaleón que evoca villanos del pasado.]]></description>
+            <link>https://wizpelis.site/movie/1011985/kung-fu-panda-4</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/1011985/kung-fu-panda-4</guid>
+            <pubDate>Sat, 02 Mar 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Rebel Moon - Part Two: The Scargiver]]></title>
+            <description><![CDATA[Mientras los rebeldes se preparan para combatir las despiadadas fuerzas del Mundo Madre, se forjan lazos inquebrantables, emergen héroes... y nacen leyendas.]]></description>
+            <link>https://wizpelis.site/movie/934632/rebel-moon-(parte-dos):-la-guerrera-que-deja-marcas</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/934632/rebel-moon-(parte-dos):-la-guerrera-que-deja-marcas</guid>
+            <pubDate>Fri, 19 Apr 2024 00:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[Immaculate]]></title>
             <description><![CDATA[A Cecilia, una mujer de fe devota, se le ofrece un nuevo y satisfactorio puesto en un ilustre convento italiano. Su cálida bienvenida a la pintoresca campiña italiana pronto se ve interrumpida cuando Cecilia descubre que su nuevo hogar esconde algunos secretos oscuros y horripilantes.]]></description>
             <link>https://wizpelis.site/movie/1041613/inmaculada</link>
@@ -52,31 +66,18 @@
             <pubDate>Wed, 20 Mar 2024 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Spitfire Over Berlin]]></title>
-            <description><![CDATA[Agosto de 1944. Con la 8ª Fuerza Aérea Americana preparada para atacar sobre la Alemania Nazi, la Inteligencia Británica se entera de que podrían estar volando hacia una trampa mortal. Con solo horas de sobra, el teniente de vuelo Edward Barnes debe volar en una misión de vida o muerte sobre Berlín en su desarmado Spitfire para obtener pruebas fotográficas y salvar la vida de 1200 hombres.]]></description>
-            <link>https://wizpelis.site/movie/976906/spitfire-over-berlin</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/976906/spitfire-over-berlin</guid>
-            <pubDate>Fri, 13 May 2022 00:00:00 GMT</pubDate>
+            <title><![CDATA[578: Phát Đạn Của Kẻ Điên]]></title>
+            <description><![CDATA[Hung es un conductor de camión portacontenedores. Tiene una hija pequeña, An, que se convierte en víctima de abusos por parte de un grupo de extraños. El padre se dispone entonces a cazar a los criminales, enfrentándose así al inframundo. En el viaje para encontrar justicia es ayudado por la misteriosa chica Bao Vy.]]></description>
+            <link>https://wizpelis.site/movie/821937/578-magnum</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/821937/578-magnum</guid>
+            <pubDate>Fri, 20 May 2022 00:00:00 GMT</pubDate>
         </item>
         <item>
-            <title><![CDATA[Damaged]]></title>
-            <link>https://wizpelis.site/movie/1105407/damaged</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/1105407/damaged</guid>
-            <pubDate>Fri, 12 Apr 2024 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[फाइटर]]></title>
-            <description><![CDATA[Los mejores aviadores de la IAF se reúnen ante un peligro inminente para formar Air Dragons. Aquí se despliegan la camaradería, la hermandad y las batallas, internas y externas.]]></description>
-            <link>https://wizpelis.site/movie/784651/dragones-del-aire</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/784651/dragones-del-aire</guid>
-            <pubDate>Wed, 24 Jan 2024 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[외계+인 1부]]></title>
-            <description><![CDATA[La puerta del tiempo se abre entre los espadachines que quieren apoderarse de la legendaria espada divina al final de la Dinastía Goryeo y los que persiguen a un alienígena prisionero encarcelado en un cuerpo humano en 2022.]]></description>
-            <link>https://wizpelis.site/movie/601796/alienoid-parte-1</link>
-            <guid isPermaLink="false">https://wizpelis.site/movie/601796/alienoid-parte-1</guid>
-            <pubDate>Wed, 20 Jul 2022 00:00:00 GMT</pubDate>
+            <title><![CDATA[Les trois mousquetaires : Milady]]></title>
+            <description><![CDATA[Constance Bonacieux es secuestrada enfrente de D'Artagnan. El joven espadachín une fuerzas con los expertos soldados Athos, Portos y Aramis para, en compañía de la enigmática Milady de Winter, salvar a Constance.]]></description>
+            <link>https://wizpelis.site/movie/845111/los-tres-mosqueteros-2:-milady</link>
+            <guid isPermaLink="false">https://wizpelis.site/movie/845111/los-tres-mosqueteros-2:-milady</guid>
+            <pubDate>Wed, 13 Dec 2023 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>

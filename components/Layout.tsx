@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { searchGeneral } from "../pages/api/search.json";
 import { SkeletonCard } from "./SkeletonCard";
+import { AdBanner } from "./AdBanner";
 
 const Result = dynamic(() => import("./Result"), {
   loading: () => <SkeletonCard />,
@@ -107,6 +108,7 @@ const Layout = ({ children }: Props) => {
           </p>
         </div>
       </main>
+      <AdBanner />
       <Footer />
     </div>
   );
