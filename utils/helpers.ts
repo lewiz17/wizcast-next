@@ -1,4 +1,3 @@
-import pinsData from "../data/pins.json";
 
 export const removeAccents = (str) => {
     const accents = "ÀÁÂÃÄÅàáâãäåÇçÐðÈÉÊËèéêëÌÍÎÏìíîïÑñÒÓÔÕÖØòóôõöøÙÚÛÜùúûüÝý";

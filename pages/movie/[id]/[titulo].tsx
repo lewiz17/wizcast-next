@@ -65,6 +65,7 @@ type Relates = {
 
 type MovieProps = {
   movie: MOVIE;
+  imdb_id: string;
   related: Relates;
 };
 
@@ -81,16 +82,18 @@ export const getServerSideProps: GetServerSideProps<MovieProps> = async (
 
   const movie = movieData;
   const related = movieData;
+  const imdb_id = movieData.imdbID;
 
   return {
     props: {
       movie,
       related,
+      imdb_id
     },
   };
 };
 
-function Movie({ movie, related }: MovieProps): JSX.Element {
+function Movie({ movie, related, imdb_id }: MovieProps): JSX.Element {
   const [movieDescription, setMovieDescription] = useState("");
   const [fullUrl, setFullUrl] = useState("");
   const [isLoading, setLoading] = useState(true);
@@ -110,7 +113,7 @@ function Movie({ movie, related }: MovieProps): JSX.Element {
         <SkeletonCard />
       ) : (
         <>
-          <VideoBox video={movie.id} />
+          <iframe src={`https://embed69.org/f/${imdb_id}`} style={{ width: "100%", height: "350px"}}/>
         </>
       ),
     },
