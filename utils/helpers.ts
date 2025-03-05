@@ -69,18 +69,4 @@ export const formatNames = (string) => {
         .normalize().toLocaleLowerCase();
 }
 
-export const isValidPin = (pin) => {
-  const pinInfo = pinsData.find(item => item.pin === pin);
 
-  if (!pinInfo) {
-    return { isValid: false, expirationDate: null }; // El pin no existe en la lista
-  }
-
-  const expirationDate = new Date(pinInfo.expiration);
-  const currentDate = new Date();
-
-  return {
-    isValid: currentDate < expirationDate, // El pin no ha expirado
-    expirationDate: expirationDate,
-  };
-};
