@@ -18,6 +18,7 @@ import { getData } from "../../api/movie.json";
 import { StarIcon } from "../../../components/Icons";
 import PlayBox from "../../../components/PlayBox";
 import { SkeletonCard } from "../../../components/SkeletonCard";
+import VideoLanguageButtons from "../../../components/DownloadServers";
 
 const VideoBox = dynamic(() => import("../../../components/StreamBox"), {
   loading: () => <SkeletonCard />,
@@ -97,6 +98,7 @@ function Movie({ movie, related, imdb_id }: MovieProps): JSX.Element {
   const [movieDescription, setMovieDescription] = useState("");
   const [fullUrl, setFullUrl] = useState("");
   const [isLoading, setLoading] = useState(true);
+  const [videoData, setVideoData] = useState([]);
 
   useEffect(() => {
     const currentUrl = window.location.href;
@@ -104,6 +106,25 @@ function Movie({ movie, related, imdb_id }: MovieProps): JSX.Element {
     setMovieDescription(movie?.overview);
     setFullUrl(currentUrl);
     setLoading(false);
+
+    const fetchVideoData = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`/api/stream/${imdb_id}`); // Ajusta la ruta de tu API
+        const data = await response.json();
+        
+        if (data) {
+          setVideoData(data); // Guarda los datos en el estado
+        }
+      } catch (error) {
+        console.error("Error fetching video data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVideoData();
+
   }, [movie?.id]);
 
   const tabs = [
@@ -203,6 +224,7 @@ function Movie({ movie, related, imdb_id }: MovieProps): JSX.Element {
           <div className="item-view md:w-full p-5 mt-10 rounded-lg overflow-hidden shadow md:order-1 lg:order-2">
             <h2 className="text-2xl font-bold dark:text-white">Videos</h2>
             <Tabber tabs={tabs} />
+            <VideoLanguageButtons data={videoData} />
           </div>
         </div>
         <div className="hmax-[300px]">
