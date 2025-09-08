@@ -9,7 +9,7 @@ const VideoBox: React.FC<VIDEO> = ({ video }) => {
     () => (
       <iframe
         className="py-2"
-        src={`/video/${video}`}
+        src={`https://vidfast.pro/movie/${video}?server=Pablo&autoPlay=true&theme=FF0000&hideServer=true`}
         allow="fullscreen"
         width={"100%"}
         height={"340"}

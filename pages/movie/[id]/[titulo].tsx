@@ -133,9 +133,7 @@ function Movie({ movie, related, imdb_id }: MovieProps): JSX.Element {
       content: isLoading ? (
         <SkeletonCard />
       ) : (
-        <>
-          <iframe src={`https://embed69.org/f/${imdb_id}`} style={{ width: "100%", height: "350px"}}/>
-        </>
+        <VideoBox video={movie.id} />
       ),
     },
     {
