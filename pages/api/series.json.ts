@@ -141,33 +141,8 @@ export async function getSourcesEpisode(id, season, episode) {
 
   let numEpisode = `${season}x${formatEpisode}`;
 
-  const dataServers: AxiosResponse = await axios.get(`https://api-m1.vercel.app/api/${imdbID}-${numEpisode}`);
-
-  let tempName = nameSerie.split(" ").length > 1 ? nameSerie.split(" ")[1] : nameSerie;
-  let tempName2 = nameSerie.split(" ").length > 1 ? nameSerie.split(" ")[0]+nameSerie.split(" ")[1] : tempName;
-  let tempName3 = nameSerie.split(" ").length >= 2 ? nameSerie.split(" ")[0]+nameSerie.split(" ")[1].slice(0,1)+nameSerie.split(" ")[2] : tempName2;
-  let tempName4 = nameSerie.split(" ").length > 2 ? nameSerie.split(" ")[0].slice(0,1)+nameSerie.split(" ")[1].slice(0,1)+nameSerie.split(" ")[2].slice(0,1) : tempName3;
-  let tempName5 = imdbID == "tt0944947" ? 'got' : tempName4;
-  let tempName6 = imdbID == "tt4644488" ? 'dballsuper' : tempName4;
-  let tempName7 = imdbID == "tt0388629" ? `${imdbID}-1x${episode}` : tempName4; //one piece
-
-
-  const dataServersFallback: AxiosResponse = dataServers.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName}-${numEpisode}`) : dataServers;
-
-  const dataServersFallback2: AxiosResponse = dataServersFallback.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName2}-${numEpisode}`) : dataServersFallback;
-
-  const dataServersFallback3: AxiosResponse = dataServersFallback2.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName3}-${numEpisode}`) : dataServersFallback2;
-
-  const dataServersFallback4: AxiosResponse = dataServersFallback3.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName4}-${numEpisode}`) : dataServersFallback3;
-
-  const dataServersFallback5: AxiosResponse = dataServersFallback4.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName5}-${numEpisode}`) : dataServersFallback4;
-
-  const dataServersFallback6: AxiosResponse = dataServersFallback5.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName6}-${numEpisode}`) : dataServersFallback5;
-
-  const dataServersFallback7: AxiosResponse = dataServersFallback6.data.length == 0 ? await axios.get(`https://api-m1.vercel.app/api/${tempName7}`) : dataServersFallback6;
-
   
-  const servers: object[] = dataServersFallback7.data;
+  const servers: object[] = [];
 
   const links: object = servers.length > 0 ? servers : [];
 

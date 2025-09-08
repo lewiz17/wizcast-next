@@ -11,7 +11,7 @@ const SeriePlayer: React.FC<SerieData> = ({ id, season, episode }) => {
     () => (
       <iframe
         className="py-2"
-        src={`/play/${id}/season/${season}/episode/${episode}`}
+        src={`https://vidfast.pro/tv/${id}/${season}/${episode}?server=Pablo&autoPlay=true&theme=FF0000&hideServer=true&autoNext=true`}
         allow="fullscreen"
         width={"100%"}
         height={"340"}
