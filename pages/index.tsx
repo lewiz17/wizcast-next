@@ -98,6 +98,44 @@ export default function ListItems({ movies }: Props) {
     },
   ];
 
+
+  const [authorized, setAuthorized] = useState(false);
+  const [inputPin, setInputPin] = useState('');
+
+  const checkAccess = async () => {
+    const res = await fetch('/api/auth', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin: inputPin })
+    });
+    
+    if (res.ok) {
+      setAuthorized(true);
+      sessionStorage.setItem('is_locked', 'false');
+    } else {
+      alert("PIN Erróneo");
+    }
+  };
+
+  // Revisa si ya puso el pin antes en esta sesión
+  useEffect(() => {
+    if (sessionStorage.getItem('is_locked') === 'false') setAuthorized(true);
+  }, []);
+
+  if (!authorized) {
+    return (
+      <div className="login-container">
+        <h1>🔐 Acceso Privado</h1>
+        <input 
+          type="password" 
+          onChange={(e) => setInputPin(e.target.value)} 
+          placeholder="PIN"
+        />
+        <button onClick={checkAccess}>Entrar</button>
+      </div>
+    );
+  }
+
   return (
     <>
       <Layout>
