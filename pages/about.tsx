@@ -38,18 +38,7 @@ const About: React.FC = () => {
             visitar nuestro sitio de películas! Esperamos que encuentres todo lo
             que buscas y que disfrutes navegando por nuestro sitio.
           </p>
-          <p className="mt-10">
-            <span>
-              Deseas contratar nuestros servicios web?
-              <Link
-                title="Servicios web"
-                href={"mailto:mp3edw@gmail.com"}
-                className="ml-2 text-black font-bold bg-white rounded-full py-2 px-4 hover:opacity-[0.8]"
-              >
-                Contactanos Aquí
-              </Link>
-            </span>
-          </p>
+
         </div>
       </Container>
     </Layout>
