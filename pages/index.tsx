@@ -101,19 +101,27 @@ export default function ListItems({ movies }: Props) {
 
   const [authorized, setAuthorized] = useState(false);
   const [inputPin, setInputPin] = useState('');
+  const [error, setError] = useState('');
 
   const checkAccess = async () => {
-    const res = await fetch('/api/auth', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ pin: inputPin })
-    });
+    setError(''); // Limpia el error al intentar de nuevo
     
-    if (res.ok) {
-      setAuthorized(true);
-      sessionStorage.setItem('is_locked', 'false');
-    } else {
-      alert("PIN Erróneo");
+    try {
+      const res = await fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pin: inputPin })
+      });
+      
+      if (res.ok) {
+        setAuthorized(true);
+        sessionStorage.setItem('is_locked', 'false');
+      } else {
+        // Si el status es 401 o 400, mostramos el error
+        setError("PIN incorrecto. Inténtalo de nuevo.");
+      }
+    } catch (err) {
+      setError("Error de conexión con el servidor.");
     }
   };
 
@@ -124,14 +132,46 @@ export default function ListItems({ movies }: Props) {
 
   if (!authorized) {
     return (
-      <div className="login-container">
-        <h1>🔐 Acceso Privado</h1>
-        <input 
-          type="password" 
-          onChange={(e) => setInputPin(e.target.value)} 
-          placeholder="PIN"
-        />
-        <button onClick={checkAccess}>Entrar</button>
+      <div className="min-h-screen bg-black flex items-center justify-center p-4 font-sans">
+        {/* Círculos de fondo decorativos para el efecto glass */}
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+  
+        <div className="relative w-full max-w-sm p-8 bg-zinc-900/50 backdrop-blur-xl border border-zinc-800 rounded-3xl shadow-2xl">
+          <div className="flex flex-col items-center mb-8">
+            <div className="p-4 bg-zinc-800 rounded-2xl mb-4 shadow-inner">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+            </div>
+            <h2 className="text-2xl font-bold text-white tracking-tight">Acceso Privado</h2>
+            <p className="text-zinc-400 text-sm mt-2 text-center">Introduce el PIN para desbloquear el catálogo familiar.</p>
+          </div>
+  
+          <div className="space-y-4">
+            <input 
+              type="password" 
+              maxLength={6}
+              onChange={(e) => setInputPin(e.target.value)} 
+              placeholder="••••••"
+              className="w-full bg-zinc-800/50 border border-zinc-700 text-white text-center text-2xl tracking-[1em] rounded-xl py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all placeholder:text-zinc-600"
+            />
+            
+            <button 
+              onClick={checkAccess}
+              className="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-4 rounded-xl shadow-lg shadow-blue-600/20 active:scale-95 transition-all duration-200"
+            >
+              Desbloquear
+            </button>
+  
+            {error && (
+              <div className="animate-shake mt-4 py-2 px-4 bg-red-500/10 border border-red-500/20 rounded-lg">
+                <p className="text-red-400 text-xs text-center font-medium">{error}</p>
+              </div>
+            )}
+          </div>
+        
+        </div>
       </div>
     );
   }
